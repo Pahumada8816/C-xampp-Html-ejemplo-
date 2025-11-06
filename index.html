@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Catálogo | Rodrigo App</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Fuentes cálidas -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header>
+    <h1>Bienvenido a nuestro catálogo</h1>
+    <p>Descubre nuestros productos y contáctanos por WhatsApp</p>
+  </header>
+
+  <!-- Menú principal con submenús -->
+  <nav class="menu">
+    <button class="tablink active" onclick="abrirSeccion(event,'productos')">Productos</button>
+
+    <div class="submenu-container">
+      <button class="tablink" onclick="abrirSeccion(event,'ofertas')">Ofertas ▼</button>
+      <div class="submenu">
+        <a href="#" onclick="filtrar('dulces')">Dulces</a>
+        <a href="#" onclick="filtrar('pasteles')">Pasteles</a>
+        <a href="#" onclick="filtrar('postres')">Postres</a>
+        <a href="#" onclick="filtrar('nuevos')">Productos nuevos</a>
+      </div>
+    </div>
+
+    <button class="tablink" onclick="abrirSeccion(event,'quienes')">Quiénes Somos</button>
+
+    <div class="submenu-container">
+      <button class="tablink" onclick="abrirSeccion(event,'temporada')">Catálogo de Temporada ▼</button>
+      <div class="submenu">
+        <a href="#" onclick="filtrarTemporada('Navidad')">Navidad</a>
+        <a href="#" onclick="filtrarTemporada('Año Nuevo')">Año Nuevo</a>
+        <a href="#" onclick="filtrarTemporada('Pascua')">Pascua</a>
+        <a href="#" onclick="filtrarTemporada('Día de la Madre')">Día de la Madre</a>
+        <a href="#" onclick="filtrarTemporada('Día del Padre')">Día del Padre</a>
+        <a href="#" onclick="filtrarTemporada('Día del Niño')">Día del Niño</a>
+        <a href="#" onclick="filtrarTemporada('Otros')">Otros</a>
+      </div>
+    </div>
+
+    <button class="tablink" onclick="abrirSeccion(event,'ubicacion')">Dónde Estamos</button>
+
+    <button class="tablink" onclick="abrirSeccion(event,'valoraciones')">Valoraciones</button>
+  </nav>
+
+  <!-- SECCIONES -->
+  <main>
+    <!-- Productos -->
+    <section id="productos" class="tabcontent active">
+      <div class="catalogo" id="catalogoProductos">
+        <article class="producto" data-categoria="dulces" data-temporada="">
+          <img src="../rodrigo_app/imagenes/01(1).jpg" alt="Barra Energética Natural">
+          <h3>Barra Energética Natural</h3>
+          <p>Base de avena, miel y frutos secos. 180 kcal</p>
+          <div class="meta"><span class="precio-num">1200</span> <span class="precio-texto">$1.200</span></div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Barra Energética Natural" data-precio="1200">Añadir al carrito</button>
+          </div>
+        </article>
+
+        <article class="producto" data-categoria="dulces" data-temporada="">
+          <img src="../rodrigo_app/imagenes/01(2).jpg" alt="ChocoCoco Fit">
+          <h3>ChocoCoco Fit</h3>
+          <p>Chocolate, almendra y coco. 220 kcal</p>
+          <div class="meta"><span class="precio-num">1500</span> <span class="precio-texto">$1.500</span></div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="ChocoCoco Fit" data-precio="1500">Añadir al carrito</button>
+          </div>
+        </article>
+
+        <article class="producto" data-categoria="pasteles" data-temporada="">
+          <img src="../rodrigo_app/imagenes/01(3).jpg" alt="Protein Bar">
+          <h3>Protein Bar</h3>
+          <p>Proteína, avena y miel. 200 kcal</p>
+          <div class="meta"><span class="precio-num">1300</span> <span class="precio-texto">$1.300</span></div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Protein Bar" data-precio="1300">Añadir al carrito</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Ofertas -->
+    <section id="ofertas" class="tabcontent">
+      <div class="catalogo" id="catalogoOfertas">
+        <article class="producto" data-categoria="dulces">
+          <img src="../rodrigo_app/imagenes/01(1).jpg" alt="Pack Dulces">
+          <h3>Pack Dulces x3</h3>
+          <p>Llévate 3 barras por solo $3.000</p>
+          <div class="meta"><span class="precio-num">3000</span> <span class="precio-texto">$3.000</span></div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Pack Dulces x3" data-precio="3000">Añadir al carrito</button>
+          </div>
+        </article>
+        <article class="producto" data-categoria="pasteles">
+          <img src="../rodrigo_app/imagenes/01(2).jpg" alt="ChocoCoco Doble">
+          <h3>ChocoCoco Doble</h3>
+          <p>2x1 en ChocoCoco los viernes</p>
+          <div class="meta"><span class="precio-num">1500</span> <span class="precio-texto">$1.500</span></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Quiénes somos -->
+    <section id="quienes" class="tabcontent historia">
+      <h2>Nuestra Historia</h2>
+      <p>La pastelería Rodrigo App nació de un pequeño sueño familiar en 2015.  
+        Todo comenzó con un horno casero y una receta de galletas compartida entre amigos.  
+        Con el tiempo, la pasión por los dulces nos llevó a crear un espacio lleno de sabor,  
+        tradición y mucho cariño. Hoy seguimos endulzando momentos especiales con la misma dedicación.</p>
+    </section>
+
+    <!-- Temporada -->
+    <section id="temporada" class="tabcontent">
+      <h2>Catálogo de Temporada</h2>
+      <div class="catalogo" id="catalogoTemporada">
+        <article class="producto" data-temporada="Navidad">
+          <img src="../rodrigo_app/imagenes/navidad.jpg" alt="Pan de Pascua">
+          <h3>Pan de Pascua</h3>
+          <p>Tradicional, con frutas confitadas y especias navideñas.</p>
+          <div class="meta"><span class="precio-num">4000</span> <span class="precio-texto">$4.000</span></div>
+        </article>
+
+        <article class="producto" data-temporada="Año Nuevo">
+          <img src="../rodrigo_app/imagenes/anio_nuevo.jpg" alt="Torta Año Nuevo">
+          <h3>Torta de Año Nuevo</h3>
+          <p>Decorada con crema y frutas frescas.</p>
+          <div class="meta"><span class="precio-num">8500</span> <span class="precio-texto">$8.500</span></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Ubicación -->
+    <section id="ubicacion" class="tabcontent ubicacion">
+      <h2>¿Dónde Estamos?</h2>
+      <p>Nos encontramos en Av. Dulzura 1234, Santiago Centro, a pasos del Metro Pastelito (ubicación ficticia).</p>
+      <iframe 
+        src="https://maps.google.com/maps?q=Plaza%20de%20Armas%20Santiago&t=&z=13&ie=UTF8&iwloc=&output=embed"
+        width="100%" height="300" style="border-radius:12px;border:none;"></iframe>
+    </section>
+
+    <!-- Valoraciones (NUEVO) -->
+    <section id="valoraciones" class="tabcontent">
+      <h2>Valoraciones y Sugerencias</h2>
+      <p>Deja tu calificación y comentario — visible para clientes y vendedor.</p>
+
+      <div class="valor-form">
+        <label for="v-nombre">Nombre</label>
+        <input id="v-nombre" type="text" placeholder="Tu nombre (opcional)">
+
+        <label>Calificación</label>
+        <div id="v-stars" class="stars">
+          <span data-value="1">☆</span>
+          <span data-value="2">☆</span>
+          <span data-value="3">☆</span>
+          <span data-value="4">☆</span>
+          <span data-value="5">☆</span>
+        </div>
+
+        <label for="v-comentario">Comentario</label>
+        <textarea id="v-comentario" placeholder="Escribe tu comentario..."></textarea>
+
+        <div style="margin-top:12px;">
+          <button class="btn" id="v-enviar">Enviar valoración</button>
+        </div>
+      </div>
+
+      <h3 style="margin-top:18px;">Reseñas recientes</h3>
+      <ul id="listaValoraciones" class="lista-valoraciones"></ul>
+    </section>
+
+  </main>
+
+  <!-- Redes sociales -->
+  <section class="redes">
+    <div class="redes__fondo"></div>
+    <div class="redes__capa">
+      <h2>🌐 Síguenos en redes sociales</h2>
+      <p>Entérate de nuestras promociones y novedades.</p>
+      <div class="iconos-redes">
+        <a href="https://www.instagram.com" target="_blank" class="social">
+          <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+        </a>
+        <a href="https://www.tiktok.com" target="_blank" class="social">
+          <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="TikTok">
+        </a>
+        <a href="https://www.facebook.com" target="_blank" class="social">
+          <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook">
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Carrito (fijo a la derecha en desktop, panel inferior en móvil) -->
+  <aside id="carrito" aria-label="Carrito de compras">
+    <h2>🛒 Carrito</h2>
+    <ul id="listaCarrito"></ul>
+    <div id="total">Total: $0</div>
+    <div class="acciones">
+      <button class="btn" id="vaciarBtn">Vaciar carrito</button>
+      <button class="btn" id="enviarBtn">Enviar por WhatsApp</button>
+    </div>
+  </aside>
+
+  <!-- Botón lateral izquierdo: Sugerencias (abre modal) -->
+  <button id="btnSugerencias" title="Dejar sugerencia / valoración">⭐ Sugerencias</button>
+
+  <!-- Modal de Sugerencias (alternativa rápida) -->
+  <div id="modalSugerencia" class="modal">
+    <div class="modal-contenido">
+      <span class="cerrar" id="cerrarModal">&times;</span>
+      <h2>Dejar sugerencia / valoración</h2>
+
+      <label>Tu nombre</label>
+      <input type="text" id="inputNombre" placeholder="Tu nombre (opcional)">
+
+      <label>Calificación</label>
+      <div id="stars" class="stars">
+        <span data-value="1">☆</span>
+        <span data-value="2">☆</span>
+        <span data-value="3">☆</span>
+        <span data-value="4">☆</span>
+        <span data-value="5">☆</span>
+      </div>
+
+      <label>Comentario</label>
+      <textarea id="inputComentario" placeholder="Escribe tu comentario..."></textarea>
+
+      <div style="margin-top:12px;">
+        <button class="btn" id="enviarValoracion">Enviar valoración</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Botón WhatsApp fijo -->
+  <a href="https://wa.me/56999335740" target="_blank" class="btn-whatsapp">💬 Hablar con el vendedor</a>
+
+  <footer>
+    <p>© 2025 Rodrigo App | Catálogo en línea</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
