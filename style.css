@@ -132,7 +132,6 @@ header {
 textarea { min-height:90px; resize:vertical; }
 
 /* whatsapp boton fijo abajo derecha */
-/* Estilo base del botón de WhatsApp */
 .btn-whatsapp {
   position: fixed;
   right: 20px;
@@ -148,22 +147,20 @@ textarea { min-height:90px; resize:vertical; }
   transition: all 0.3s ease;
 }
 
-/* Efecto al pasar el mouse (solo PC) */
+/* Efecto hover (solo visible en PC) */
 .btn-whatsapp:hover {
   background: #20b857;
   transform: scale(1.05);
 }
 
-/* Ajuste automático en pantallas móviles */
+/* 📱 Ajuste para pantallas móviles */
 @media (max-width: 768px) {
   .btn-whatsapp {
     right: 15px;
-    bottom: 70px; /* lo sube un poco para no taparse con la barra inferior */
-    padding: 14px 18px; /* un poco más grande para mejor toque */
+    bottom: 110px; /* 🔺 sube el botón para no tapar el carrito */
+    padding: 14px 18px;
   }
 }
-
-
 /* responsive adjustments */
 @media(max-width:900px){
   /* carrito como panel inferior en móviles */
@@ -180,5 +177,6 @@ textarea { min-height:90px; resize:vertical; }
   .tabcontent { padding-bottom: 120px; }
   #btnSugerencias { top:140px; left:8px; }
 }
+
 
 
