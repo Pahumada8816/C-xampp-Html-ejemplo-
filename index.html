@@ -3,282 +3,303 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Catálogo | Rodrigo App</title>
+  <title>Dulcería Rodrigo | Pastelería Artesanal</title>
   <link rel="stylesheet" href="style.css" />
-  <!-- Fuentes cálidas -->
+  <!-- Fuentes de pastelería -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
   <header>
-    <h1>Bienvenido a nuestro catálogo</h1>
-    <p>Descubre nuestros productos y contáctanos por WhatsApp</p>
+    <h1>🧁 Dulcería Rodrigo 🧁</h1>
+    <p>✨ Los sabores más dulces de la ciudad ✨</p>
   </header>
 
   <!-- Menú principal con submenús -->
   <nav class="menu">
-    <button class="tablink active" onclick="abrirSeccion(event,'productos')">Productos</button>
+    <button class="tablink active" onclick="abrirSeccion(event,'productos')">🍰 Productos</button>
 
     <div class="submenu-container">
-      <button class="tablink" onclick="abrirSeccion(event,'ofertas')">Ofertas ▼</button>
+      <button class="tablink" onclick="abrirSeccion(event,'ofertas')">🎉 Ofertas ▼</button>
       <div class="submenu">
-        <a href="#" onclick="filtrar('dulces')">Dulces</a>
-        <a href="#" onclick="filtrar('pasteles')">Pasteles</a>
-        <a href="#" onclick="filtrar('postres')">Postres</a>
-        <a href="#" onclick="filtrar('nuevos')">Productos nuevos</a>
+        <a href="#" onclick="filtrar('dulces')">🍬 Dulces</a>
+        <a href="#" onclick="filtrar('pasteles')">🎂 Pasteles</a>
+        <a href="#" onclick="filtrar('postres')">🍮 Postres</a>
+        <a href="#" onclick="filtrar('nuevos')">✨ Productos nuevos</a>
       </div>
     </div>
 
-    <button class="tablink" onclick="abrirSeccion(event,'quienes')">Quiénes Somos</button>
+    <button class="tablink" onclick="abrirSeccion(event,'quienes')">👨‍🍳 Quiénes Somos</button>
 
     <div class="submenu-container">
-      <button class="tablink" onclick="abrirSeccion(event,'temporada')">Catálogo de Temporada ▼</button>
+      <button class="tablink" onclick="abrirSeccion(event,'temporada')">🎊 Catálogo de Temporada ▼</button>
       <div class="submenu">
-        <a href="#" onclick="filtrarTemporada('Navidad')">Navidad</a>
-        <a href="#" onclick="filtrarTemporada('Año Nuevo')">Año Nuevo</a>
-        <a href="#" onclick="filtrarTemporada('Pascua')">Pascua</a>
-        <a href="#" onclick="filtrarTemporada('Día de la Madre')">Día de la Madre</a>
-        <a href="#" onclick="filtrarTemporada('Día del Padre')">Día del Padre</a>
-        <a href="#" onclick="filtrarTemporada('Día del Niño')">Día del Niño</a>
-        <a href="#" onclick="filtrarTemporada('Otros')">Otros</a>
+        <a href="#" onclick="filtrarTemporada('Navidad')">🎄 Navidad</a>
+        <a href="#" onclick="filtrarTemporada('Año Nuevo')">🎆 Año Nuevo</a>
+        <a href="#" onclick="filtrarTemporada('Pascua')">🐰 Pascua</a>
+        <a href="#" onclick="filtrarTemporada('Día de la Madre')">👩 Día de la Madre</a>
+        <a href="#" onclick="filtrarTemporada('Día del Padre')">👨 Día del Padre</a>
+        <a href="#" onclick="filtrarTemporada('Día del Niño')">👶 Día del Niño</a>
+        <a href="#" onclick="filtrarTemporada('Otros')">🎈 Otros</a>
       </div>
     </div>
 
-    <button class="tablink" onclick="abrirSeccion(event,'ubicacion')">Dónde Estamos</button>
+    <button class="tablink" onclick="abrirSeccion(event,'ubicacion')">📍 Dónde Estamos</button>
 
-    <button class="tablink" onclick="abrirSeccion(event,'valoraciones')">Valoraciones</button>
+    <button class="tablink" onclick="abrirSeccion(event,'valoraciones')">⭐ Valoraciones</button>
   </nav>
 
   <!-- SECCIONES -->
   <main>
     <!-- Productos -->
-<article class="producto" data-categoria="dulces" data-temporada="">
-  <img src="img/cocadas.jpg" alt="Cocadas">
-  <h3>Cocadas</h3>
-  <p>Dulce tradicional de coco rallado y leche condensada. 210 kcal por porción</p>
-  <div class="meta">
-    <span class="precio-num">800</span>
-    <span class="precio-texto">$800</span>
-  </div>
-  <div class="producto-actions">
-    <input type="number" min="1" value="1" class="qty">
-    <button class="btn add-cart" data-nombre="Cocadas" data-precio="800">Añadir al carrito</button>
-  </div>
-</article>
+    <section id="productos" class="tabcontent active">
+      <div class="catalogo" id="catalogoProductos">
+        
+        <article class="producto" data-categoria="dulces" data-temporada="">
+          <img src="img/cocadas.jpg" alt="Cocadas Artesanales">
+          <h3>🥥 Cocadas Artesanales</h3>
+          <p>Dulce tradicional de coco rallado y leche condensada, preparado con amor. Una explosión de sabor tropical en cada bocado. 210 kcal por porción</p>
+          <div class="meta">
+            <span class="precio-num">800</span>
+            <span class="precio-texto">$800</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Cocadas Artesanales" data-precio="800">🛒 Añadir</button>
+          </div>
+        </article>
 
-<article class="producto" data-categoria="dulces" data-temporada="">
-  <img src="img/galletas_maicena.jpg" alt="Galletas de Maicena">
-  <h3>Galletas de Maicena</h3>
-  <p>Galletas suaves y tradicionales a base de maicena. 90 kcal por unidad</p>
-  <div class="meta">
-    <span class="precio-num">600</span>
-    <span class="precio-texto">$600</span>
-  </div>
-  <div class="producto-actions">
-    <input type="number" min="1" value="1" class="qty">
-    <button class="btn add-cart" data-nombre="Galletas de Maicena" data-precio="600">Añadir al carrito</button>
-  </div>
-</article>
+        <article class="producto" data-categoria="dulces" data-temporada="">
+          <img src="img/galletas_maicena.jpg" alt="Galletas de Maicena">
+          <h3>🍪 Galletas de Maicena</h3>
+          <p>Galletas suaves y tradicionales a base de maicena, con esa textura que se deshace en la boca. Perfectas para acompañar el té. 90 kcal por unidad</p>
+          <div class="meta">
+            <span class="precio-num">600</span>
+            <span class="precio-texto">$600</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Galletas de Maicena" data-precio="600">🛒 Añadir</button>
+          </div>
+        </article>
 
-<article class="producto" data-categoria="tortas" data-temporada="">
-  <img src="img/torta_cuchufli.jpg" alt="Torta de Cuchuflí Spiderman 12 personas">
-  <h3>Torta de Cuchuflí Spiderman (12 personas)</h3>
-  <p>Torta clásica de cuchuflí cubierta con crema y decoración temática de Spiderman. Rinde para 12 porciones. 320 kcal por porción aprox.</p>
-  <div class="meta">
-    <span class="precio-num">18000</span>
-    <span class="precio-texto">$18.000</span>
-  </div>
-  <div class="producto-actions">
-    <input type="number" min="1" value="1" class="qty">
-    <button class="btn add-cart" data-nombre="Torta de Cuchuflí Spiderman 12 personas" data-precio="18000">Añadir al carrito</button>
-  </div>
-</article>
+        <article class="producto" data-categoria="tortas" data-temporada="">
+          <img src="img/torta_cuchufli.jpg" alt="Torta de Cuchuflí Spiderman">
+          <h3>🕷️ Torta Cuchuflí Spiderman</h3>
+          <p>Torta clásica de cuchuflí cubierta con crema y decoración temática de Spiderman. Perfecta para celebraciones infantiles. Rinde para 12 porciones. 320 kcal por porción aprox.</p>
+          <div class="meta">
+            <span class="precio-num">18000</span>
+            <span class="precio-texto">$18.000</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Torta Cuchuflí Spiderman 12 personas" data-precio="18000">🛒 Añadir</button>
+          </div>
+        </article>
 
-<article class="producto" data-categoria="dulces" data-temporada="">
-  <img src="img/alfajores.jpg" alt="Alfajores Caseros">
-  <h3>Alfajores Caseros</h3>
-  <p>Clásicos alfajores rellenos con manjar y cubiertos en azúcar flor. 150 kcal por unidad aprox.</p>
-  <div class="meta">
-    <span class="precio-num">600</span>
-    <span class="precio-texto">$600</span>
-  </div>
-  <div class="producto-actions">
-    <input type="number" min="1" value="1" class="qty">
-    <button class="btn add-cart" data-nombre="Alfajores Caseros" data-precio="600">Añadir al carrito</button>
-  </div>
-</article>
+        <article class="producto" data-categoria="dulces" data-temporada="">
+          <img src="img/alfajores.jpg" alt="Alfajores Caseros">
+          <h3>🫓 Alfajores Caseros</h3>
+          <p>Clásicos alfajores rellenos con manjar casero y cubiertos en azúcar flor. Hechos con receta familiar tradicional. 150 kcal por unidad aprox.</p>
+          <div class="meta">
+            <span class="precio-num">600</span>
+            <span class="precio-texto">$600</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Alfajores Caseros" data-precio="600">🛒 Añadir</button>
+          </div>
+        </article>
 
-<article class="producto" data-categoria="dulces" data-temporada="">
-  <img src="img/alfajor_chileno.jpg" alt="Alfajor Chileno con Coco">
-  <h3>Alfajor Chileno con Coco</h3>
-  <p>Alfajor tradicional relleno con manjar y cubierto con coco rallado. 170 kcal por unidad aprox.</p>
-  <div class="meta">
-    <span class="precio-num">700</span>
-    <span class="precio-texto">$700</span>
-  </div>
-  <div class="producto-actions">
-    <input type="number" min="1" value="1" class="qty">
-    <button class="btn add-cart" data-nombre="Alfajor Chileno con Coco" data-precio="700">Añadir al carrito</button>
-  </div>
-</article>
+        <article class="producto" data-categoria="dulces" data-temporada="">
+          <img src="img/alfajor_chileno.jpg" alt="Alfajor Chileno con Coco">
+          <h3>🥥 Alfajor Chileno con Coco</h3>
+          <p>Alfajor tradicional relleno con manjar y cubierto con coco rallado fresco. Un clásico de la repostería chilena. 170 kcal por unidad aprox.</p>
+          <div class="meta">
+            <span class="precio-num">700</span>
+            <span class="precio-texto">$700</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Alfajor Chileno con Coco" data-precio="700">🛒 Añadir</button>
+          </div>
+        </article>
 
-<article class="producto" data-categoria="dulces" data-temporada="">
-  <img src="img/alfajor_trufa.jpg" alt="Alfajor Trufa">
-  <h3>Alfajor Trufa</h3>
-  <p>Alfajor premium relleno con trufa de chocolate y cubierto con cacao. 210 kcal por unidad aprox.</p>
-  <div class="meta">
-    <span class="precio-num">900</span>
-    <span class="precio-texto">$900</span>
-  </div>
-  <div class="producto-actions">
-    <input type="number" min="1" value="1" class="qty">
-    <button class="btn add-cart" data-nombre="Alfajor Trufa" data-precio="900">Añadir al carrito</button>
-  </div>
-</article>
+        <article class="producto" data-categoria="dulces" data-temporada="">
+          <img src="img/alfajor_trufa.jpg" alt="Alfajor Trufa Premium">
+          <h3>🍫 Alfajor Trufa Premium</h3>
+          <p>Alfajor premium relleno con trufa de chocolate belga y cubierto con cacao puro. Una experiencia gourmet única. 210 kcal por unidad aprox.</p>
+          <div class="meta">
+            <span class="precio-num">900</span>
+            <span class="precio-texto">$900</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Alfajor Trufa Premium" data-precio="900">🛒 Añadir</button>
+          </div>
+        </article>
 
-<article class="producto" data-categoria="dulces" data-temporada="">
-  <img src="img/pastelitos_chilenos.jpg" alt="Mini Pasteles Chilenos">
-  <h3>Mini Pasteles Chilenos</h3>
-  <p>Variedad de mini pasteles tradicionales chilenos: milhojas, merenguitos, hojarascas y más. 160 kcal por unidad aprox.</p>
-  <div class="meta">
-    <span class="precio-num">700</span>
-    <span class="precio-texto">$700</span>
-  </div>
-  <div class="producto-actions">
-    <input type="number" min="1" value="1" class="qty">
-    <button class="btn add-cart" data-nombre="Mini Pasteles Chilenos" data-precio="700">Añadir al carrito</button>
-  </div>
-</article>
+        <article class="producto" data-categoria="dulces" data-temporada="">
+          <img src="img/pastelitos_chilenos.jpg" alt="Mini Pasteles Chilenos">
+          <h3>🧁 Mini Pasteles Chilenos</h3>
+          <p>Variedad de mini pasteles tradicionales chilenos: milhojas, merenguitos, hojarascas y más. Perfectos para compartir en familia. 160 kcal por unidad aprox.</p>
+          <div class="meta">
+            <span class="precio-num">700</span>
+            <span class="precio-texto">$700</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Mini Pasteles Chilenos" data-precio="700">🛒 Añadir</button>
+          </div>
+        </article>
 
-<article class="producto" data-categoria="dulces" data-temporada="">
-  <img src="../rodrigo_app/imagenes/mini_donnas.jpg" alt="Mini Donnas">
-  <h3>Mini Donnas</h3>
-  <p>Deliciosas mini donnas glaseadas y cubiertas con chispas. 90 kcal por unidad aprox.</p>
-  <div class="meta">
-    <span class="precio-num">500</span>
-    <span class="precio-texto">$500</span>
-  </div>
-  <div class="producto-actions">
-    <input type="number" min="1" value="1" class="qty">
-    <button class="btn add-cart" data-nombre="Mini Donnas" data-precio="500">Añadir al carrito</button>
-  </div>
-</article>
+        <article class="producto" data-categoria="dulces" data-temporada="">
+          <img src="img/donnas.jpg" alt="Mini Donnas">
+          <h3>🍩 Mini Donnas</h3>
+          <p>Deliciosas mini donnas glaseadas y cubiertas con chispas de colores. Perfectas para los más pequeños de la casa. 90 kcal por unidad aprox.</p>
+          <div class="meta">
+            <span class="precio-num">500</span>
+            <span class="precio-texto">$500</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Mini Donnas" data-precio="500">🛒 Añadir</button>
+          </div>
+        </article>
 
-<article class="producto" data-categoria="dulces" data-temporada="">
-  <img src="img/donnas_chocolate.jpg" alt="Donnas cubiertas de chocolate">
-  <h3>Donnas Cubiertas de Chocolate</h3>
-  <p>Mini donnas suaves bañadas en una capa de chocolate semiamargo. 120 kcal por unidad aprox.</p>
-  <div class="meta">
-    <span class="precio-num">600</span>
-    <span class="precio-texto">$600</span>
-  </div>
-  <div class="producto-actions">
-    <input type="number" min="1" value="1" class="qty">
-    <button class="btn add-cart" data-nombre="Donnas Cubiertas de Chocolate" data-precio="600">Añadir al carrito</button>
-  </div>
-</article>
+        <article class="producto" data-categoria="dulces" data-temporada="">
+          <img src="img/donnas_chocolate.jpg" alt="Donnas Chocolate">
+          <h3>🍫 Donnas Cubiertas de Chocolate</h3>
+          <p>Mini donnas suaves bañadas en una capa de chocolate semiamargo de primera calidad. Irresistibles para los amantes del chocolate. 120 kcal por unidad aprox.</p>
+          <div class="meta">
+            <span class="precio-num">600</span>
+            <span class="precio-texto">$600</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Donnas Cubiertas de Chocolate" data-precio="600">🛒 Añadir</button>
+          </div>
+        </article>
 
-<article class="producto" data-categoria="dulces" data-temporada="">
-  <img src="img/pack_alfajor.jpg" alt="Pack 5 Alfajores Surtidos">
-  <h3>Pack de 5 Alfajores Surtidos</h3>
-  <p>Pack especial con 5 alfajores artesanales: trufa, frambuesa, dulce de leche, chocolate y crema pastelera. 150–180 kcal por unidad aprox.</p>
-  <div class="meta">
-    <span class="precio-num">3500</span>
-    <span class="precio-texto">$3.500</span>
-  </div>
-  <div class="producto-actions">
-    <input type="number" min="1" value="1" class="qty">
-    <button class="btn add-cart" data-nombre="Pack 5 Alfajores Surtidos" data-precio="3500">Añadir al carrito</button>
-  </div>
-</article>
+        <article class="producto" data-categoria="dulces" data-temporada="">
+          <img src="img/pack_alfajor.jpg" alt="Pack Alfajores Surtidos">
+          <h3>🎁 Pack de 5 Alfajores Surtidos</h3>
+          <p>Pack especial con 5 alfajores artesanales de diferentes sabores: trufa, frambuesa, dulce de leche, chocolate y crema pastelera. Ideal para regalar. 150–180 kcal por unidad aprox.</p>
+          <div class="meta">
+            <span class="precio-num">3500</span>
+            <span class="precio-texto">$3.500</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Pack 5 Alfajores Surtidos" data-precio="3500">🛒 Añadir</button>
+          </div>
+        </article>
 
-<article class="producto" data-categoria="dulces" data-temporada="">
-  <img src="img/surtido_galletas_pasteles.jpg" alt="Surtido 20 Mini Pasteles y Galletas de Maicena">
-  <h3>Surtido de 20 Mini Pasteles y Galletas de Maicena</h3>
-  <p>Surtido especial con 20 unidades: mini pasteles tradicionales chilenos y galletas de maicena rellenas. Ideal para compartir. 110–160 kcal por unidad aprox.</p>
-  <div class="meta">
-    <span class="precio-num">6500</span>
-    <span class="precio-texto">$6.500</span>
-  </div>
-  <div class="producto-actions">
-    <input type="number" min="1" value="1" class="qty">
-    <button class="btn add-cart" data-nombre="Surtido 20 Mini Pasteles y Galletas de Maicena" data-precio="6500">Añadir al carrito</button>
-  </div>
-</article>
+        <article class="producto" data-categoria="dulces" data-temporada="">
+          <img src="img/surtido_galletas_pasteles.jpg" alt="Surtido Especial">
+          <h3>🎪 Surtido de 20 Mini Pasteles y Galletas</h3>
+          <p>Surtido especial con 20 unidades: mini pasteles tradicionales chilenos y galletas de maicena rellenas. Perfecto para eventos y celebraciones. 110–160 kcal por unidad aprox.</p>
+          <div class="meta">
+            <span class="precio-num">6500</span>
+            <span class="precio-texto">$6.500</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Surtido 20 Mini Pasteles y Galletas de Maicena" data-precio="6500">🛒 Añadir</button>
+          </div>
+        </article>
 
+      </div>
+    </section>
 
     <!-- Ofertas -->
     <section id="ofertas" class="tabcontent">
+      <h2 style="text-align: center; font-family: 'Dancing Script', cursive; font-size: 2.5rem; color: var(--primary-color); margin-bottom: 2rem;">🎉 Ofertas Especiales 🎉</h2>
       <div class="catalogo" id="catalogoOfertas">
         <article class="producto" data-categoria="dulces">
-          <img src="../rodrigo_app/imagenes/01(1).jpg" alt="Pack Dulces">
-          <h3>Pack Dulces x3</h3>
-          <p>Llévate 3 barras por solo $3.000</p>
+          <img src="img/pack_alfajor.jpg" alt="Pack Dulces Especial">
+          <h3>🍭 Pack Dulces x3</h3>
+          <p>Llévate 3 deliciosos productos dulces por solo $3.000. Una oferta imperdible para los amantes de lo dulce.</p>
           <div class="meta"><span class="precio-num">3000</span> <span class="precio-texto">$3.000</span></div>
           <div class="producto-actions">
             <input type="number" min="1" value="1" class="qty">
-            <button class="btn add-cart" data-nombre="Pack Dulces x3" data-precio="3000">Añadir al carrito</button>
+            <button class="btn add-cart" data-nombre="Pack Dulces x3" data-precio="3000">🛒 Añadir</button>
           </div>
         </article>
         <article class="producto" data-categoria="pasteles">
-          <img src="../rodrigo_app/imagenes/01(2).jpg" alt="ChocoCoco Doble">
-          <h3>ChocoCoco Doble</h3>
-          <p>2x1 en ChocoCoco los viernes</p>
+          <img src="img/alfajor_chileno.jpg" alt="ChocoCoco Doble">
+          <h3>🥥 ChocoCoco Doble</h3>
+          <p>2x1 en ChocoCoco todos los viernes. No te pierdas esta increíble promoción semanal.</p>
           <div class="meta"><span class="precio-num">1500</span> <span class="precio-texto">$1.500</span></div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="ChocoCoco Doble" data-precio="1500">🛒 Añadir</button>
+          </div>
         </article>
       </div>
     </section>
 
     <!-- Quiénes somos -->
     <section id="quienes" class="tabcontent historia">
-      <h2>Nuestra Historia</h2>
-      <p>La pastelería Rodrigo App nació de un pequeño sueño familiar en 2015.  
-        Todo comenzó con un horno casero y una receta de galletas compartida entre amigos.  
-        Con el tiempo, la pasión por los dulces nos llevó a crear un espacio lleno de sabor,  
-        tradición y mucho cariño. Hoy seguimos endulzando momentos especiales con la misma dedicación.</p>
+      <h2>🏠 Nuestra Historia</h2>
+      <p>La dulcería Rodrigo nació de un pequeño sueño familiar en 2015. Todo comenzó con un horno casero y una receta de galletas compartida entre amigos. Con el tiempo, la pasión por los dulces nos llevó a crear un espacio lleno de sabor, tradición y mucho cariño. 
+
+      Cada producto que elaboramos lleva el amor y la dedicación de una familia que cree en la importancia de endulzar los momentos especiales de la vida. Utilizamos ingredientes de primera calidad y recetas tradicionales que han pasado de generación en generación.
+
+      Hoy seguimos endulzando momentos especiales con la misma dedicación del primer día, porque sabemos que cada dulce que preparamos puede ser parte de una celebración, un regalo especial o simplemente un momento de felicidad en el día de nuestros clientes.</p>
     </section>
 
     <!-- Temporada -->
     <section id="temporada" class="tabcontent">
-      <h2>Catálogo de Temporada</h2>
+      <h2 style="text-align: center; font-family: 'Dancing Script', cursive; font-size: 2.5rem; color: var(--primary-color); margin-bottom: 2rem;">🎊 Catálogo de Temporada</h2>
       <div class="catalogo" id="catalogoTemporada">
         <article class="producto" data-temporada="Navidad">
-          <img src="../rodrigo_app/imagenes/navidad.jpg" alt="Pan de Pascua">
-          <h3>Pan de Pascua</h3>
-          <p>Tradicional, con frutas confitadas y especias navideñas.</p>
+          <img src="img/pastelitos_chilenos.jpg" alt="Pan de Pascua">
+          <h3>🎄 Pan de Pascua Tradicional</h3>
+          <p>Pan de pascua tradicional con frutas confitadas y especias navideñas. Preparado con receta familiar centenaria.</p>
           <div class="meta"><span class="precio-num">4000</span> <span class="precio-texto">$4.000</span></div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Pan de Pascua Tradicional" data-precio="4000">🛒 Añadir</button>
+          </div>
         </article>
 
         <article class="producto" data-temporada="Año Nuevo">
-          <img src="../rodrigo_app/imagenes/anio_nuevo.jpg" alt="Torta Año Nuevo">
-          <h3>Torta de Año Nuevo</h3>
-          <p>Decorada con crema y frutas frescas.</p>
+          <img src="img/torta_cuchufli.jpg" alt="Torta Año Nuevo">
+          <h3>🎆 Torta de Año Nuevo</h3>
+          <p>Elegante torta decorada con crema y frutas frescas, perfecta para recibir el nuevo año con dulzura.</p>
           <div class="meta"><span class="precio-num">8500</span> <span class="precio-texto">$8.500</span></div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Torta de Año Nuevo" data-precio="8500">🛒 Añadir</button>
+          </div>
         </article>
       </div>
     </section>
 
     <!-- Ubicación -->
     <section id="ubicacion" class="tabcontent ubicacion">
-      <h2>¿Dónde Estamos?</h2>
-      <p>Nos encontramos en Av. Dulzura 1234, Santiago Centro, a pasos del Metro Pastelito (ubicación ficticia).</p>
+      <h2>📍 ¿Dónde Estamos?</h2>
+      <p>🏪 Nos encontramos en Av. Dulzura 1234, Santiago Centro, a pasos del Metro Pastelito.</p>
+      <p>📞 Teléfono: +56 9 9933 5740</p>
+      <p>🕒 Horarios: Lunes a Sábado 9:00 - 20:00 | Domingos 10:00 - 18:00</p>
       <iframe 
         src="https://maps.google.com/maps?q=Plaza%20de%20Armas%20Santiago&t=&z=13&ie=UTF8&iwloc=&output=embed"
-        width="100%" height="300" style="border-radius:12px;border:none;"></iframe>
+        width="100%" height="300" style="border-radius:15px;border:none; margin-top: 20px;"></iframe>
     </section>
 
-    <!-- Valoraciones (NUEVO) -->
+    <!-- Valoraciones -->
     <section id="valoraciones" class="tabcontent">
-      <h2>Valoraciones y Sugerencias</h2>
-      <p>Deja tu calificación y comentario — visible para clientes y vendedor.</p>
+      <h2 style="text-align: center; font-family: 'Dancing Script', cursive; font-size: 2.5rem; color: var(--primary-color); margin-bottom: 2rem;">⭐ Valoraciones y Sugerencias</h2>
+      <p style="text-align: center; margin-bottom: 2rem;">Deja tu calificación y comentario — visible para clientes y vendedor.</p>
 
       <div class="valor-form">
-        <label for="v-nombre">Nombre</label>
+        <label for="v-nombre">👤 Nombre</label>
         <input id="v-nombre" type="text" placeholder="Tu nombre (opcional)">
 
-        <label>Calificación</label>
+        <label>⭐ Calificación</label>
         <div id="v-stars" class="stars">
           <span data-value="1">☆</span>
           <span data-value="2">☆</span>
@@ -287,15 +308,15 @@
           <span data-value="5">☆</span>
         </div>
 
-        <label for="v-comentario">Comentario</label>
+        <label for="v-comentario">💭 Comentario</label>
         <textarea id="v-comentario" placeholder="Escribe tu comentario..."></textarea>
 
-        <div style="margin-top:12px;">
-          <button class="btn" id="v-enviar">Enviar valoración</button>
+        <div style="margin-top:15px; text-align: center;">
+          <button class="btn" id="v-enviar">📝 Enviar valoración</button>
         </div>
       </div>
 
-      <h3 style="margin-top:18px;">Reseñas recientes</h3>
+      <h3 style="margin-top:30px; text-align: center; font-family: 'Dancing Script', cursive; font-size: 1.8rem; color: var(--primary-color);">💬 Reseñas recientes</h3>
       <ul id="listaValoraciones" class="lista-valoraciones"></ul>
     </section>
 
@@ -306,7 +327,7 @@
     <div class="redes__fondo"></div>
     <div class="redes__capa">
       <h2>🌐 Síguenos en redes sociales</h2>
-      <p>Entérate de nuestras promociones y novedades.</p>
+      <p>Entérate de nuestras promociones y novedades dulces</p>
       <div class="iconos-redes">
         <a href="https://www.instagram.com" target="_blank" class="social">
           <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
@@ -321,30 +342,30 @@
     </div>
   </section>
 
-  <!-- Carrito (fijo a la derecha en desktop, panel inferior en móvil) -->
+  <!-- Carrito -->
   <aside id="carrito" aria-label="Carrito de compras">
-    <h2>🛒 Carrito</h2>
+    <h2>🛒 Mi Carrito</h2>
     <ul id="listaCarrito"></ul>
     <div id="total">Total: $0</div>
     <div class="acciones">
-      <button class="btn" id="vaciarBtn">Vaciar carrito</button>
-      <button class="btn" id="enviarBtn">Enviar por WhatsApp</button>
+      <button class="btn" id="vaciarBtn">🗑️ Vaciar</button>
+      <button class="btn" id="enviarBtn">📱 Pedir por WhatsApp</button>
     </div>
   </aside>
 
-  <!-- Botón lateral izquierdo: Sugerencias (abre modal) -->
+  <!-- Botón lateral izquierdo: Sugerencias -->
   <button id="btnSugerencias" title="Dejar sugerencia / valoración">⭐ Sugerencias</button>
 
-  <!-- Modal de Sugerencias (alternativa rápida) -->
+  <!-- Modal de Sugerencias -->
   <div id="modalSugerencia" class="modal">
     <div class="modal-contenido">
       <span class="cerrar" id="cerrarModal">&times;</span>
-      <h2>Dejar sugerencia / valoración</h2>
+      <h2 style="font-family: 'Dancing Script', cursive; color: var(--primary-color); text-align: center; margin-bottom: 20px;">⭐ Dejar sugerencia / valoración</h2>
 
-      <label>Tu nombre</label>
+      <label>👤 Tu nombre</label>
       <input type="text" id="inputNombre" placeholder="Tu nombre (opcional)">
 
-      <label>Calificación</label>
+      <label>⭐ Calificación</label>
       <div id="stars" class="stars">
         <span data-value="1">☆</span>
         <span data-value="2">☆</span>
@@ -353,23 +374,24 @@
         <span data-value="5">☆</span>
       </div>
 
-      <label>Comentario</label>
+      <label>💭 Comentario</label>
       <textarea id="inputComentario" placeholder="Escribe tu comentario..."></textarea>
 
-      <div style="margin-top:12px;">
-        <button class="btn" id="enviarValoracion">Enviar valoración</button>
+      <div style="margin-top:20px; text-align: center;">
+        <button class="btn" id="enviarValoracion">📝 Enviar valoración</button>
       </div>
     </div>
   </div>
 
-  <!-- Botón WhatsApp fijo -->
-  <a href="https://wa.me/56999335740" target="_blank" class="btn-whatsapp">💬 Hablar con el vendedor</a>
+  <!-- Botón WhatsApp optimizado -->
+  <a href="https://wa.me/56999335740" target="_blank" class="btn-whatsapp">
+    💬 Chat
+  </a>
 
   <footer>
-    <p>© 2025 Rodrigo App | Catálogo en línea</p>
+    <p>© 2025 Dulcería Rodrigo | Los sabores más dulces de la ciudad 🧁✨</p>
   </footer>
 
   <script src="script.js"></script>
 </body>
 </html>
-
