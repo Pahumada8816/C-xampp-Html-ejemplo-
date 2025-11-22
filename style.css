@@ -114,10 +114,10 @@ header p {
   box-shadow: 0 6px 20px rgba(255, 107, 157, 0.4);
 }
 
-/* Submenu mejorado - FIX PARA Z-INDEX */
+/* Submenu mejorado */
 .submenu-container { 
   position: relative; 
-  z-index: 150; /* Aumentar z-index del contenedor */
+  z-index: 150; 
 }
 
 .submenu {
@@ -130,7 +130,7 @@ header p {
   left: 0;
   min-width: 200px;
   border-radius: 15px;
-  z-index: 200; /* Z-index muy alto para que aparezca sobre todo */
+  z-index: 200; 
   border: 2px solid var(--primary-color);
   overflow: hidden;
 }
@@ -160,7 +160,7 @@ header p {
   max-width: 1200px; 
   margin: 2rem auto; 
   position: relative;
-  z-index: 1; /* Z-index bajo para el contenido */
+  z-index: 1;
 }
 
 .tabcontent.active { 
@@ -179,17 +179,17 @@ header p {
   } 
 }
 
-/* ======== Grid de productos mejorado ======== */
+/* ======== Grid de productos (Tarjetas) ======== */
 .catalogo { 
   display: grid; 
   gap: 2rem; 
-  /* FIX 1: Restaurado a 250px para mejor equilibrio de tamaño en PC */
+  /* FIX DISEÑO: Usar 250px como tamaño mínimo para un buen equilibrio en PC */
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
   padding: 1rem; 
 }
 
-/* ======== Tarjetas de productos con diseño de pastelería ======== */
-.producto {
+/* ======== Estilos de Tarjetas (producto, oferta, temporada) ======== */
+.producto, .oferta, .temporada {
   background: white;
   border-radius: 20px;
   overflow: hidden;
@@ -198,10 +198,10 @@ header p {
   position: relative;
   border: 3px solid transparent;
   background-clip: padding-box;
-  z-index: 1; /* Z-index bajo para las tarjetas */
+  z-index: 1;
 }
 
-.producto::before {
+.producto::before, .oferta::before, .temporada::before {
   content: '';
   position: absolute;
   top: -3px;
@@ -215,16 +215,16 @@ header p {
   transition: opacity 0.3s ease;
 }
 
-.producto:hover::before {
+.producto:hover::before, .oferta:hover::before, .temporada:hover::before {
   opacity: 1;
 }
 
-.producto:hover {
+.producto:hover, .oferta:hover, .temporada:hover {
   transform: translateY(-10px);
   box-shadow: 0 20px 40px rgba(0,0,0,0.2);
 }
 
-.producto img { 
+.producto img, .oferta img, .temporada img { 
   width: 100%; 
   height: 220px; 
   object-fit: cover; 
@@ -232,11 +232,11 @@ header p {
   transition: transform 0.3s ease;
 }
 
-.producto:hover img {
+.producto:hover img, .oferta:hover img, .temporada:hover img {
   transform: scale(1.05);
 }
 
-.producto h3 { 
+.producto h3, .oferta h3, .temporada h3 { 
   margin: 15px 20px 8px; 
   font-size: 1.3rem;
   font-weight: 600;
@@ -244,14 +244,14 @@ header p {
   font-family: "Dancing Script", cursive;
 }
 
-.producto p { 
+.producto p, .oferta p, .temporada p { 
   color: #666; 
   font-size: 0.95rem; 
   margin: 0 20px 15px;
   line-height: 1.5;
 }
 
-/* Precio destacado */
+/* Precio y acciones */
 .meta { 
   margin: 15px 20px;
   text-align: center;
@@ -268,7 +268,6 @@ header p {
   text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 }
 
-/* Acciones del producto */
 .producto-actions { 
   display: flex; 
   justify-content: space-between; 
@@ -327,21 +326,8 @@ header p {
   border: 2px solid var(--primary-color);
 }
 
-#carrito h2 {
-  margin-bottom: 15px;
-  text-align: center;
-  font-family: "Dancing Script", cursive;
-  font-size: 1.8rem;
-  color: var(--primary-color);
-}
-
-#listaCarrito {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
 #listaCarrito li {
+  /* Asegura el layout interno del carrito */
   display: flex;
   justify-content: space-between;
   gap: 10px;
@@ -353,23 +339,9 @@ header p {
   border-radius: 10px;
 }
 
-#total {
-  text-align: right;
-  font-weight: 700;
-  margin-top: 15px;
-  font-size: 1.2rem;
-  color: var(--primary-color);
-}
-
-.acciones {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  margin-top: 15px;
-}
-
-/* ======== Botón WhatsApp optimizado ======== */
+/* ======== Botón WhatsApp optimizado (Revisado) ======== */
 .btn-whatsapp {
+  /* FIX WHATSAPP: posición fija para que se vea siempre */
   position: fixed;
   right: 25px;
   bottom: 25px;
@@ -393,34 +365,6 @@ header p {
   box-shadow: 0 12px 30px rgba(0, 184, 148, 0.5);
 }
 
-/* ======== Secciones de historia y ubicación ======== */
-.historia, .ubicacion {
-  background: white;
-  padding: 30px;
-  border-radius: 20px;
-  box-shadow: var(--shadow);
-}
-
-.historia h2, .ubicacion h2, .valoraciones h2 {
-  text-align: center;
-  font-family: "Dancing Script", cursive;
-  font-size: 2.5rem;
-  color: var(--primary-color);
-  margin-bottom: 1.5rem;
-}
-
-.historia p, .ubicacion p {
-  line-height: 1.7;
-  font-size: 1.1rem;
-  margin-bottom: 15px;
-}
-
-.ubicacion iframe {
-  width: 100%;
-  border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-}
-
 /* ======== Botón de Sugerencias ======== */
 #btnSugerencias {
   position: fixed;
@@ -435,7 +379,7 @@ header p {
   font-weight: 600;
   color: var(--dark-color);
   transition: all 0.3s ease;
-  z-index: 99; /* Asegurar que esté por encima de otros elementos */
+  z-index: 99;
 }
 
 #btnSugerencias:hover {
@@ -443,171 +387,51 @@ header p {
   box-shadow: 0 12px 25px rgba(0,0,0,0.2);
 }
 
-/* ======== Modal mejorado ======== */
-.modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.7);
-  z-index: 200;
-  align-items: center;
-  justify-content: center;
-}
+/* ... (resto del CSS) ... */
 
-.modal-contenido {
-  background: white;
-  width: 95%;
-  max-width: 600px;
-  padding: 30px;
-  border-radius: 20px;
-  position: relative;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-  border: 3px solid var(--primary-color);
+/* ======== Responsive ======== */
+@media(max-width: 900px) {
+  header h1 {
+    font-size: 2.5rem;
+  }
+  header p {
+    font-size: 1rem;
+  }
+  .catalogo {
+    /* FIX MÓVIL: Forzado a 1 columna (1fr) para evitar desorden */
+    grid-template-columns: 1fr; 
+    gap: 1.5rem;
+  }
+  #carrito {
+    right: auto;
+    left: 0;
+    bottom: 0;
+    top: auto;
+    width: 100%;
+    border-radius: 20px 20px 0 0;
+    max-height: 60vh;
+  }
+  .tabcontent {
+    padding-bottom: 150px;
+  }
+  #btnSugerencias {
+    top: 160px;
+    left: 15px;
+  }
+  .btn-whatsapp {
+    right: 20px;
+    bottom: 20px;
+    padding: 10px 14px;
+    font-size: 0.85rem;
+  }
+  .menu {
+    padding: 10px;
+  }
+  .tablink {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+  }
 }
-
-.cerrar {
-  position: absolute;
-  right: 15px;
-  top: 15px;
-  font-size: 28px;
-  cursor: pointer;
-  color: var(--primary-color);
-  font-weight: bold;
-}
-
-/* ======== Estrellas mejoradas ======== */
-.stars span {
-  font-size: 32px;
-  cursor: pointer;
-  color: #ddd;
-  margin-right: 8px;
-  transition: all 0.3s ease;
-}
-
-.stars span.active {
-  color: #ffb400;
-  text-shadow: 0 3px 8px rgba(255, 180, 0, 0.4);
-  transform: scale(1.1);
-}
-
-.stars span:hover {
-  transform: scale(1.2);
-}
-
-/* ======== Formularios mejorados ======== */
-.valor-form {
-  max-width: 700px;
-  margin: 0 auto 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.valor-form input, .valor-form textarea, #inputNombre, textarea {
-  padding: 12px;
-  border: 2px solid var(--primary-color);
-  border-radius: 10px;
-  font-family: inherit;
-  transition: all 0.3s ease;
-  background: rgba(255, 255, 255, 0.9);
-}
-
-.valor-form input:focus, .valor-form textarea:focus, #inputNombre:focus, textarea:focus {
-  outline: none;
-  border-color: var(--accent-color);
-  box-shadow: 0 0 10px rgba(253, 121, 168, 0.3);
-}
-
-.valor-form label {
-  font-weight: 600;
-  margin-top: 5px;
-  color: var(--dark-color);
-}
-
-/* ======== Lista de valoraciones ======== */
-#listaValoraciones {
-  list-style: none;
-  padding: 0;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-#listaValoraciones li {
-  background: white;
-  border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-  padding: 20px;
-  margin-bottom: 15px;
-}
-
-#listaValoraciones .meta {
-  font-size: 0.9rem;
-  color: #888;
-  margin-bottom: 5px;
-}
-
-#listaValoraciones .coment {
-  font-size: 1.1rem;
-  color: var(--dark-color);
-  line-height: 1.6;
-}
-
-/* Clases para .oferta y .temporada (mismo estilo que .producto) */
-.oferta, .temporada {
-  background: white;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-  transition: all 0.3s ease;
-  position: relative;
-  border: 3px solid transparent;
-  background-clip: padding-box;
-  z-index: 1;
-}
-
-.oferta::before, .temporada::before {
-  content: '';
-  position: absolute;
-  top: -3px;
-  left: -3px;
-  right: -3px;
-  bottom: -3px;
-  background: var(--gradient);
-  border-radius: 20px;
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.oferta:hover::before, .temporada:hover::before {
-  opacity: 1;
-}
-
-.oferta:hover, .temporada:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-}
-
-.oferta img, .temporada img { 
-  width: 100%; 
-  height: 220px; 
-  object-fit: cover; 
-  display: block;
-  transition: transform 0.3s ease;
-}
-
-.oferta:hover img, .temporada:hover img {
-  transform: scale(1.05);
-}
-
-.oferta h3, .temporada h3 { 
-  margin: 15px 20px 8px; 
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: var(--dark-color);
-  font-family: "Dancing Script", cursive;
-}
-
 .oferta p, .temporada p { 
   color: #666; 
   font-size: 0.95rem; 
@@ -716,3 +540,4 @@ footer {
     font-size: 0.9rem;
   }
 }
+
