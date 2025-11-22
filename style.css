@@ -25,11 +25,11 @@ body {
   background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 50%, #fd79a8 100%);
   background-attachment: fixed;
   color: var(--dark-color);
-  padding-bottom: 120px; /* Espacio para el footer */
+  padding-bottom: 120px;
   min-height: 100vh;
 }
 
-/* ======== Header con logo (Encabezado/Portada) ======== */
+/* ======== Header con logo ======== */
 header {
   background: var(--gradient);
   color: white;
@@ -48,7 +48,7 @@ header::before {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url('img/logo_pasteleria.jpg'); 
+  background-image: url('img/logo_pasteleria.jpg');
   background-size: cover;
   background-position: center;
   opacity: 0.2;
@@ -72,7 +72,7 @@ header p {
   text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
 
-/* ======== Menú con estilo pastelería ======== */
+/* ======== Menú con estilo pastelería - CORRECCIÓN STICKY ======== */
 .menu {
   display: flex;
   justify-content: center;
@@ -83,9 +83,9 @@ header p {
   gap: 10px;
   padding: 15px;
   box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-  position: sticky; /* FIX: Asegura que el menú se quede arriba */
-  top: 0;
-  z-index: 1000; /* Z-index alto para menú sticky */
+  position: sticky; /* FIX: Hace que el menú se quede fijo */
+  top: 0; /* FIX: Lo pega al borde superior */
+  z-index: 1000; /* Asegurar que el menú esté por encima del contenido */
 }
 
 .tablink {
@@ -115,10 +115,10 @@ header p {
   box-shadow: 0 6px 20px rgba(255, 107, 157, 0.4);
 }
 
-/* Submenu */
+/* Submenu mejorado - FIX PARA Z-INDEX */
 .submenu-container { 
   position: relative; 
-  z-index: 1001; /* Mayor que el menú principal */
+  z-index: 1500; /* Aumentar z-index del contenedor para que esté sobre el menú */
 }
 
 .submenu {
@@ -131,7 +131,7 @@ header p {
   left: 0;
   min-width: 200px;
   border-radius: 15px;
-  z-index: 200; 
+  z-index: 2000; /* Z-index muy alto para que aparezca sobre todo */
   border: 2px solid var(--primary-color);
   overflow: hidden;
 }
@@ -158,10 +158,10 @@ header p {
 .tabcontent { 
   display: none; 
   padding: 2rem; 
-  max-width: 1200px; /* Contenedor máximo para centrar el contenido */
-  margin: 2rem auto; /* Centrado horizontal */
+  max-width: 1200px; 
+  margin: 2rem auto; 
   position: relative;
-  z-index: 1;
+  z-index: 1; /* Z-index bajo para el contenido */
 }
 
 .tabcontent.active { 
@@ -180,15 +180,15 @@ header p {
   } 
 }
 
-/* ======== Grid de productos (Tarjetas) - FIX GENERAL LAYOUT ======== */
+/* ======== Grid de productos mejorado ======== */
 .catalogo { 
   display: grid; 
   gap: 2rem; 
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
   padding: 1rem; 
 }
 
-/* ======== Estilos de Tarjetas (producto, oferta, temporada) ======== */
+/* ======== Tarjetas de productos con diseño de pastelería ======== */
 .producto, .oferta, .temporada {
   background: white;
   border-radius: 20px;
@@ -198,7 +198,7 @@ header p {
   position: relative;
   border: 3px solid transparent;
   background-clip: padding-box;
-  z-index: 1;
+  z-index: 1; /* Z-index bajo para las tarjetas */
 }
 
 .producto::before, .oferta::before, .temporada::before {
@@ -251,7 +251,7 @@ header p {
   line-height: 1.5;
 }
 
-/* Precio y acciones */
+/* Precio destacado */
 .meta { 
   margin: 15px 20px;
   text-align: center;
@@ -268,6 +268,7 @@ header p {
   text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 }
 
+/* Acciones del producto */
 .producto-actions { 
   display: flex; 
   justify-content: space-between; 
@@ -316,14 +317,28 @@ header p {
   top: 130px; 
   width: 320px; 
   max-height: 70vh; 
-  overflow: auto; 
+  overflow: auto;
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   border-radius: 20px; 
-  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-  padding: 20px; 
-  z-index: 80; /* Menos que el menú y WhatsApp */
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15); 
+  padding: 20px;
+  z-index: 900; /* Asegurar que está sobre el contenido pero bajo los flotantes */
   border: 2px solid var(--primary-color);
+}
+
+#carrito h2 {
+  margin-bottom: 15px;
+  text-align: center;
+  font-family: "Dancing Script", cursive;
+  font-size: 1.8rem;
+  color: var(--primary-color);
+}
+
+#listaCarrito {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 #listaCarrito li {
@@ -338,7 +353,31 @@ header p {
   border-radius: 10px;
 }
 
-/* ======== Botón WhatsApp optimizado (Z-INDEX ALTO) ======== */
+#listaCarrito li button {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#total {
+  text-align: right;
+  font-weight: 700;
+  margin-top: 15px;
+  font-size: 1.2rem;
+  color: var(--primary-color);
+}
+
+.acciones {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+/* ======== Botón WhatsApp optimizado - CORRECCIÓN Z-INDEX ======== */
 .btn-whatsapp {
   position: fixed;
   right: 25px;
@@ -349,7 +388,7 @@ header p {
   border-radius: 50px;
   text-decoration: none;
   box-shadow: 0 8px 25px rgba(0, 184, 148, 0.3);
-  z-index: 1002; /* FIX: Asegurar que esté sobre todo */
+  z-index: 1001; /* Aumentado */
   font-weight: 600;
   font-size: 0.9rem;
   transition: all 0.3s ease;
@@ -360,52 +399,29 @@ header p {
 
 .btn-whatsapp:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 30px rgba(0, 184, 148, 0.5);
+  box-shadow: 0 12px 30px rgba(0, 184, 148, 0.4);
 }
 
-/* ======== Secciones de historia y ubicación ======== */
-.historia, .ubicacion {
-  background: white;
-  padding: 30px;
-  border-radius: 20px;
-  box-shadow: var(--shadow);
+.btn-whatsapp img {
+  width: 20px;
+  height: 20px;
 }
 
-.historia h2, .ubicacion h2, .valoraciones h2 {
-  text-align: center;
-  font-family: "Dancing Script", cursive;
-  font-size: 2.5rem;
-  color: var(--primary-color);
-  margin-bottom: 1.5rem;
-}
-
-.historia p, .ubicacion p {
-  line-height: 1.7;
-  font-size: 1.1rem;
-  margin-bottom: 15px;
-}
-
-.ubicacion iframe {
-  width: 100%;
-  border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-}
-
-/* ======== Botón de Sugerencias y Modal (Z-INDEX ALTO) ======== */
+/* ======== Botón Sugerencias - CORRECCIÓN Z-INDEX ======== */
 #btnSugerencias {
   position: fixed;
   top: 140px;
   left: 20px;
-  padding: 12px 16px;
   background: white;
-  border: 2px solid var(--dark-color);
-  border-radius: 50px;
+  border: 2px solid var(--primary-color);
+  padding: 12px 20px;
+  border-radius: 15px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
   cursor: pointer;
   font-weight: 600;
   color: var(--dark-color);
   transition: all 0.3s ease;
-  z-index: 1002; /* FIX: Asegurar que esté sobre todo */
+  z-index: 1002; /* Aumentado */
 }
 
 #btnSugerencias:hover {
@@ -413,12 +429,13 @@ header p {
   box-shadow: 0 12px 25px rgba(0,0,0,0.2);
 }
 
+/* ======== Modal mejorado ======== */
 .modal {
   display: none;
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.7);
-  z-index: 2000; /* Z-index muy alto para asegurar que el modal se vea */
+  z-index: 3000; /* Z-index muy alto para estar sobre todo */
   align-items: center;
   justify-content: center;
 }
@@ -434,72 +451,101 @@ header p {
   border: 3px solid var(--primary-color);
 }
 
-/* ... (Redes y Footer siguen igual) ... */
-.redes {
-  margin-top: 50px;
-  padding: 50px 20px;
-  position: relative;
-  text-align: center;
-  overflow: hidden;
-  box-shadow: 0 0 30px rgba(0,0,0,0.1);
-  background: var(--dark-color);
-  color: white;
-}
-
-.redes__fondo {
+.cerrar {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(255, 255, 255, 0.1); 
-  opacity: 0.1;
-  z-index: 0;
+  right: 15px;
+  top: 15px;
+  font-size: 28px;
+  cursor: pointer;
+  color: var(--primary-color);
+  font-weight: bold;
 }
 
-.redes__capa {
-  position: relative;
-  z-index: 1;
-  max-width: 800px; /* Contiene el contenido de redes */
-  margin: 0 auto;
+/* ======== Estrellas mejoradas ======== */
+.stars span {
+  font-size: 32px;
+  cursor: pointer;
+  color: #ddd;
+  margin-right: 8px;
+  transition: all 0.3s ease;
 }
 
-.redes h2 {
-  font-family: "Dancing Script", cursive;
-  font-size: 3rem;
-  margin-bottom: 10px;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-  color: var(--secondary-color);
+.stars span.active {
+  color: #ffb400;
+  text-shadow: 0 3px 8px rgba(255, 180, 0, 0.4);
+  transform: scale(1.1);
 }
 
-.redes p {
-  font-size: 1.2rem;
-  margin-bottom: 30px;
-  color: #ccc;
+.stars span:hover {
+  transform: scale(1.2);
 }
 
-.iconos-redes {
+/* ======== Formularios mejorados ======== */
+.valor-form {
+  max-width: 700px;
+  margin: 0 auto 20px;
   display: flex;
-  justify-content: center;
-  gap: 30px;
+  flex-direction: column;
+  gap: 15px;
 }
 
-.social {
-  display: inline-block;
-  transition: transform 0.3s ease;
+.valor-form input, .valor-form textarea, #inputNombre, textarea {
+  padding: 12px;
+  border: 2px solid var(--primary-color);
+  border-radius: 10px;
+  font-family: inherit;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.9);
 }
 
-.social img {
-  width: 50px; 
-  height: 50px;
-  border-radius: 50%;
-  padding: 5px;
+.valor-form input:focus, .valor-form textarea:focus, #inputNombre:focus, textarea:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 10px rgba(255, 107, 157, 0.2);
+}
+
+.valoraciones-lista {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 700px;
+}
+
+.valoraciones-lista li {
   background: white;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  padding: 15px 20px;
+  border-radius: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  border-left: 5px solid var(--primary-color);
 }
 
-.social:hover {
-  transform: scale(1.15) rotate(5deg);
+.valoraciones-lista li .meta {
+  text-align: left;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 5px;
+}
+
+.valoraciones-lista li small {
+  font-weight: 400;
+  color: #999;
+  font-size: 0.8rem;
+}
+
+.valoraciones-lista li .coment {
+  color: var(--dark-color);
+  font-style: italic;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.final-msg {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.1rem;
+  text-align: center;
+  margin-bottom: 30px;
+  color: var(--dark-color);
 }
 
 /* ======== Footer ======== */
@@ -513,49 +559,54 @@ footer {
   font-weight: 500;
 }
 
-/* ======== Responsive (Móvil) ======== */
+/* ======== Responsive ======== */
 @media(max-width: 900px) {
   header h1 {
     font-size: 2.5rem;
   }
+
   header p {
     font-size: 1rem;
   }
+
   .catalogo {
-    /* Forzado a 1 columna (1fr) para evitar desorden en móviles */
-    grid-template-columns: 1fr; 
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1.5rem;
   }
-  /* FIX: Carrito en móvil con ancho fijo y centrado en lugar de 100% */
+
   #carrito {
-    right: 10px; /* Separación derecha */
-    left: auto;
-    top: 100px; /* Menos invasivo que abajo */
-    width: 300px;
-    border-radius: 20px;
-    max-height: 50vh;
+    right: auto;
+    left: 0;
+    bottom: 0;
+    top: auto;
+    width: 100%;
+    border-radius: 20px 20px 0 0;
+    max-height: 60vh;
   }
+  
   .tabcontent {
-    padding-bottom: 20px; /* Reducir padding extra en móvil */
+    padding-bottom: 150px;
   }
-  /* FIX: Botón de WhatsApp más pequeño y mejor posicionado en móvil */
+
+  #btnSugerencias {
+    top: 160px;
+    left: 15px;
+  }
+
   .btn-whatsapp {
-    right: 15px;
-    bottom: 15px;
+    right: 20px;
+    bottom: 20px;
     padding: 10px 14px;
     font-size: 0.85rem;
   }
-  #btnSugerencias {
-    top: 100px;
-    left: 10px;
-    padding: 10px 12px;
-    font-size: 0.85rem;
+
+  .menu {
+    padding: 10px;
+    gap: 8px;
   }
-  .redes h2 {
-    font-size: 2rem;
-  }
-  .social img {
-    width: 40px;
-    height: 40px;
+
+  .tablink {
+    padding: 10px 15px;
+    font-size: 0.9rem;
   }
 }
