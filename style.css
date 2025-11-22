@@ -29,7 +29,7 @@ body {
   min-height: 100vh;
 }
 
-/* ======== Header con logo ======== */
+/* ======== Header con logo (Encabezado/Portada) ======== */
 header {
   background: var(--gradient);
   color: white;
@@ -48,7 +48,8 @@ header::before {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url('img/logo_pasteleria.jpg');
+  /* Nota: Asumo que tienes la imagen 'img/logo_pasteleria.jpg' */
+  background-image: url('img/logo_pasteleria.jpg'); 
   background-size: cover;
   background-position: center;
   opacity: 0.2;
@@ -84,7 +85,7 @@ header p {
   padding: 15px;
   box-shadow: 0 5px 20px rgba(0,0,0,0.1);
   position: relative;
-  z-index: 100; /* Asegurar que el menú esté por encima */
+  z-index: 100;
 }
 
 .tablink {
@@ -114,7 +115,7 @@ header p {
   box-shadow: 0 6px 20px rgba(255, 107, 157, 0.4);
 }
 
-/* Submenu mejorado */
+/* Submenu */
 .submenu-container { 
   position: relative; 
   z-index: 150; 
@@ -157,8 +158,8 @@ header p {
 .tabcontent { 
   display: none; 
   padding: 2rem; 
-  max-width: 1200px; 
-  margin: 2rem auto; 
+  max-width: 1200px; /* Contenedor máximo para centrar el contenido */
+  margin: 2rem auto; /* Centrado horizontal */
   position: relative;
   z-index: 1;
 }
@@ -179,12 +180,12 @@ header p {
   } 
 }
 
-/* ======== Grid de productos (Tarjetas) ======== */
+/* ======== Grid de productos (Tarjetas) - FIX GENERAL LAYOUT ======== */
 .catalogo { 
   display: grid; 
   gap: 2rem; 
-  /* FIX DISEÑO: Usar 250px como tamaño mínimo para un buen equilibrio en PC */
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+  /* FIX: Usar 280px como tamaño mínimo para un mejor ajuste en diferentes resoluciones */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
   padding: 1rem; 
 }
 
@@ -327,7 +328,6 @@ header p {
 }
 
 #listaCarrito li {
-  /* Asegura el layout interno del carrito */
   display: flex;
   justify-content: space-between;
   gap: 10px;
@@ -339,9 +339,8 @@ header p {
   border-radius: 10px;
 }
 
-/* ======== Botón WhatsApp optimizado (Revisado) ======== */
+/* ======== Botón WhatsApp optimizado ======== */
 .btn-whatsapp {
-  /* FIX WHATSAPP: posición fija para que se vea siempre */
   position: fixed;
   right: 25px;
   bottom: 25px;
@@ -365,7 +364,35 @@ header p {
   box-shadow: 0 12px 30px rgba(0, 184, 148, 0.5);
 }
 
-/* ======== Botón de Sugerencias ======== */
+/* ======== Secciones de historia y ubicación ======== */
+.historia, .ubicacion {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+}
+
+.historia h2, .ubicacion h2, .valoraciones h2 {
+  text-align: center;
+  font-family: "Dancing Script", cursive;
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+}
+
+.historia p, .ubicacion p {
+  line-height: 1.7;
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}
+
+.ubicacion iframe {
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* ======== Botón de Sugerencias y Modal ======== */
 #btnSugerencias {
   position: fixed;
   top: 140px;
@@ -387,9 +414,112 @@ header p {
   box-shadow: 0 12px 25px rgba(0,0,0,0.2);
 }
 
-/* ... (resto del CSS) ... */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  z-index: 200;
+  align-items: center;
+  justify-content: center;
+}
 
-/* ======== Responsive ======== */
+.modal-contenido {
+  background: white;
+  width: 95%;
+  max-width: 600px;
+  padding: 30px;
+  border-radius: 20px;
+  position: relative;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+  border: 3px solid var(--primary-color);
+}
+
+/* =========================================== */
+/* ====== FIX: SÍGUENOS EN REDES SOCIALES ====== */
+/* =========================================== */
+.redes {
+  margin-top: 50px;
+  padding: 50px 20px;
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+  box-shadow: 0 0 30px rgba(0,0,0,0.1);
+  background: var(--dark-color);
+  color: white;
+}
+
+.redes__fondo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* Puedes usar una imagen de patrón o dejarlo sin fondo para simplificar */
+  background: rgba(255, 255, 255, 0.1); 
+  opacity: 0.1;
+  z-index: 0;
+}
+
+.redes__capa {
+  position: relative;
+  z-index: 1;
+  max-width: 800px; /* Contiene el contenido de redes */
+  margin: 0 auto;
+}
+
+.redes h2 {
+  font-family: "Dancing Script", cursive;
+  font-size: 3rem;
+  margin-bottom: 10px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+  color: var(--secondary-color);
+}
+
+.redes p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: #ccc;
+}
+
+.iconos-redes {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.social {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.social img {
+  /* FIX CLAVE: Define el tamaño de los íconos para que no sean gigantes */
+  width: 50px; 
+  height: 50px;
+  border-radius: 50%;
+  padding: 5px;
+  background: white;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.social:hover {
+  transform: scale(1.15) rotate(5deg);
+}
+/* =========================================== */
+
+/* ======== Footer ======== */
+footer {
+  background: var(--gradient);
+  color: white;
+  text-align: center;
+  padding: 30px;
+  margin-top: 50px;
+  border-radius: 30px 30px 0 0;
+  font-weight: 500;
+}
+
+/* ======== Responsive (Móvil) ======== */
 @media(max-width: 900px) {
   header h1 {
     font-size: 2.5rem;
@@ -414,130 +544,19 @@ header p {
   .tabcontent {
     padding-bottom: 150px;
   }
-  #btnSugerencias {
-    top: 160px;
-    left: 15px;
-  }
   .btn-whatsapp {
     right: 20px;
     bottom: 20px;
     padding: 10px 14px;
     font-size: 0.85rem;
   }
-  .menu {
-    padding: 10px;
+  .redes h2 {
+    font-size: 2rem;
   }
-  .tablink {
-    padding: 10px 15px;
-    font-size: 0.9rem;
-  }
-}
-.oferta p, .temporada p { 
-  color: #666; 
-  font-size: 0.95rem; 
-  margin: 0 20px 15px;
-  line-height: 1.5;
-}
-
-/* Resto de estilos para .oferta y .temporada */
-.oferta .meta, .temporada .meta { 
-  margin: 15px 20px;
-  text-align: center;
-}
-
-.oferta .precio-num, .temporada .precio-num { 
-  display: none; 
-}
-
-.oferta .precio-texto, .temporada .precio-texto { 
-  color: var(--primary-color);
-  font-weight: 700;
-  font-size: 1.4rem;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-}
-
-.oferta .producto-actions, .temporada .producto-actions { 
-  display: flex; 
-  justify-content: space-between; 
-  align-items: center; 
-  gap: 10px; 
-  margin: 0 20px 20px;
-}
-
-.oferta .qty, .temporada .qty { 
-  width: 70px; 
-  padding: 8px; 
-  border-radius: 10px; 
-  border: 2px solid var(--primary-color); 
-  text-align: center;
-  font-weight: 600;
-  background: white;
-}
-
-.oferta .add-cart, .temporada .add-cart {
-  flex: 1;
-  margin-left: 10px;
-}
-
-.tabcontent h2 + p {
-  font-size: 1.1rem;
-  text-align: center;
-  margin-bottom: 30px;
-  color: var(--dark-color);
-}
-
-/* ======== Footer ======== */
-footer {
-  background: var(--gradient);
-  color: white;
-  text-align: center;
-  padding: 30px;
-  margin-top: 50px;
-  border-radius: 30px 30px 0 0;
-  font-weight: 500;
-}
-
-/* ======== Responsive ======== */
-@media(max-width: 900px) {
-  header h1 {
-    font-size: 2.5rem;
-  }
-  header p {
-    font-size: 1rem;
-  }
-  .catalogo {
-    /* FIX 2: Forzado a 1 columna para asegurar orden en móvil */
-    grid-template-columns: 1fr; 
-    gap: 1.5rem;
-  }
-  #carrito {
-    right: auto;
-    left: 0;
-    bottom: 0;
-    top: auto;
-    width: 100%;
-    border-radius: 20px 20px 0 0;
-    max-height: 60vh;
-  }
-  .tabcontent {
-    padding-bottom: 150px;
-  }
-  #btnSugerencias {
-    top: 160px;
-    left: 15px;
-  }
-  .btn-whatsapp {
-    right: 20px;
-    bottom: 20px;
-    padding: 10px 14px;
-    font-size: 0.85rem;
-  }
-  .menu {
-    padding: 10px;
-  }
-  .tablink {
-    padding: 10px 15px;
-    font-size: 0.9rem;
+  .social img {
+    /* Ajuste en móvil */
+    width: 40px;
+    height: 40px;
   }
 }
 
