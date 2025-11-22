@@ -48,7 +48,7 @@ header::before {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url('/images/Bakery.jpg');
+  background-image: url('img/logo_pasteleria.jpg');
   background-size: cover;
   background-position: center;
   opacity: 0.2;
@@ -83,6 +83,8 @@ header p {
   gap: 10px;
   padding: 15px;
   box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  position: relative;
+  z-index: 100; /* Asegurar que el menú esté por encima */
 }
 
 .tablink {
@@ -112,9 +114,10 @@ header p {
   box-shadow: 0 6px 20px rgba(255, 107, 157, 0.4);
 }
 
-/* Submenu mejorado */
+/* Submenu mejorado - FIX PARA Z-INDEX */
 .submenu-container { 
   position: relative; 
+  z-index: 150; /* Aumentar z-index del contenedor */
 }
 
 .submenu {
@@ -127,7 +130,7 @@ header p {
   left: 0;
   min-width: 200px;
   border-radius: 15px;
-  z-index: 50;
+  z-index: 200; /* Z-index muy alto para que aparezca sobre todo */
   border: 2px solid var(--primary-color);
   overflow: hidden;
 }
@@ -156,6 +159,8 @@ header p {
   padding: 2rem; 
   max-width: 1200px; 
   margin: 2rem auto; 
+  position: relative;
+  z-index: 1; /* Z-index bajo para el contenido */
 }
 
 .tabcontent.active { 
@@ -178,7 +183,8 @@ header p {
 .catalogo { 
   display: grid; 
   gap: 2rem; 
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+  /* FIX: Reducido minmax de 250px a 230px para que las tarjetas sean más pequeñas */
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); 
   padding: 1rem; 
 }
 
@@ -192,6 +198,7 @@ header p {
   position: relative;
   border: 3px solid transparent;
   background-clip: padding-box;
+  z-index: 1; /* Z-index bajo para las tarjetas */
 }
 
 .producto::before {
@@ -310,62 +317,62 @@ header p {
   top: 130px; 
   width: 320px; 
   max-height: 70vh; 
-  overflow: auto;
+  overflow: auto; 
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   border-radius: 20px; 
-  box-shadow: 0 15px 35px rgba(0,0,0,0.15); 
-  padding: 20px;
-  z-index: 80;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+  padding: 20px; 
+  z-index: 80; 
   border: 2px solid var(--primary-color);
 }
 
-#carrito h2 { 
-  margin-bottom: 15px; 
+#carrito h2 {
+  margin-bottom: 15px;
   text-align: center;
   font-family: "Dancing Script", cursive;
   font-size: 1.8rem;
   color: var(--primary-color);
 }
 
-#listaCarrito { 
-  list-style: none; 
-  padding: 0; 
-  margin: 0; 
+#listaCarrito {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-#listaCarrito li { 
-  display: flex; 
-  justify-content: space-between; 
-  gap: 10px; 
-  padding: 10px; 
-  border-bottom: 2px dashed var(--primary-color); 
+#listaCarrito li {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px;
+  border-bottom: 2px dashed var(--primary-color);
   align-items: center;
   background: rgba(255, 255, 255, 0.7);
   margin-bottom: 8px;
   border-radius: 10px;
 }
 
-#total { 
-  text-align: right; 
-  font-weight: 700; 
+#total {
+  text-align: right;
+  font-weight: 700;
   margin-top: 15px;
   font-size: 1.2rem;
   color: var(--primary-color);
 }
 
-.acciones { 
-  display: flex; 
-  justify-content: space-between; 
-  gap: 10px; 
-  margin-top: 15px; 
+.acciones {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 15px;
 }
 
 /* ======== Botón WhatsApp optimizado ======== */
-.btn-whatsapp { 
-  position: fixed; 
-  right: 25px; 
-  bottom: 25px; 
+.btn-whatsapp {
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
   background: var(--success-color);
   color: white;
   padding: 12px 16px;
@@ -383,87 +390,48 @@ header p {
 
 .btn-whatsapp:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 30px rgba(0, 184, 148, 0.4);
+  box-shadow: 0 12px 30px rgba(0, 184, 148, 0.5);
 }
 
-/* ======== Sección de redes sociales ======== */
-.redes { 
-  position: relative; 
-  margin-top: 4rem; 
-  text-align: center; 
-  border-radius: 25px; 
-  overflow: hidden; 
-  max-width: 1200px; 
-  margin-left: auto; 
-  margin-right: auto; 
-  box-shadow: 0 15px 35px rgba(0,0,0,0.2); 
+/* ======== Secciones de historia y ubicación ======== */
+.historia, .ubicacion {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
 }
 
-.redes__fondo { 
-  background: url("/images/Bakery.jpg") center/cover no-repeat; 
-  width: 100%; 
-  height: 350px; 
-  filter: brightness(0.4); 
-}
-
-.redes__capa { 
-  position: absolute; 
-  top: 0; 
-  left: 0; 
-  width: 100%; 
-  height: 350px; 
-  display: flex; 
-  flex-direction: column; 
-  align-items: center; 
-  justify-content: center; 
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
-}
-
-.redes__capa h2 { 
-  color: white; 
-  font-weight: 700;
+.historia h2, .ubicacion h2, .valoraciones h2 {
+  text-align: center;
   font-family: "Dancing Script", cursive;
   font-size: 2.5rem;
-  margin-bottom: 1rem;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
 }
 
-.redes__capa p { 
-  color: white; 
-  font-weight: 500;
-  font-size: 1.2rem;
+.historia p, .ubicacion p {
+  line-height: 1.7;
+  font-size: 1.1rem;
+  margin-bottom: 15px;
 }
 
-.iconos-redes { 
-  display: flex; 
-  justify-content: center; 
-  gap: 20px; 
-  margin-top: 20px; 
+.ubicacion iframe {
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
-.social img { 
-  width: 50px; 
-  height: 50px; 
-  border-radius: 50%; 
-  transition: transform 0.3s ease;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-}
-
-.social:hover img { 
-  transform: scale(1.2) rotate(10deg); 
-}
-
-/* ======== Botón sugerencias mejorado ======== */
-#btnSugerencias { 
-  position: fixed; 
-  left: 25px; 
-  top: 200px; 
-  z-index: 90; 
-  background: var(--secondary-color);
-  border: 2px solid var(--primary-color);
-  padding: 12px 16px; 
-  border-radius: 25px; 
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15); 
-  cursor: pointer; 
+/* ======== Botón de Sugerencias ======== */
+#btnSugerencias {
+  position: fixed;
+  top: 140px;
+  left: 20px;
+  padding: 12px 16px;
+  background: white;
+  border: 2px solid var(--dark-color);
+  border-radius: 50px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  cursor: pointer;
   font-weight: 600;
   color: var(--dark-color);
   transition: all 0.3s ease;
@@ -475,48 +443,48 @@ header p {
 }
 
 /* ======== Modal mejorado ======== */
-.modal { 
-  display: none; 
-  position: fixed; 
-  inset: 0; 
-  background: rgba(0,0,0,0.7); 
-  z-index: 200; 
-  align-items: center; 
-  justify-content: center; 
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  z-index: 200;
+  align-items: center;
+  justify-content: center;
 }
 
-.modal-contenido { 
+.modal-contenido {
   background: white;
-  width: 95%; 
-  max-width: 600px; 
-  padding: 30px; 
-  border-radius: 20px; 
-  position: relative; 
+  width: 95%;
+  max-width: 600px;
+  padding: 30px;
+  border-radius: 20px;
+  position: relative;
   box-shadow: 0 20px 50px rgba(0,0,0,0.3);
   border: 3px solid var(--primary-color);
 }
 
-.cerrar { 
-  position: absolute; 
-  right: 15px; 
-  top: 15px; 
-  font-size: 28px; 
-  cursor: pointer; 
+.cerrar {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  font-size: 28px;
+  cursor: pointer;
   color: var(--primary-color);
   font-weight: bold;
 }
 
 /* ======== Estrellas mejoradas ======== */
-.stars span { 
-  font-size: 32px; 
-  cursor: pointer; 
-  color: #ddd; 
+.stars span {
+  font-size: 32px;
+  cursor: pointer;
+  color: #ddd;
   margin-right: 8px;
   transition: all 0.3s ease;
 }
 
-.stars span.active { 
-  color: #ffb400; 
+.stars span.active {
+  color: #ffb400;
   text-shadow: 0 3px 8px rgba(255, 180, 0, 0.4);
   transform: scale(1.1);
 }
@@ -526,103 +494,167 @@ header p {
 }
 
 /* ======== Formularios mejorados ======== */
-.valor-form { 
-  max-width: 700px; 
-  margin: 0 auto 20px; 
-  display: flex; 
-  flex-direction: column; 
-  gap: 15px; 
+.valor-form {
+  max-width: 700px;
+  margin: 0 auto 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
-.valor-form input, 
-.valor-form textarea,
-#inputNombre, 
-textarea { 
-  padding: 12px; 
-  border: 2px solid var(--primary-color); 
+.valor-form input, .valor-form textarea, #inputNombre, textarea {
+  padding: 12px;
+  border: 2px solid var(--primary-color);
   border-radius: 10px;
   font-family: inherit;
   transition: all 0.3s ease;
   background: rgba(255, 255, 255, 0.9);
 }
 
-.valor-form input:focus,
-.valor-form textarea:focus,
-#inputNombre:focus,
-textarea:focus {
+.valor-form input:focus, .valor-form textarea:focus, #inputNombre:focus, textarea:focus {
   outline: none;
   border-color: var(--accent-color);
-  box-shadow: 0 0 10px rgba(255, 107, 157, 0.3);
+  box-shadow: 0 0 10px rgba(253, 121, 168, 0.3);
+}
+
+.valor-form label {
+  font-weight: 600;
+  margin-top: 5px;
+  color: var(--dark-color);
 }
 
 /* ======== Lista de valoraciones ======== */
-.lista-valoraciones { 
-  list-style: none; 
-  padding: 0; 
-  max-width: 900px; 
-  margin: 20px auto; 
-  display: flex; 
-  flex-direction: column; 
-  gap: 15px; 
+#listaValoraciones {
+  list-style: none;
+  padding: 0;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
-.lista-valoraciones li { 
-  background: rgba(255, 255, 255, 0.9);
-  padding: 20px; 
-  border-radius: 15px; 
-  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-  border-left: 5px solid var(--primary-color);
+#listaValoraciones li {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  padding: 20px;
+  margin-bottom: 15px;
 }
 
-.lista-valoraciones .meta { 
-  font-size: 0.95rem; 
-  color: #666; 
-  margin-bottom: 10px;
-  font-weight: 500;
+#listaValoraciones .meta {
+  font-size: 0.9rem;
+  color: #888;
+  margin-bottom: 5px;
 }
 
-/* ======== Sección Quiénes Somos ======== */
-.historia {
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 20px;
-  padding: 40px;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-  border: 3px solid var(--primary-color);
-}
-
-.historia h2 {
-  font-family: "Dancing Script", cursive;
-  font-size: 2.5rem;
-  color: var(--primary-color);
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.historia p {
+#listaValoraciones .coment {
   font-size: 1.1rem;
-  line-height: 1.8;
   color: var(--dark-color);
-  text-align: justify;
+  line-height: 1.6;
 }
 
-/* ======== Ubicación ======== */
-.ubicacion {
-  background: rgba(255, 255, 255, 0.9);
+/* Clases para .oferta y .temporada (mismo estilo que .producto) */
+.oferta, .temporada {
+  background: white;
   border-radius: 20px;
-  padding: 40px;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-  border: 3px solid var(--primary-color);
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  border: 3px solid transparent;
+  background-clip: padding-box;
+  z-index: 1;
 }
 
-.ubicacion h2 {
+.oferta::before, .temporada::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  background: var(--gradient);
+  border-radius: 20px;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.oferta:hover::before, .temporada:hover::before {
+  opacity: 1;
+}
+
+.oferta:hover, .temporada:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.oferta img, .temporada img { 
+  width: 100%; 
+  height: 220px; 
+  object-fit: cover; 
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.oferta:hover img, .temporada:hover img {
+  transform: scale(1.05);
+}
+
+.oferta h3, .temporada h3 { 
+  margin: 15px 20px 8px; 
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--dark-color);
   font-family: "Dancing Script", cursive;
-  font-size: 2.5rem;
-  color: var(--primary-color);
-  text-align: center;
-  margin-bottom: 20px;
 }
 
-.ubicacion p {
+.oferta p, .temporada p { 
+  color: #666; 
+  font-size: 0.95rem; 
+  margin: 0 20px 15px;
+  line-height: 1.5;
+}
+
+/* Resto de estilos para .oferta y .temporada */
+.oferta .meta, .temporada .meta { 
+  margin: 15px 20px;
+  text-align: center;
+}
+
+.oferta .precio-num, .temporada .precio-num { 
+  display: none; 
+}
+
+.oferta .precio-texto, .temporada .precio-texto { 
+  color: var(--primary-color);
+  font-weight: 700;
+  font-size: 1.4rem;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.oferta .producto-actions, .temporada .producto-actions { 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  gap: 10px; 
+  margin: 0 20px 20px;
+}
+
+.oferta .qty, .temporada .qty { 
+  width: 70px; 
+  padding: 8px; 
+  border-radius: 10px; 
+  border: 2px solid var(--primary-color); 
+  text-align: center;
+  font-weight: 600;
+  background: white;
+}
+
+.oferta .add-cart, .temporada .add-cart {
+  flex: 1;
+  margin-left: 10px;
+}
+
+.tabcontent h2 + p {
   font-size: 1.1rem;
   text-align: center;
   margin-bottom: 30px;
@@ -645,16 +677,14 @@ footer {
   header h1 {
     font-size: 2.5rem;
   }
-  
   header p {
     font-size: 1rem;
   }
-  
   .catalogo {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    /* FIX: Cambiado de 280px a 100% para que las tarjetas ocupen todo el ancho en celular y no se desordenen */
+    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
     gap: 1.5rem;
   }
-  
   #carrito {
     right: auto;
     left: 0;
@@ -664,88 +694,24 @@ footer {
     border-radius: 20px 20px 0 0;
     max-height: 60vh;
   }
-  
-  .tabcontent { 
-    padding-bottom: 150px; 
+  .tabcontent {
+    padding-bottom: 150px;
   }
-  
-  #btnSugerencias { 
-    top: 160px; 
-    left: 15px; 
+  #btnSugerencias {
+    top: 160px;
+    left: 15px;
   }
-  
   .btn-whatsapp {
     right: 20px;
     bottom: 20px;
     padding: 10px 14px;
     font-size: 0.85rem;
   }
-  
   .menu {
     padding: 10px;
-    gap: 8px;
   }
-  
   .tablink {
-    padding: 10px 16px;
+    padding: 10px 15px;
     font-size: 0.9rem;
   }
 }
-
-@media(max-width: 600px) {
-  .producto {
-    margin: 0 10px;
-  }
-  
-  .catalogo {
-    grid-template-columns: 1fr;
-    padding: 0.5rem;
-  }
-  
-  .historia, .ubicacion {
-    padding: 25px;
-    margin: 0 10px;
-  }
-  
-  .modal-contenido {
-    padding: 20px;
-    margin: 0 10px;
-  }
-}
-
-/* ======== Animaciones adicionales ======== */
-@keyframes bounce {
-  0%, 20%, 60%, 100% {
-    transform: translateY(0);
-  }
-  40% {
-    transform: translateY(-10px);
-  }
-  80% {
-    transform: translateY(-5px);
-  }
-}
-
-.btn-whatsapp:hover {
-  animation: bounce 1s;
-}
-
-/* ======== Scrollbar personalizado ======== */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--gradient);
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--primary-color);
-}
-
