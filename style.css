@@ -183,8 +183,8 @@ header p {
 .catalogo { 
   display: grid; 
   gap: 2rem; 
-  /* FIX 1: Reducido a 200px para que las tarjetas sean más pequeñas en PC/Web */
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+  /* FIX 1: Restaurado a 250px para mejor equilibrio de tamaño en PC */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
   padding: 1rem; 
 }
 
@@ -435,6 +435,7 @@ header p {
   font-weight: 600;
   color: var(--dark-color);
   transition: all 0.3s ease;
+  z-index: 99; /* Asegurar que esté por encima de otros elementos */
 }
 
 #btnSugerencias:hover {
@@ -681,8 +682,8 @@ footer {
     font-size: 1rem;
   }
   .catalogo {
-    /* FIX 2: Simplificado para forzar una sola columna en móvil (1fr) */
-    grid-template-columns: repeat(auto-fit, 1fr);
+    /* FIX 2: Forzado a 1 columna para asegurar orden en móvil */
+    grid-template-columns: 1fr; 
     gap: 1.5rem;
   }
   #carrito {
