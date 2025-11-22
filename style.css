@@ -183,7 +183,7 @@ header p {
 .catalogo { 
   display: grid; 
   gap: 2rem; 
-  /* FIX: Reducido minmax de 250px a 230px para que las tarjetas sean más pequeñas */
+  /* FIX 1: Reducido a 230px para asegurar tarjetas más pequeñas */
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); 
   padding: 1rem; 
 }
@@ -681,7 +681,7 @@ footer {
     font-size: 1rem;
   }
   .catalogo {
-    /* FIX: Cambiado de 280px a 100% para que las tarjetas ocupen todo el ancho en celular y no se desordenen */
+    /* FIX 2: Asegura que cada tarjeta ocupe el ancho completo en móvil */
     grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
     gap: 1.5rem;
   }
