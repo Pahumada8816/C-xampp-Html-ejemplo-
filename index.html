@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Pasteles Dulce Pame | Pastelería Artesanal</title>
   <link rel="stylesheet" href="style.css" />
-  
+  <!-- Fuentes de pastelería -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -17,7 +17,7 @@
     <p>✨ Los sabores más dulces de la ciudad ✨</p>
   </header>
 
-  
+  <!-- Menú principal con submenús -->
   <nav class="menu">
     <button class="tablink active" onclick="abrirSeccion(event,'productos')">🍰 Productos</button>
 
@@ -43,7 +43,7 @@
         <a href="#" onclick="filtrarTemporada('Pascua')">🐰 Pascua</a>
         <a href="#" onclick="filtrarTemporada('Día de la Madre')">👩 Día de la Madre</a>
         <a href="#" onclick="filtrarTemporada('Día del Padre')">👨 Día del Padre</a>
-        <a href="#" onclick="filtrarTemporada('Día del Niño')">👶 Día del Niño</a>
+        <a href="#" onclick="filtrarTemporada('Dia del Niño')">👶 Día del Niño</a>
         <a href="#" onclick="filtrarTemporada('Otros')">🎈 Otros</a>
       </div>
     </div>
@@ -53,15 +53,15 @@
     <button class="tablink" onclick="abrirSeccion(event,'valoraciones')">⭐ Valoraciones</button>
   </nav>
 
-  
+  <!-- SECCIONES -->
   <main>
-    
+    <!-- Productos -->
     <section id="productos" class="tabcontent active">
       <div class="catalogo" id="catalogoProductos">
         
         <article class="producto" data-categoria="dulces" data-temporada="">
           <img src="img/cocadas.jpg" alt="Cocadas Artesanales">
-          <h3>🥥 Cocadas Artesanales</h3>
+        <h3>🥥 Cocadas Artesanales</h3>
           <p>Dulce tradicional de coco rallado y leche condensada, preparado con amor. Una explosión de sabor tropical en cada bocado. 210 kcal por porción</p>
           <div class="meta">
             <span class="precio-num">200</span>
@@ -88,7 +88,7 @@
         </article>
 
         <article class="producto" data-categoria="tortas" data-temporada="">
-          <img src="img/torta_cuchufli.jpg" alt="Torta de Cuchuflí Spiderman">
+          <img src="img/torta_cuchufli.jpg">
           <h3>🕷️ Torta Cuchuflí Spiderman</h3>
           <p>Torta clásica de cuchuflí cubierta con crema y decoración temática de Spiderman. Perfecta para celebraciones infantiles. Rinde para 12 porciones. 320 kcal por porción aprox.</p>
           <div class="meta">
@@ -146,7 +146,7 @@
         <article class="producto" data-categoria="dulces" data-temporada="">
           <img src="img/pastelitos_chilenos.jpg" alt="Mini Pasteles Chilenos">
           <h3>🧁 Mini Pasteles Chilenos</h3>
-          <p>Variedad de mini pasteles tradicionales chilenos: milhojas, merenguitos, hojarascas y más. Perfectos para compartir en familia. 160 kcal por unidad aprox.</p>
+          <p>Variedad de mini pasteles tradicionales chilenos: mierenguitos, hojarascas y más. Perfectos para compartir en familia. 160 kcal por unidad aprox.</p>
           <div class="meta">
             <span class="precio-num">700</span>
             <span class="precio-texto">$700</span>
@@ -188,7 +188,7 @@
         <article class="producto" data-categoria="dulces" data-temporada="">
           <img src="img/pack_alfajor.jpg" alt="Pack Alfajores Surtidos">
           <h3>🎁 Pack de 5 Alfajores Surtidos</h3>
-          <p>Pack especial con 5 alfajores artesanales de diferentes sabores: trufa, frambuesa, dulce de leche, chocolate y crema pastelera. Ideal para regalar. 150–180 kcal por unidad aprox.</p>
+          <p>Pack especial con 5 alfajores artesanales de diferentes sabores: trufa, frambuesa, dulce de leche, chocolate y crema pastelera. Ideal paalar. 150–180 kcal por unidad aprox.</p>
           <div class="meta">
             <span class="precio-num">3500</span>
             <span class="precio-texto">$3.500</span>
@@ -273,7 +273,7 @@
 
 <article class="producto" data-categoria="postre" data-temporada="">
   <img src="img/tartaleta_trozo.jpg" alt="Tartaleta de Frutas">
-  <h3>🍓 Tartaleta de Frutas</h3>
+  <h3>🍓 Tartaleta de F3>
   <p>Crujiente base artesanal con suave crema pastelera, coronada con una fresca selección de frutas de temporada. Un postre ligero, colorido y delicioso.</p>
   <div class="meta">
     <span class="precio-num">1300</span>
@@ -342,7 +342,7 @@
 </article>
 
 <article class="producto" data-categoria="dulces" data-temporada="">
-  <img src="img/galletas_amapola.jpg" alt="Galletas Caseras con Amapolas">
+  <img src="img/galletas_amapola.jpg" alt="Galletas Caseras cos">
   <h3>🍪 Galletas Caseras con Amapolas (1 kg)</h3>
   <p>Crujientes galletas artesanales con semillas de amapola. Un sabor suave, delicado y perfecto para acompañar un café o té.</p>
   <div class="meta">
@@ -356,18 +356,18 @@
 </article>
 
 
-
       </div>
     </section>
 
-    
+    <!-- Ofertas -->
     <section id="ofertas" class="tabcontent">
       <h2 style="text-align: center; font-family: 'Dancing Script', cursive; font-size: 2.5rem; color: var(--primary-color); margin-bottom: 2rem;">🎉 Ofertas Especiales 🎉</h2>
       <div class="catalogo" id="catalogoOfertas">
+
         <article class="producto" data-categoria="dulces">
           <img src="img/pack_alfajor.jpg" alt="Pack Dulces Especial">
           <h3>🍭 Pack Dulces x5</h3>
-          <p>Llévate 5 deliciosos productos dulces por solo $3.000. Una oferta imperdible para los amantes de lo dulce.</p>
+   p>Llévate 5 deliciosos productos dulces por solo $3.000. Una oferta imperdible para los amantes de lo dulce.</p>
           <div class="meta"><span class="precio-num">3000</span> <span class="precio-texto">$3.000</span></div>
           <div class="producto-actions">
             <input type="number" min="1" value="1" class="qty">
@@ -375,10 +375,10 @@
           </div>
         </article>
 
-  <article class="oferta" data-categoria="pasteles">
+  <article class="producto" data-categoria="pasteles">
   <img src="img/cajita_chilena.jpg" alt="Cajita Chilena">
   <h3>🇨🇱 Cajita Chilena</h3>
-  <p>Cajita Chilena tradicional, incluye 6 unidades. Deliciosa opción con receta clásica chilena.</p>
+  <p>Cajita Chilena tradicio incluye 6 unidades. Deliciosa opción con receta clásica chilena.</p>
   <div class="meta">
     <span class="precio-num">3500</span> 
     <span class="precio-texto">$3.500</span>
@@ -389,7 +389,7 @@
   </div>
 </article>
 
-<article class="oferta" data-categoria="pasteles">
+<article class="producto" data-categoria="pasteles">
   <img src="img/mini_dulces_promocion.jpg" alt="Mini Pastelitos Surtido">
   <h3>🧁 Mini Pastelitos Surtido</h3>
   <p>Promo especial: 10 unidades de mini pastelitos surtidos. Perfectos para compartir.</p>
@@ -403,7 +403,7 @@
   </div>
 </article>
 
-        <article class="oferta" data-categoria="pasteles">
+        <article class="producto" data-categoria="pasteles">
           <img src="img/alfajor_chileno.jpg" alt="ChocoCoco Doble">
           <h3>🥥 ChocoCoco Doble</h3>
           <p>2x1 en ChocoCoco todos los viernes. No te pierdas esta increíble promoción semanal.</p>
@@ -414,7 +414,7 @@
           </div>
         </article>
 
-        <article class="oferta" data-categoria="dulces">
+        <article class="producto" data-categoria="dulces">
   <img src="img/cajita_mixta.jpg" alt="Cajita Mixta de Alfajores y Cuchuflí">
   <h3>🎁 Cajita Mixta</h3>
   <p>
@@ -439,19 +439,19 @@
   </div>
 </article>
 
-<article class="oferta" data-categoria="postre">
+<article class="producto" data-categoria="postre">
   <img src="img/promocion_kichen_pies.jpg" alt="Pie de Limón o Kuchen de Nuez">
   <h3>🍰 Pie de Limón o Kuchen de Nuez (Trozo)</h3>
   <p>Delicioso trozo de pie de limón o kuchen de nuez, ideal para acompañar cualquier momento.</p>
   <div class="meta"><span class="precio-num">1300</span> <span class="precio-texto">$1.300</span></div>
   <div class="producto-actions">
     <input type="number" min="1" value="1" class="qty">
-    <button class="btn add-cart" data-nombre="Pie/Kuchen Trozo" data-precio="1300">🛒 Añadir</button>
+    <button class="btn add-cart" data-nombre="Pie/Kuchen Trozo" data-pr300">🛒 Añadir</button>
   </div>
 </article>
 
-<article class="oferta" data-categoria="dulces">
-  <img src="img/cocteleria_mix.jpg" alt="Coctelería dulce surtida">
+<article class="producto" data-categoria="dulces">
+  <img src="img/cocteleria_mix.jpg" alt="Coctelerdulce surtida">
   <h3>🍬 Coctelería Dulce Surtida (100 unid.)</h3>
   <p>Mix especial de coctelería dulce con cocadas, galletas de mantequilla y mini palmeritas. Perfecto para eventos, reuniones o celebraciones.</p>
   <div class="meta"><span class="precio-num">25000</span> <span class="precio-texto">$25.000</span></div>
@@ -466,7 +466,7 @@
     </section>
 
     
-    
+    <!-- Temporada -->
     <section id="temporada" class="tabcontent">
       <h2 style="text-align: center; font-family: 'Dancing Script', cursive; font-size: 2.5rem; color: var(--primary-color); margin-bottom: 2rem;">🎊 Catálogo de Temporada</h2>
       <div class="catalogo" id="catalogoTemporada">
@@ -514,8 +514,7 @@
     </article>
 
     <article class="temporada" data-temporada="Halloween">
-      <img src="img/cajita_mix_hallowin4.jpg" alt="Ataúd de Cuchuflí 6 unidades">
-      <h3>⚰️ Ataúd de Cuchuflí (6 unidades)</h3>
+      <img src="img/cajita_mix_hallowin4.jpg" alt="Ataúd de Cuchuflí 6 unidades"h3>⚰️ Ataúd de Cuchuflí (6 unidades)</h3>
       <p>Ataúd temático de Halloween relleno con 6 deliciosos cuchuflí bañados. Perfecto para decorar y disfrutar.</p>
       <div class="meta">
         <span class="precio-num">2500</span>
@@ -527,9 +526,9 @@
       </div>
     </article>
 
-    <article class="temporada" data-categoria="Otros" data-temporada="">
+    <article class="temporada" data-temporada="Otros">
   <img src="img/cajita_chilena.jpg" alt="Cajita Chilena 1">
-  <h3>🍷 Cajita Chilena 1</h3>
+  <h3>🇨🇱 Cajita Chilena 1</h3>
   <p>Dulces chilenos surtidos en una presentación especial. Incluye 6 unidades perfectas para disfrutar o regalar.</p>
   <div class="meta">
     <span class="precio-num">3500</span>
@@ -547,18 +546,28 @@
 </section>
 
 
-    
+    <!-- Quiénes somos -->
+    <section id="quienes" class="tabcontent historia">
+      <h2>🏠 Nuestra Historia</h2>
+      <p>La dulcería Pasteles Dulce Pame nació de un pequeño sueño familiar en 2015. Todo comenzó con un horno casero y una receta de galletas compartida entre amigos. Con el tiempo, la pasión por los dulces nos llevó a crear un espacio lleno de sabor, tradición y mucho cariño. 
+
+      Cada producto que elaboramos lleva el amor y la dedicación de una familia que cree en la importancia de endulzar los momentos especiales de la vida. Utilizamos ingredientes de primera calidad y recetas tradicionales que han pasado de generación en generación.
+
+      Hoy seguimos endulzando momentos especiales con la misma dedicación del primer día, porque sabemos que cada dulce que preparamos puede ser parte de una celebración, un regalo especial o simplemente un momento de felicidad en el día de nuestros clientes.</p>
+    </section>
+
+    <!-- Ubicación -->
     <section id="ubicacion" class="tabcontent ubicacion">
       <h2>📍 ¿Dónde Estamos?</h2>
       <p>🏪 Nos encontramos en Av. Venancia Leiba #1709, La Pintana, a pasos del Metro La Cisterna.</p>
-      <p>📞 Teléfono: +56 9 9933 5740</p>
+      <p>📞o: +56 9 9933 5740</p>
       <p>🕒 Horarios: Lunes a Sábado 9:00 - 20:00 | Domingos 10:00 - 18:00</p>
       <iframe 
         src="https://maps.google.com/maps?q=Plaza%20de%20Armas%20Santiago&t=&z=13&ie=UTF8&iwloc=&output=embed"
         width="100%" height="300" style="border-radius:15px;border:none; margin-top: 20px;"></iframe>
     </section>
 
-    
+    <!-- Valoraciones -->
     <section id="valoraciones" class="tabcontent">
       <h2 style="text-align: center; font-family: 'Dancing Script', cursive; font-size: 2.5rem; color: var(--primary-color); margin-bottom: 2rem;">⭐ Valoraciones y Sugerencias</h2>
       <p style="text-align: center; margin-bottom: 2rem;">Deja tu calificación y comentario — visible para clientes y vendedor.</p>
@@ -590,14 +599,15 @@
 
   </main>
 
-  
+  <!-- Redes sociales -->
   <section class="redes">
     <div class="redes__fondo"></div>
     <div class="redes__capa">
       <h2>🌐 Síguenos en redes sociales</h2>
       <p>Entérate de nuestras promociones y novedades dulces</p>
       <div class="iconos-redes">
-        <a href="https://www.instagram.com" target="_blank" class="social">
+        <a href="https://www.instagram.com/dolce.pamee?utm_source=qr&igsh=cjc1MGlvZ25jcGk4
+            " target="_blank" class="social">
           <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
         </a>
         <a href="https://www.tiktok.com" target="_blank" class="social">
@@ -606,7 +616,7 @@
         <a href="https://www.facebook.com" target="_blank" class="social">
           <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook">
         </a>
-        <a href="mailto:rodrigo.diaz201619@gmail.com" class="social">
+        <a href="/cdn-cgi/l/email-protection#295b464d5b404e46074d4048531b19181f1810694e44484045074a4644" class="social">
         <img src="https://cdn-icons-png.flaticon.com/512/281/281769.png" alt="Gmail">
         </a>
 
@@ -614,7 +624,7 @@
     </div>
   </section>
 
-  
+  <!-- Carrito -->
   <aside id="carrito" aria-label="Carrito de compras">
     <h2>🛒 Mi Carrito</h2>
     <ul id="listaCarrito"></ul>
@@ -625,13 +635,13 @@
     </div>
   </aside>
 
-  
+  <!-- Botón lateral izquierdo: Sugerencias -->
   <button id="btnSugerencias" title="Dejar sugerencia / valoración">⭐ Sugerencias</button>
 
-  
+  <!-- Modal de Sugerencias -->
   <div id="modalSugerencia" class="modal">
     <div class="modal-contenido">
-      <span class="cerrar" id="cerrarModal">×</span>
+      <span class="cerrar" id="cerrarModal">&times;</span>
       <h2 style="font-family: 'Dancing Script', cursive; color: var(--primary-color); text-align: center; margin-bottom: 20px;">⭐ Dejar sugerencia / valoración</h2>
 
       <label>👤 Tu nombre</label>
@@ -653,9 +663,7 @@
         <button class="btn" id="enviarValoracion">📝 Enviar valoración</button>
       </div>
     </div>
-  </div>
-
-  
+  </di- Botón WhatsApp optimizado -->
   <a href="https://wa.me/56999335740" target="_blank" class="btn-whatsapp">
     💬 Chat
   </a>
@@ -664,6 +672,6 @@
     <p>© 2025 Pasteles Dulce Pame | Los sabores más dulces de la ciudad 🧁✨</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="script.js"></script>
 </body>
 </html>
