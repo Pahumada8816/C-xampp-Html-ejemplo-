@@ -48,7 +48,7 @@ header::before {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url('img/logo_pasteleria.jpg');
+  background-image: url('/images/Bakery.jpg');
   background-size: cover;
   background-position: center;
   opacity: 0.2;
@@ -84,7 +84,7 @@ header p {
   padding: 15px;
   box-shadow: 0 5px 20px rgba(0,0,0,0.1);
   position: relative;
-  z-index: 100; /* Asegurar que el menú esté por encima */
+  z-index: 100;
 }
 
 .tablink {
@@ -114,10 +114,10 @@ header p {
   box-shadow: 0 6px 20px rgba(255, 107, 157, 0.4);
 }
 
-/* Submenu mejorado - FIX PARA Z-INDEX */
+/* Submenu mejorado */
 .submenu-container { 
   position: relative; 
-  z-index: 150; /* Aumentar z-index del contenedor */
+  z-index: 150;
 }
 
 .submenu {
@@ -130,7 +130,7 @@ header p {
   left: 0;
   min-width: 200px;
   border-radius: 15px;
-  z-index: 200; /* Z-index muy alto para que aparezca sobre todo */
+  z-index: 200;
   border: 2px solid var(--primary-color);
   overflow: hidden;
 }
@@ -160,7 +160,7 @@ header p {
   max-width: 1200px; 
   margin: 2rem auto; 
   position: relative;
-  z-index: 1; /* Z-index bajo para el contenido */
+  z-index: 1;
 }
 
 .tabcontent.active { 
@@ -183,8 +183,7 @@ header p {
 .catalogo { 
   display: grid; 
   gap: 2rem; 
-  /* FIX: Reducido minmax de 250px a 230px para que las tarjetas sean más pequeñas */
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); 
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
   padding: 1rem; 
 }
 
@@ -198,7 +197,7 @@ header p {
   position: relative;
   border: 3px solid transparent;
   background-clip: padding-box;
-  z-index: 1; /* Z-index bajo para las tarjetas */
+  z-index: 1;
 }
 
 .producto::before {
@@ -614,7 +613,6 @@ header p {
   line-height: 1.5;
 }
 
-/* Resto de estilos para .oferta y .temporada */
 .oferta .meta, .temporada .meta { 
   margin: 15px 20px;
   text-align: center;
@@ -661,6 +659,74 @@ header p {
   color: var(--dark-color);
 }
 
+/* ======== Redes sociales ======== */
+.redes {
+  position: relative;
+  padding: 50px 20px;
+  margin: 50px 0;
+  text-align: center;
+  overflow: hidden;
+}
+
+.redes__fondo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--gradient);
+  opacity: 0.9;
+}
+
+.redes__capa {
+  position: relative;
+  z-index: 2;
+  color: white;
+}
+
+.redes h2 {
+  font-family: "Dancing Script", cursive;
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.redes p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.iconos-redes {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.social {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  padding: 10px;
+}
+
+.social:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.social img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 /* ======== Footer ======== */
 footer {
   background: var(--gradient);
@@ -681,29 +747,31 @@ footer {
     font-size: 1rem;
   }
   .catalogo {
-    /* FIX: Cambiado de 280px a 100% para que las tarjetas ocupen todo el ancho en celular y no se desordenen */
-    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+    grid-template-columns: 1fr;
     gap: 1.5rem;
   }
   #carrito {
-    right: auto;
-    left: 0;
-    bottom: 0;
+    right: 10px;
+    left: 10px;
+    bottom: 10px;
     top: auto;
-    width: 100%;
+    width: auto;
     border-radius: 20px 20px 0 0;
-    max-height: 60vh;
+    max-height: 50vh;
   }
   .tabcontent {
-    padding-bottom: 150px;
+    padding: 1rem;
+    padding-bottom: 200px;
   }
   #btnSugerencias {
-    top: 160px;
-    left: 15px;
+    top: 120px;
+    left: 10px;
+    padding: 10px 12px;
+    font-size: 0.8rem;
   }
   .btn-whatsapp {
-    right: 20px;
-    bottom: 20px;
+    right: 15px;
+    bottom: 15px;
     padding: 10px 14px;
     font-size: 0.85rem;
   }
@@ -713,6 +781,38 @@ footer {
   .tablink {
     padding: 10px 15px;
     font-size: 0.9rem;
+  }
+  .submenu {
+    position: relative;
+    display: block;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+    margin-top: 10px;
+  }
+  .submenu a {
+    padding: 8px 15px;
+    border-radius: 15px;
+    margin-bottom: 5px;
+    background: rgba(255, 255, 255, 0.8);
+  }
+  .modal-contenido {
+    width: 90%;
+    padding: 20px;
+  }
+}
+
+@media(max-width: 600px) {
+  .producto-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .add-cart {
+    margin-left: 0;
+    width: 100%;
+  }
+  .qty {
+    width: 100px;
   }
 }
 
