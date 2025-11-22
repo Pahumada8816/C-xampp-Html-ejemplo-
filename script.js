@@ -1,239 +1,190 @@
-/* ------------------ PESTAÑAS - CORRECCIÓN CLAVE ------------------ */
+/* ------------------ PESTAÑAS ------------------ */
 function abrirSeccion(evt, nombre) {
-  // 1. Oculta todos los contenidos de pestañas
   const tabs = document.querySelectorAll(".tabcontent");
+  const botones = document.querySelectorAll(".tablink");
   tabs.forEach(t => t.classList.remove("active"));
-  
-  // 2. Desactiva todos los botones tablink (limpia el estado)
-  const botones = document.querySelectorAll(".menu > .tablink, .submenu-container > .tablink");
   botones.forEach(b => b.classList.remove("active"));
-  
-  // 3. Muestra la pestaña solicitada
-  const targetTab = document.getElementById(nombre);
-  if (targetTab) targetTab.classList.add("active");
-  
-  // 4. Activa el botón que disparó el evento (si existe, es decir, si es un clic directo)
-  if (evt && evt.currentTarget) {
-    evt.currentTarget.classList.add("active");
-  } else {
-    // Si la llamada es desde filtrar (evt es null), activa el botón principal de esa sección (Productos o Temporada)
-    const defaultButton = document.querySelector(`.menu button[onclick*="'${nombre}'"]`);
-    if (defaultButton) defaultButton.classList.add("active");
-  }
+  document.getElementById(nombre).classList.add("active");
+  if (evt && evt.currentTarget) evt.currentTarget.classList.add("active");
 }
 
-/* ------------------ FILTRADO (submenus) - CORRECCIÓN CLAVE ------------------ */
+/* ------------------ FILTRADO (submenus) ------------------ */
 function filtrar(categoria) {
-  // Abre la sección 'productos' usando null como evento para que abrirSeccion active el botón principal
-  abrirSeccion(null, 'productos'); 
+  abrirSeccion({ currentTarget: document.querySelector(".tablink[onclick*='productos']") }, 'productos');
+  // Se ha cambiado el selector para incluir todos los artículos del catálogo de productos
+  const items = document.querySelectorAll("#catalogoProductos article");
   
-  const items = document.querySelectorAll("#catalogoProductos .producto");
   items.forEach(it => {
     const cat = it.dataset.categoria || "";
-    it.style.display = (cat === categoria || categoria === "") ? "" : "none";
+    // Comprobar si coincide la categoría O si se quiere mostrar todo (categoria vacía/nula)
+    if (cat === categoria || categoria === "") {
+        it.style.display = ""; // Mostrar
+    } else {
+        it.style.display = "none"; // Ocultar
+    }
   });
 }
 
+/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+/* >>>   FUNCIÓN MODIFICADA TAL COMO PEDISTE — SOLO ESTA   <<< */
+/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
 function filtrarTemporada(nombre) {
-  // Abre la sección 'temporada' usando null como evento para que abrirSeccion active el botón principal
-  abrirSeccion(null, 'temporada');
-  
+  abrirSeccion({ currentTarget: document.querySelector(".tablink") }, 'temporada');
   const items = document.querySelectorAll("#catalogoTemporada .temporada, #catalogoTemporada .producto");
   items.forEach(it => {
     const t = it.dataset.temporada || "";
-    it.style.display = (t === nombre || nombre === "") ? "" : "none";
+    it.style.display = (t === nombre) ? "" : "none";
   });
 }
 
+/* ------------------ CARRITO DE COMPRAS ------------------ */
+const carrito = [];
+const listaCarrito = document.getElementById("listaCarrito");
+const totalDisplay = document.getElementById("total");
+const vaciarBtn = document.getElementById("vaciarBtn");
+const enviarBtn = document.getElementById("enviarBtn");
 
-/* ------------------ CARRITO ------------------ */
-let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+// Evento al hacer click en "Añadir"
+document.addEventListener("click", function(e) {
+  if (e.target.classList.contains("add-cart")) {
+    const productoElement = e.target.closest(".producto, .oferta, .temporada");
+    const nombre = e.target.dataset.nombre;
+    const precio = parseInt(e.target.dataset.precio);
+    const cantidad = parseInt(productoElement.querySelector(".qty").value) || 1;
 
-function actualizarCarritoDOM() {
-  const lista = document.getElementById("listaCarrito");
-  const totalEl = document.getElementById("total");
-  lista.innerHTML = "";
+    agregarAlCarrito(nombre, precio, cantidad);
+    actualizarCarrito();
+  }
+});
+
+function agregarAlCarrito(nombre, precio, cantidad) {
+  const index = carrito.findIndex(item => item.nombre === nombre);
+
+  if (index > -1) {
+    carrito[index].cantidad += cantidad;
+  } else {
+    carrito.push({ nombre, precio, cantidad });
+  }
+}
+
+function actualizarCarrito() {
+  listaCarrito.innerHTML = "";
   let total = 0;
-  if (!lista) return;
+
   carrito.forEach((item, index) => {
     const li = document.createElement("li");
+    const subtotal = item.precio * item.cantidad;
+    total += subtotal;
+
     li.innerHTML = `
-      <div style="flex:1">
-        <strong>${item.nombre}</strong><br>
-        <small>${item.cantidad} × $${item.precio}</small>
-      </div>
-      <div style="text-align:right">
-        <div>$${item.precio * item.cantidad}</div>
-        <div style="margin-top:6px">
-          <button onclick="cambiarCantidad(${index}, -1)" style="margin-right:6px">−</button>
-          <button onclick="cambiarCantidad(${index}, 1)">+</button>
-        </div>
-      </div>
+      (${item.cantidad}x) ${item.nombre} - $${subtotal.toLocaleString('es-CL')}
+      <button onclick="eliminarDelCarrito(${index})" style="background: none; border: none; cursor: pointer; color: red;">❌</button>
     `;
-    lista.appendChild(li);
-    total += item.precio * item.cantidad;
+    listaCarrito.appendChild(li);
   });
-  totalEl.textContent = `Total: $${total}`;
-  localStorage.setItem('carrito', JSON.stringify(carrito));
+
+  totalDisplay.textContent = `Total: $${total.toLocaleString('es-CL')}`;
+
+  // Se ha eliminado el código que ocultaba el carrito si estaba vacío.
+  // El carrito ahora será visible siempre según el estilo de CSS.
 }
 
-function cambiarCantidad(index, delta) {
-  carrito[index].cantidad += delta;
-  if (carrito[index].cantidad < 1) carrito.splice(index,1);
-  actualizarCarritoDOM();
+function eliminarDelCarrito(index) {
+  carrito.splice(index, 1);
+  actualizarCarrito();
 }
 
-function agregarAlCarritoNombrePrecio(nombre, precio, cantidad = 1) {
-  const idx = carrito.findIndex(i => i.nombre === nombre && i.precio == precio);
-  if (idx >= 0) {
-    carrito[idx].cantidad += cantidad;
-  } else {
-    carrito.push({ nombre, precio: Number(precio), cantidad: Number(cantidad) });
-  }
-  actualizarCarritoDOM();
-}
-
-document.querySelectorAll(".add-cart").forEach(btn=>{
-  btn.addEventListener("click", (e)=>{
-    const nombre = btn.dataset.nombre;
-    const precio = Number(btn.dataset.precio);
-    const qtyInput = btn.closest(".producto, .oferta, .temporada").querySelector(".qty");
-    const cantidad = qtyInput ? Math.max(1, Number(qtyInput.value)) : 1;
-    agregarAlCarritoNombrePrecio(nombre, precio, cantidad);
-  });
+vaciarBtn.addEventListener("click", () => {
+  carrito.length = 0;
+  actualizarCarrito();
 });
 
-/* vaciar y enviar */
-const vaciarBtn = document.getElementById("vaciarBtn");
-if (vaciarBtn) vaciarBtn.addEventListener("click", ()=>{
-  carrito = [];
-  actualizarCarritoDOM();
-});
-
-/* Enviar pedido a WhatsApp (solo suma de productos) */
-const enviarBtn = document.getElementById("enviarBtn");
-if (enviarBtn) enviarBtn.addEventListener("click", ()=>{
+enviarBtn.addEventListener("click", () => {
   if (carrito.length === 0) {
-    alert("Tu carrito está vacío. ¡Añade algunos productos primero!");
+    alert("El carrito está vacío. Por favor, añade algunos productos.");
     return;
   }
-  let mensaje = "¡Hola! Quisiera hacer el siguiente pedido:%0A%0A";
-  carrito.forEach(it => {
-    mensaje += `*${it.nombre}* — ${it.cantidad} x $${it.precio} = $${it.cantidad * it.precio}%0A`;
-  });
-  const total = carrito.reduce((s,i)=>s + (i.precio * i.cantidad), 0);
-  mensaje += `%0A*Total:* $${total}`;
-  const url = `https://wa.me/56999335740?text=${mensaje}`;
-  window.open(url, "_blank");
+
+  const mensaje = carrito.map(item => {
+    const subtotal = item.precio * item.cantidad;
+    return `(${item.cantidad}x) ${item.nombre} - $${subtotal.toLocaleString('es-CL')}`;
+  }).join('\\n');
+
+  const total = carrito.reduce((sum, item) => sum + item.precio * item.cantidad, 0);
+
+  const mensajeFinal = `Hola, me gustaría hacer un pedido:\\n\\n${mensaje}\\n\\nTotal a pagar: $${total.toLocaleString('es-CL')}`;
+
+  // Número de WhatsApp (ejemplo, debes reemplazarlo)
+  const numeroWhatsApp = "+56999335740";
+  const url = `https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${encodeURIComponent(mensajeFinal)}`;
+
+  window.open(url, '_blank');
 });
 
-/* inicializar carrito en DOM */
-actualizarCarritoDOM();
+// Inicializar el carrito (ahora visible siempre)
+actualizarCarrito();
 
-/* ------------------ VALORACIONES / SUGERENCIAS ------------------ */
-
-// Modal quick-suggest
-const btnSugerencias = document.getElementById("btnSugerencias");
+// ------------------ MODAL SUGERENCIAS Y VALORACIONES ------------------
 const modal = document.getElementById("modalSugerencia");
-const cerrarModalBtn = document.getElementById("cerrarModal");
+const btnSugerencias = document.getElementById("btnSugerencias");
+const cerrarModal = document.getElementById("cerrarModal");
+const stars = document.getElementById("stars");
+const enviarValoracionBtn = document.getElementById("enviarValoracion");
 
-if (btnSugerencias) btnSugerencias.addEventListener("click", ()=> modal.style.display = "flex");
-if (cerrarModalBtn) cerrarModalBtn.addEventListener("click", ()=> modal.style.display = "none");
-window.addEventListener("click", (e)=> {
-  if (e.target === modal) modal.style.display = "none";
-});
-
-// Estrellas del modal (quick-suggest)
-let calificacionModal = 0;
-const starsModal = document.querySelectorAll("#stars span");
-
-function highlightStarsModal(value) {
-  starsModal.forEach(s => {
-    s.classList.remove("active");
-    if (Number(s.dataset.value) <= value) {
-      s.classList.add("active");
-    }
-  });
-}
-
-starsModal.forEach(s => {
-  s.addEventListener("click", ()=> {
-    calificacionModal = Number(s.dataset.value);
-    highlightStarsModal(calificacionModal);
-  });
-  s.addEventListener("mouseenter", ()=> highlightStarsModal(Number(s.dataset.value)));
-  s.addEventListener("mouseleave", ()=> highlightStarsModal(calificacionModal));
-});
-
-
-// Estrellas de la sección (valoraciones)
 let calValor = 0;
-const starsSeccion = document.querySelectorAll("#starsSeccion span");
 
-function highlightStarsSeccion(value) {
-  starsSeccion.forEach(s => {
-    s.classList.remove("active");
-    if (Number(s.dataset.value) <= value) {
-      s.classList.add("active");
-    }
+function highlightStars(rating) {
+  const allStars = stars.querySelectorAll('span');
+  allStars.forEach((star, index) => {
+    star.textContent = index < rating ? '★' : '☆';
+    star.classList.toggle('active', index < rating);
   });
 }
 
-starsSeccion.forEach(s => {
-  s.addEventListener("click", ()=> {
-    calValor = Number(s.dataset.value);
-    highlightStarsSeccion(calValor);
-  });
-  s.addEventListener("mouseenter", ()=> highlightStarsSeccion(Number(s.dataset.value)));
-  s.addEventListener("mouseleave", ()=> highlightStarsSeccion(calValor));
+stars.addEventListener('click', (e) => {
+  if (e.target.tagName === 'SPAN') {
+    calValor = parseInt(e.target.dataset.value);
+    highlightStars(calValor);
+  }
 });
 
+btnSugerencias.onclick = function() {
+  modal.style.display = "flex";
+  // Opcional: Centrar las estrellas al abrir
+  if (calValor > 0) highlightStars(calValor);
+}
 
-// lógica de envío (ambos botones comparten la misma lógica para guardar en localStorage)
-function guardarReseña(nombreId, comentarioId, calificacion) {
-  const nombre = document.getElementById(nombreId).value || "Anónimo";
-  const comentario = document.getElementById(comentarioId).value;
-  const cal = calificacion;
-  
-  if (cal === 0) {
-    alert("Por favor, selecciona una calificación.");
-    return false;
+cerrarModal.onclick = function() {
+  modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+  if (event.target === modal) {
+    modal.style.display = "none";
   }
-  
+}
+
+// Lógica de envío de valoración (sin backend, usa localStorage)
+enviarValoracionBtn.addEventListener("click", () => {
+  if (calValor === 0) {
+    alert("Por favor, selecciona una calificación (estrellas).");
+    return;
+  }
+
+  const nombre = document.getElementById("inputNombre").value || "Cliente Anónimo";
+  const comentario = document.getElementById("inputComentario").value;
   const fecha = new Date().toLocaleDateString('es-CL');
-  const reseña = { nombre, cal, comentario, fecha };
+  const reseña = { nombre, cal: calValor, comentario, fecha };
   const reseñas = JSON.parse(localStorage.getItem("reseñas")) || [];
   reseñas.unshift(reseña);
   localStorage.setItem("reseñas", JSON.stringify(reseñas));
-  
-  document.getElementById(nombreId).value = "";
-  document.getElementById(comentarioId).value = "";
-  
-  return true;
-}
-
-// Botón del Modal (Quick-Suggest)
-const enviarValoracionModal = document.getElementById("enviarValoracion");
-if (enviarValoracionModal) enviarValoracionModal.addEventListener("click", ()=>{
-  if (guardarReseña('inputNombre', 'inputComentario', calificacionModal)) {
-    calificacionModal = 0;
-    highlightStarsModal(0);
-    renderValoraciones();
-    modal.style.display = "none";
-    alert("Gracias por tu sugerencia/valoración ✨");
-  }
-});
-
-
-// Botón de la Sección (Valoraciones)
-const enviarValoracionSeccion = document.getElementById("enviarValoracionSeccion");
-if (enviarValoracionSeccion) enviarValoracionSeccion.addEventListener("click", ()=>{
-  if (guardarReseña('v-nombre', 'v-comentario', calValor)) {
-    calValor = 0;
-    highlightStarsSeccion(0);
-    renderValoraciones();
-    alert("Gracias por tu valoración ✨");
-  }
+  document.getElementById("inputNombre").value = "";
+  document.getElementById("inputComentario").value = "";
+  calValor = 0;
+  highlightStars(0);
+  renderValoraciones();
+  alert("Gracias por tu valoración ✨");
+  modal.style.display = "none"; // Ocultar después de enviar
 });
 
 
