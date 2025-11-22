@@ -4,40 +4,40 @@ function abrirSeccion(evt, nombre) {
   const tabs = document.querySelectorAll(".tabcontent");
   tabs.forEach(t => t.classList.remove("active"));
   
-  // 2. Desactiva todos los botones tablink (excepto submenús)
-  const botones = document.querySelectorAll(".menu > .tablink, .submenu-container > .tablink");
+  // 2. Desactiva todos los botones tablink (limpia el estado)
+  const botones = document.querySelectorAll(".tablink");
   botones.forEach(b => b.classList.remove("active"));
   
   // 3. Muestra la pestaña solicitada
   const targetTab = document.getElementById(nombre);
   if (targetTab) targetTab.classList.add("active");
   
-  // 4. Activa el botón que disparó el evento (si existe)
+  // 4. Activa el botón que disparó el evento (solo si viene de un clic real)
   if (evt && evt.currentTarget) {
     evt.currentTarget.classList.add("active");
   } else {
-    // Si no hay evento (llamada inicial), activa el botón de la sección
+    // Si la llamada es desde filtrar (evt es null), activa el botón de la sección
     const defaultButton = document.querySelector(`.menu button[onclick*="'${nombre}'"]`);
     if (defaultButton) defaultButton.classList.add("active");
   }
 }
 
-/* ------------------ FILTRADO (submenus) ------------------ */
+/* ------------------ FILTRADO (submenus) - CORRECCIÓN CLAVE ------------------ */
 function filtrar(categoria) {
-  // Al filtrar, nos aseguramos de que la sección de productos esté abierta
+  // CORRECCIÓN: Se abre la sección 'productos' pasando null como evento.
+  // Esto evita que JS active incorrectamente el primer botón de la lista,
+  // resolviendo el problema de maquetación al filtrar.
   abrirSeccion(null, 'productos'); 
   
   const items = document.querySelectorAll("#catalogoProductos .producto");
   items.forEach(it => {
     const cat = it.dataset.categoria || "";
-    // Asegura que se muestren todos si la categoría es vacía, o solo los que coinciden
     it.style.display = (cat === categoria || categoria === "") ? "" : "none";
   });
 }
 
-/* ------------------ FILTRADO DE TEMPORADA ------------------ */
 function filtrarTemporada(nombre) {
-  // Al filtrar, nos aseguramos de que la sección de temporada esté abierta
+  // CORRECCIÓN: Se abre la sección 'temporada' pasando null como evento.
   abrirSeccion(null, 'temporada');
   
   const items = document.querySelectorAll("#catalogoTemporada .temporada, #catalogoTemporada .producto");
@@ -251,10 +251,13 @@ window.addEventListener("DOMContentLoaded", ()=> {
   const firstActiveTab = document.querySelector(".tablink.active");
   if (!firstActiveTab) {
     const t = document.querySelector(".tablink");
-    if (t) abrirSeccion({ currentTarget: t }, 'productos'); // Asume 'productos' como la pestaña por defecto
+    // Se llama a abrirSeccion con el primer botón y su contenido, si no hay uno activo.
+    if (t) abrirSeccion({ currentTarget: t }, 'productos'); 
   } else {
     // Si ya hay un botón activo en el HTML, asegura que el contenido se muestre al cargar.
-    const targetName = firstActiveTab.getAttribute('onclick').match(/'([^']*)'/)[1];
-    document.getElementById(targetName).classList.add("active");
+    const targetNameMatch = firstActiveTab.getAttribute('onclick').match(/'([^']*)'/);
+    if (targetNameMatch && targetNameMatch[1]) {
+        document.getElementById(targetNameMatch[1]).classList.add("active");
+    }
   }
 });
