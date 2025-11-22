@@ -11,12 +11,10 @@ function abrirSeccion(evt, nombre) {
 /* ------------------ FILTRADO (submenus) ------------------ */
 function filtrar(categoria) {
   abrirSeccion({ currentTarget: document.querySelector(".tablink[onclick*='productos']") }, 'productos');
-  // Se ha cambiado el selector para incluir todos los artículos del catálogo de productos
-  const items = document.querySelectorAll("#catalogoProductos article");
+  const items = document.querySelectorAll("#catalogoProductos .producto");
   
   items.forEach(it => {
     const cat = it.dataset.categoria || "";
-    // Comprobar si coincide la categoría O si se quiere mostrar todo (categoria vacía/nula)
     if (cat === categoria || categoria === "") {
         it.style.display = ""; // Mostrar
     } else {
@@ -25,9 +23,6 @@ function filtrar(categoria) {
   });
 }
 
-/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
-/* >>>   FUNCIÓN MODIFICADA TAL COMO PEDISTE — SOLO ESTA   <<< */
-/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
 function filtrarTemporada(nombre) {
   abrirSeccion({ currentTarget: document.querySelector(".tablink") }, 'temporada');
   const items = document.querySelectorAll("#catalogoTemporada .temporada, #catalogoTemporada .producto");
@@ -84,9 +79,6 @@ function actualizarCarrito() {
   });
 
   totalDisplay.textContent = `Total: $${total.toLocaleString('es-CL')}`;
-
-  // Se ha eliminado el código que ocultaba el carrito si estaba vacío.
-  // El carrito ahora será visible siempre según el estilo de CSS.
 }
 
 function eliminarDelCarrito(index) {
@@ -114,14 +106,13 @@ enviarBtn.addEventListener("click", () => {
 
   const mensajeFinal = `Hola, me gustaría hacer un pedido:\\n\\n${mensaje}\\n\\nTotal a pagar: $${total.toLocaleString('es-CL')}`;
 
-  // Número de WhatsApp (ejemplo, debes reemplazarlo)
   const numeroWhatsApp = "+56999335740";
   const url = `https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${encodeURIComponent(mensajeFinal)}`;
 
   window.open(url, '_blank');
 });
 
-// Inicializar el carrito (ahora visible siempre)
+// Inicializar el carrito
 actualizarCarrito();
 
 // ------------------ MODAL SUGERENCIAS Y VALORACIONES ------------------
@@ -150,7 +141,6 @@ stars.addEventListener('click', (e) => {
 
 btnSugerencias.onclick = function() {
   modal.style.display = "flex";
-  // Opcional: Centrar las estrellas al abrir
   if (calValor > 0) highlightStars(calValor);
 }
 
@@ -184,9 +174,49 @@ enviarValoracionBtn.addEventListener("click", () => {
   highlightStars(0);
   renderValoraciones();
   alert("Gracias por tu valoración ✨");
-  modal.style.display = "none"; // Ocultar después de enviar
+  modal.style.display = "none";
 });
 
+// Valoraciones en la sección valoraciones
+const vStars = document.getElementById("v-stars");
+const vEnviarBtn = document.getElementById("v-enviar");
+let vCalValor = 0;
+
+function highlightVStars(rating) {
+  const allStars = vStars.querySelectorAll('span');
+  allStars.forEach((star, index) => {
+    star.textContent = index < rating ? '★' : '☆';
+    star.classList.toggle('active', index < rating);
+  });
+}
+
+vStars.addEventListener('click', (e) => {
+  if (e.target.tagName === 'SPAN') {
+    vCalValor = parseInt(e.target.dataset.value);
+    highlightVStars(vCalValor);
+  }
+});
+
+vEnviarBtn.addEventListener("click", () => {
+  if (vCalValor === 0) {
+    alert("Por favor, selecciona una calificación (estrellas).");
+    return;
+  }
+
+  const nombre = document.getElementById("v-nombre").value || "Cliente Anónimo";
+  const comentario = document.getElementById("v-comentario").value;
+  const fecha = new Date().toLocaleDateString('es-CL');
+  const reseña = { nombre, cal: vCalValor, comentario, fecha };
+  const reseñas = JSON.parse(localStorage.getItem("reseñas")) || [];
+  reseñas.unshift(reseña);
+  localStorage.setItem("reseñas", JSON.stringify(reseñas));
+  document.getElementById("v-nombre").value = "";
+  document.getElementById("v-comentario").value = "";
+  vCalValor = 0;
+  highlightVStars(0);
+  renderValoraciones();
+  alert("Gracias por tu valoración ✨");
+});
 
 // renderizar valoraciones
 function renderValoraciones() {
