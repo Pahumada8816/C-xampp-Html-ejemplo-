@@ -1,35 +1,51 @@
 /* ------------------ PESTAÑAS ------------------ */
 function abrirSeccion(evt, nombre) {
+  // 1. Oculta todos los contenidos de pestañas
   const tabs = document.querySelectorAll(".tabcontent");
-  const botones = document.querySelectorAll(".tablink");
   tabs.forEach(t => t.classList.remove("active"));
+  
+  // 2. Desactiva todos los botones tablink (excepto submenús)
+  const botones = document.querySelectorAll(".menu > .tablink, .submenu-container > .tablink");
   botones.forEach(b => b.classList.remove("active"));
-  document.getElementById(nombre).classList.add("active");
-  if (evt && evt.currentTarget) evt.currentTarget.classList.add("active");
+  
+  // 3. Muestra la pestaña solicitada
+  const targetTab = document.getElementById(nombre);
+  if (targetTab) targetTab.classList.add("active");
+  
+  // 4. Activa el botón que disparó el evento (si existe)
+  if (evt && evt.currentTarget) {
+    evt.currentTarget.classList.add("active");
+  } else {
+    // Si no hay evento (llamada inicial), activa el botón de la sección
+    const defaultButton = document.querySelector(`.menu button[onclick*="'${nombre}'"]`);
+    if (defaultButton) defaultButton.classList.add("active");
+  }
 }
 
 /* ------------------ FILTRADO (submenus) ------------------ */
 function filtrar(categoria) {
-  abrirSeccion({ currentTarget: document.querySelector(".tablink") }, 'productos'); // simular
+  // Al filtrar, nos aseguramos de que la sección de productos esté abierta
+  abrirSeccion(null, 'productos'); 
+  
   const items = document.querySelectorAll("#catalogoProductos .producto");
   items.forEach(it => {
     const cat = it.dataset.categoria || "";
+    // Asegura que se muestren todos si la categoría es vacía, o solo los que coinciden
     it.style.display = (cat === categoria || categoria === "") ? "" : "none";
   });
 }
 
-/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
-/* >>>   FUNCIÓN MODIFICADA TAL COMO PEDISTE — SOLO ESTA   <<< */
-/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+/* ------------------ FILTRADO DE TEMPORADA ------------------ */
 function filtrarTemporada(nombre) {
-  abrirSeccion({ currentTarget: document.querySelector(".tablink") }, 'temporada');
+  // Al filtrar, nos aseguramos de que la sección de temporada esté abierta
+  abrirSeccion(null, 'temporada');
+  
   const items = document.querySelectorAll("#catalogoTemporada .temporada, #catalogoTemporada .producto");
   items.forEach(it => {
     const t = it.dataset.temporada || "";
     it.style.display = (t === nombre || nombre === "") ? "" : "none";
   });
 }
-/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
 
 /* ------------------ CARRITO ------------------ */
 let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
@@ -231,9 +247,14 @@ renderValoraciones();
 
 /* ------------------ Utilidades pequeñas ------------------ */
 window.addEventListener("DOMContentLoaded", ()=> {
-  const first = document.querySelector(".tablink.active");
-  if (!first) {
+  // Inicializa la primera pestaña activa al cargar la página si no hay otra activa.
+  const firstActiveTab = document.querySelector(".tablink.active");
+  if (!firstActiveTab) {
     const t = document.querySelector(".tablink");
-    if (t) t.classList.add("active");
+    if (t) abrirSeccion({ currentTarget: t }, 'productos'); // Asume 'productos' como la pestaña por defecto
+  } else {
+    // Si ya hay un botón activo en el HTML, asegura que el contenido se muestre al cargar.
+    const targetName = firstActiveTab.getAttribute('onclick').match(/'([^']*)'/)[1];
+    document.getElementById(targetName).classList.add("active");
   }
 });
