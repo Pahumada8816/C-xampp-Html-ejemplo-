@@ -1,22 +1,22 @@
-/* ------------------ PESTAÑAS ------------------ */
+/* ------------------ PESTAÑAS - CORRECCIÓN CLAVE ------------------ */
 function abrirSeccion(evt, nombre) {
   // 1. Oculta todos los contenidos de pestañas
   const tabs = document.querySelectorAll(".tabcontent");
   tabs.forEach(t => t.classList.remove("active"));
   
   // 2. Desactiva todos los botones tablink (limpia el estado)
-  const botones = document.querySelectorAll(".tablink");
+  const botones = document.querySelectorAll(".menu > .tablink, .submenu-container > .tablink");
   botones.forEach(b => b.classList.remove("active"));
   
   // 3. Muestra la pestaña solicitada
   const targetTab = document.getElementById(nombre);
   if (targetTab) targetTab.classList.add("active");
   
-  // 4. Activa el botón que disparó el evento (solo si viene de un clic real)
+  // 4. Activa el botón que disparó el evento (si existe, es decir, si es un clic directo)
   if (evt && evt.currentTarget) {
     evt.currentTarget.classList.add("active");
   } else {
-    // Si la llamada es desde filtrar (evt es null), activa el botón de la sección
+    // Si la llamada es desde filtrar (evt es null), activa el botón principal de esa sección (Productos o Temporada)
     const defaultButton = document.querySelector(`.menu button[onclick*="'${nombre}'"]`);
     if (defaultButton) defaultButton.classList.add("active");
   }
@@ -24,9 +24,7 @@ function abrirSeccion(evt, nombre) {
 
 /* ------------------ FILTRADO (submenus) - CORRECCIÓN CLAVE ------------------ */
 function filtrar(categoria) {
-  // CORRECCIÓN: Se abre la sección 'productos' pasando null como evento.
-  // Esto evita que JS active incorrectamente el primer botón de la lista,
-  // resolviendo el problema de maquetación al filtrar.
+  // Abre la sección 'productos' usando null como evento para que abrirSeccion active el botón principal
   abrirSeccion(null, 'productos'); 
   
   const items = document.querySelectorAll("#catalogoProductos .producto");
@@ -37,7 +35,7 @@ function filtrar(categoria) {
 }
 
 function filtrarTemporada(nombre) {
-  // CORRECCIÓN: Se abre la sección 'temporada' pasando null como evento.
+  // Abre la sección 'temporada' usando null como evento para que abrirSeccion active el botón principal
   abrirSeccion(null, 'temporada');
   
   const items = document.querySelectorAll("#catalogoTemporada .temporada, #catalogoTemporada .producto");
@@ -46,6 +44,7 @@ function filtrarTemporada(nombre) {
     it.style.display = (t === nombre || nombre === "") ? "" : "none";
   });
 }
+
 
 /* ------------------ CARRITO ------------------ */
 let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
@@ -98,7 +97,7 @@ document.querySelectorAll(".add-cart").forEach(btn=>{
   btn.addEventListener("click", (e)=>{
     const nombre = btn.dataset.nombre;
     const precio = Number(btn.dataset.precio);
-    const qtyInput = btn.closest(".producto").querySelector(".qty");
+    const qtyInput = btn.closest(".producto, .oferta, .temporada").querySelector(".qty");
     const cantidad = qtyInput ? Math.max(1, Number(qtyInput.value)) : 1;
     agregarAlCarritoNombrePrecio(nombre, precio, cantidad);
   });
@@ -114,10 +113,13 @@ if (vaciarBtn) vaciarBtn.addEventListener("click", ()=>{
 /* Enviar pedido a WhatsApp (solo suma de productos) */
 const enviarBtn = document.getElementById("enviarBtn");
 if (enviarBtn) enviarBtn.addEventListener("click", ()=>{
-  if (carrito.length === 0) { alert("Tu carrito está vacío."); return; }
-  let mensaje = "🛍 Pedido desde catálogo:%0A%0A";
-  carrito.forEach((it, i) => {
-    mensaje += `${i+1}. ${it.nombre} — ${it.cantidad} x $${it.precio} = $${it.cantidad * it.precio}%0A`;
+  if (carrito.length === 0) {
+    alert("Tu carrito está vacío. ¡Añade algunos productos primero!");
+    return;
+  }
+  let mensaje = "¡Hola! Quisiera hacer el siguiente pedido:%0A%0A";
+  carrito.forEach(it => {
+    mensaje += `*${it.nombre}* — ${it.cantidad} x $${it.precio} = $${it.cantidad * it.precio}%0A`;
   });
   const total = carrito.reduce((s,i)=>s + (i.precio * i.cantidad), 0);
   mensaje += `%0A*Total:* $${total}`;
@@ -129,100 +131,111 @@ if (enviarBtn) enviarBtn.addEventListener("click", ()=>{
 actualizarCarritoDOM();
 
 /* ------------------ VALORACIONES / SUGERENCIAS ------------------ */
+
 // Modal quick-suggest
 const btnSugerencias = document.getElementById("btnSugerencias");
 const modal = document.getElementById("modalSugerencia");
 const cerrarModalBtn = document.getElementById("cerrarModal");
+
 if (btnSugerencias) btnSugerencias.addEventListener("click", ()=> modal.style.display = "flex");
 if (cerrarModalBtn) cerrarModalBtn.addEventListener("click", ()=> modal.style.display = "none");
-window.addEventListener("click", (e)=> { if (e.target === modal) modal.style.display = "none"; });
+window.addEventListener("click", (e)=> {
+  if (e.target === modal) modal.style.display = "none";
+});
 
-// estrellas del modal
-let calificacionActual = 0;
+// Estrellas del modal (quick-suggest)
+let calificacionModal = 0;
 const starsModal = document.querySelectorAll("#stars span");
-starsModal.forEach(s => {
-  s.addEventListener("mouseenter", ()=> {
-    const v = Number(s.dataset.value);
-    highlightStarsModal(v);
-  });
-  s.addEventListener("mouseleave", ()=> highlightStarsModal(calificacionActual));
-  s.addEventListener("click", ()=> {
-    calificacionActual = Number(s.dataset.value);
-    highlightStarsModal(calificacionActual);
-  });
-});
 
-function highlightStarsModal(v) {
+function highlightStarsModal(value) {
   starsModal.forEach(s => {
-    s.classList.toggle("active", Number(s.dataset.value) <= v);
+    s.classList.remove("active");
+    if (Number(s.dataset.value) <= value) {
+      s.classList.add("active");
+    }
   });
 }
 
-// enviar valoración desde modal
-const enviarValoracionBtn = document.getElementById("enviarValoracion");
-if (enviarValoracionBtn) enviarValoracionBtn.addEventListener("click", ()=>{
-  const nombre = document.getElementById("inputNombre").value.trim() || "Anónimo";
-  const comentario = document.getElementById("inputComentario").value.trim() || "";
-  const cal = calificacionActual || 0;
-  const fecha = new Date().toLocaleString();
-  if (cal === 0 && comentario === "") {
-    alert("Por favor deja una calificación o comentario.");
-    return;
-  }
-  const reseña = { nombre, cal, comentario, fecha };
-  const reseñas = JSON.parse(localStorage.getItem("reseñas")) || [];
-  reseñas.unshift(reseña);
-  localStorage.setItem("reseñas", JSON.stringify(reseñas));
-  modal.style.display = "none";
-  document.getElementById("inputNombre").value = "";
-  document.getElementById("inputComentario").value = "";
-  calificacionActual = 0;
-  highlightStarsModal(0);
-  renderValoraciones();
-  alert("Gracias por tu valoración ✨");
+starsModal.forEach(s => {
+  s.addEventListener("click", ()=> {
+    calificacionModal = Number(s.dataset.value);
+    highlightStarsModal(calificacionModal);
+  });
+  s.addEventListener("mouseenter", ()=> highlightStarsModal(Number(s.dataset.value)));
+  s.addEventListener("mouseleave", ()=> highlightStarsModal(calificacionModal));
 });
 
-// estrellas en sección Valoraciones
+
+// Estrellas de la sección (valoraciones)
 let calValor = 0;
-const starsSeccion = document.querySelectorAll("#v-stars span");
-if (starsSeccion) {
+const starsSeccion = document.querySelectorAll("#starsSeccion span");
+
+function highlightStarsSeccion(value) {
   starsSeccion.forEach(s => {
-    s.addEventListener("mouseenter", ()=>{
-      const v = Number(s.dataset.value);
-      highlightStarsSeccion(v);
-    });
-    s.addEventListener("mouseleave", ()=> highlightStarsSeccion(calValor));
-    s.addEventListener("click", ()=>{
-      calValor = Number(s.dataset.value);
-      highlightStarsSeccion(calValor);
-    });
+    s.classList.remove("active");
+    if (Number(s.dataset.value) <= value) {
+      s.classList.add("active");
+    }
   });
 }
 
-function highlightStarsSeccion(v) {
-  const s = document.querySelectorAll("#v-stars span");
-  s.forEach(st => st.classList.toggle("active", Number(st.dataset.value) <= v));
-}
+starsSeccion.forEach(s => {
+  s.addEventListener("click", ()=> {
+    calValor = Number(s.dataset.value);
+    highlightStarsSeccion(calValor);
+  });
+  s.addEventListener("mouseenter", ()=> highlightStarsSeccion(Number(s.dataset.value)));
+  s.addEventListener("mouseleave", ()=> highlightStarsSeccion(calValor));
+});
 
-// enviar desde sección Valoraciones
-const vEnviar = document.getElementById("v-enviar");
-if (vEnviar) vEnviar.addEventListener("click", ()=>{
-  const nombre = document.getElementById("v-nombre").value.trim() || "Anónimo";
-  const comentario = document.getElementById("v-comentario").value.trim() || "";
-  const cal = calValor || 0;
-  const fecha = new Date().toLocaleString();
-  if (cal === 0 && comentario === "") { alert("Por favor deja una calificación o comentario."); return; }
+
+// lógica de envío (ambos botones comparten la misma lógica para guardar en localStorage)
+function guardarReseña(nombreId, comentarioId, calificacion) {
+  const nombre = document.getElementById(nombreId).value || "Anónimo";
+  const comentario = document.getElementById(comentarioId).value;
+  const cal = calificacion;
+  
+  if (cal === 0) {
+    alert("Por favor, selecciona una calificación.");
+    return false;
+  }
+  
+  const fecha = new Date().toLocaleDateString('es-CL');
   const reseña = { nombre, cal, comentario, fecha };
   const reseñas = JSON.parse(localStorage.getItem("reseñas")) || [];
   reseñas.unshift(reseña);
   localStorage.setItem("reseñas", JSON.stringify(reseñas));
-  document.getElementById("v-nombre").value = "";
-  document.getElementById("v-comentario").value = "";
-  calValor = 0;
-  highlightStarsSeccion(0);
-  renderValoraciones();
-  alert("Gracias por tu valoración ✨");
+  
+  document.getElementById(nombreId).value = "";
+  document.getElementById(comentarioId).value = "";
+  
+  return true;
+}
+
+// Botón del Modal (Quick-Suggest)
+const enviarValoracionModal = document.getElementById("enviarValoracion");
+if (enviarValoracionModal) enviarValoracionModal.addEventListener("click", ()=>{
+  if (guardarReseña('inputNombre', 'inputComentario', calificacionModal)) {
+    calificacionModal = 0;
+    highlightStarsModal(0);
+    renderValoraciones();
+    modal.style.display = "none";
+    alert("Gracias por tu sugerencia/valoración ✨");
+  }
 });
+
+
+// Botón de la Sección (Valoraciones)
+const enviarValoracionSeccion = document.getElementById("enviarValoracionSeccion");
+if (enviarValoracionSeccion) enviarValoracionSeccion.addEventListener("click", ()=>{
+  if (guardarReseña('v-nombre', 'v-comentario', calValor)) {
+    calValor = 0;
+    highlightStarsSeccion(0);
+    renderValoraciones();
+    alert("Gracias por tu valoración ✨");
+  }
+});
+
 
 // renderizar valoraciones
 function renderValoraciones() {
@@ -244,20 +257,3 @@ function renderValoraciones() {
 }
 
 renderValoraciones();
-
-/* ------------------ Utilidades pequeñas ------------------ */
-window.addEventListener("DOMContentLoaded", ()=> {
-  // Inicializa la primera pestaña activa al cargar la página si no hay otra activa.
-  const firstActiveTab = document.querySelector(".tablink.active");
-  if (!firstActiveTab) {
-    const t = document.querySelector(".tablink");
-    // Se llama a abrirSeccion con el primer botón y su contenido, si no hay uno activo.
-    if (t) abrirSeccion({ currentTarget: t }, 'productos'); 
-  } else {
-    // Si ya hay un botón activo en el HTML, asegura que el contenido se muestre al cargar.
-    const targetNameMatch = firstActiveTab.getAttribute('onclick').match(/'([^']*)'/);
-    if (targetNameMatch && targetNameMatch[1]) {
-        document.getElementById(targetNameMatch[1]).classList.add("active");
-    }
-  }
-});
