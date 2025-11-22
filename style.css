@@ -183,8 +183,8 @@ header p {
 .catalogo { 
   display: grid; 
   gap: 2rem; 
-  /* FIX 1: Reducido a 230px para asegurar tarjetas más pequeñas */
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); 
+  /* FIX 1: Reducido a 200px para que las tarjetas sean más pequeñas en PC/Web */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
   padding: 1rem; 
 }
 
@@ -681,8 +681,8 @@ footer {
     font-size: 1rem;
   }
   .catalogo {
-    /* FIX 2: Asegura que cada tarjeta ocupe el ancho completo en móvil */
-    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+    /* FIX 2: Simplificado para forzar una sola columna en móvil (1fr) */
+    grid-template-columns: repeat(auto-fit, 1fr);
     gap: 1.5rem;
   }
   #carrito {
