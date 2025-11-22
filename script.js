@@ -10,8 +10,10 @@ function abrirSeccion(evt, nombre) {
 
 /* ------------------ FILTRADO (submenus) ------------------ */
 function filtrar(categoria) {
+  // Aseguramos que abre la pestaña de productos
   abrirSeccion({ currentTarget: document.querySelector(".tablink[onclick*='productos']") }, 'productos');
-  // Se ha cambiado el selector para incluir todos los artículos del catálogo de productos
+  
+  // Seleccionamos todos los artículos del catálogo de productos
   const items = document.querySelectorAll("#catalogoProductos article");
   
   items.forEach(it => {
@@ -25,15 +27,35 @@ function filtrar(categoria) {
   });
 }
 
-/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
-/* >>>   FUNCIÓN MODIFICADA TAL COMO PEDISTE — SOLO ESTA   <<< */
-/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+/* ------------------ FILTRADO DE TEMPORADA ------------------ */
 function filtrarTemporada(nombre) {
-  abrirSeccion({ currentTarget: document.querySelector(".tablink") }, 'temporada');
+  abrirSeccion({ currentTarget: document.querySelector(".tablink[onclick*='temporada']") }, 'temporada');
   const items = document.querySelectorAll("#catalogoTemporada .temporada, #catalogoTemporada .producto");
   items.forEach(it => {
     const t = it.dataset.temporada || "";
     it.style.display = (t === nombre) ? "" : "none";
+  });
+}
+
+/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+/* >>>         NUEVA FUNCIÓN PARA FILTRAR OFERTAS           <<< */
+/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+function mostrarOfertas() {
+  // 1. Abrimos la pestaña de ofertas
+  abrirSeccion(null, 'ofertas');
+
+  // 2. Seleccionamos todos los elementos en la pestaña de ofertas
+  const items = document.querySelectorAll("#catalogoOfertas .oferta, #catalogoOfertas .producto");
+
+  items.forEach(it => {
+    // 3. Verificamos si tiene la clase 'oferta'. Si la tiene, se muestra.
+    // Asumimos que todos los productos en #catalogoOfertas son ofertas,
+    // pero si hubiera que filtrar solo los con la clase .oferta:
+    if (it.classList.contains("oferta")) {
+        it.style.display = ""; // Mostrar
+    } else {
+        it.style.display = "none"; // Ocultar si no es .oferta (si hay otros elementos)
+    }
   });
 }
 
@@ -85,8 +107,7 @@ function actualizarCarrito() {
 
   totalDisplay.textContent = `Total: $${total.toLocaleString('es-CL')}`;
 
-  // Se ha eliminado el código que ocultaba el carrito si estaba vacío.
-  // El carrito ahora será visible siempre según el estilo de CSS.
+  // El carrito ya no se oculta si está vacío (arreglado previamente).
 }
 
 function eliminarDelCarrito(index) {
@@ -108,11 +129,11 @@ enviarBtn.addEventListener("click", () => {
   const mensaje = carrito.map(item => {
     const subtotal = item.precio * item.cantidad;
     return `(${item.cantidad}x) ${item.nombre} - $${subtotal.toLocaleString('es-CL')}`;
-  }).join('\\n');
+  }).join('\n');
 
   const total = carrito.reduce((sum, item) => sum + item.precio * item.cantidad, 0);
 
-  const mensajeFinal = `Hola, me gustaría hacer un pedido:\\n\\n${mensaje}\\n\\nTotal a pagar: $${total.toLocaleString('es-CL')}`;
+  const mensajeFinal = `Hola, me gustaría hacer un pedido:\n\n${mensaje}\n\nTotal a pagar: $${total.toLocaleString('es-CL')}`;
 
   // Número de WhatsApp (ejemplo, debes reemplazarlo)
   const numeroWhatsApp = "+56999335740";
@@ -121,7 +142,7 @@ enviarBtn.addEventListener("click", () => {
   window.open(url, '_blank');
 });
 
-// Inicializar el carrito (ahora visible siempre)
+// Inicializar el carrito 
 actualizarCarrito();
 
 // ------------------ MODAL SUGERENCIAS Y VALORACIONES ------------------
@@ -150,7 +171,6 @@ stars.addEventListener('click', (e) => {
 
 btnSugerencias.onclick = function() {
   modal.style.display = "flex";
-  // Opcional: Centrar las estrellas al abrir
   if (calValor > 0) highlightStars(calValor);
 }
 
