@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Pasteles Dulce Pame | Pastelería Artesanal</title>
   <link rel="stylesheet" href="style.css" />
-  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -17,7 +16,6 @@
     <p>✨ Los sabores más dulces de la ciudad ✨</p>
   </header>
 
-  
   <nav class="menu">
     <button class="tablink active" onclick="abrirSeccion(event,'productos')">🍰 Productos</button>
 
@@ -26,7 +24,8 @@
       <div class="submenu">
         <a href="#" onclick="filtrar('dulces')">🍬 Dulces</a>
         <a href="#" onclick="filtrar('pasteles')">🎂 Pasteles</a>
-        <a href="#" onclick="filtrar('postres')">🍮 Postres</a> <a href="#" onclick="filtrar('Coctelería')">🍩 Coctelería</a>
+        <a href="#" onclick="filtrar('postres')">🍮 Postres</a>
+        <a href="#" onclick="filtrar('Coctelería')">🍩 Coctelería</a>
         <a href="#" onclick="filtrar('nuevos')">✨ Productos nuevos</a>
       </div>
     </div>
@@ -42,7 +41,7 @@
         <a href="#" onclick="filtrarTemporada('Pascua')">🐰 Pascua</a>
         <a href="#" onclick="filtrarTemporada('Día de la Madre')">👩 Día de la Madre</a>
         <a href="#" onclick="filtrarTemporada('Día del Padre')">👨 Día del Padre</a>
-        <a href="#" onclick="filtrarTemporada('Día del Niño')">👶 Día del Niño</a>
+        <a href="#" onclick="filtrarTemporada('Dia del Niño')">👶 Día del Niño</a>
         <a href="#" onclick="filtrarTemporada('Otros')">🎈 Otros</a>
       </div>
     </div>
@@ -52,15 +51,13 @@
     <button class="tablink" onclick="abrirSeccion(event,'valoraciones')">⭐ Valoraciones</button>
   </nav>
 
-  
   <main>
-    
     <section id="productos" class="tabcontent active">
       <div class="catalogo" id="catalogoProductos">
         
         <article class="producto" data-categoria="dulces" data-temporada="">
           <img src="img/cocadas.jpg" alt="Cocadas Artesanales">
-          <h3>🥥 Cocadas Artesanales</h3>
+        <h3>🥥 Cocadas Artesanales</h3>
           <p>Dulce tradicional de coco rallado y leche condensada, preparado con amor. Una explosión de sabor tropical en cada bocado. 210 kcal por porción</p>
           <div class="meta">
             <span class="precio-num">200</span>
@@ -87,7 +84,7 @@
         </article>
 
         <article class="producto" data-categoria="tortas" data-temporada="">
-          <img src="img/torta_cuchufli.jpg" alt="Torta de Cuchuflí Spiderman">
+          <img src="img/torta_cuchufli.jpg">
           <h3>🕷️ Torta Cuchuflí Spiderman</h3>
           <p>Torta clásica de cuchuflí cubierta con crema y decoración temática de Spiderman. Perfecta para celebraciones infantiles. Rinde para 12 porciones. 320 kcal por porción aprox.</p>
           <div class="meta">
@@ -145,7 +142,7 @@
         <article class="producto" data-categoria="dulces" data-temporada="">
           <img src="img/pastelitos_chilenos.jpg" alt="Mini Pasteles Chilenos">
           <h3>🧁 Mini Pasteles Chilenos</h3>
-          <p>Variedad de mini pasteles tradicionales chilenos: milhojas, merenguitos, hojarascas y más. Perfectos para compartir en familia. 160 kcal por unidad aprox.</p>
+          <p>Variedad de mini pasteles tradicionales chilenos: mierenguitos, hojarascas y más. Perfectos para compartir en familia. 160 kcal por unidad aprox.</p>
           <div class="meta">
             <span class="precio-num">700</span>
             <span class="precio-texto">$700</span>
@@ -187,7 +184,7 @@
         <article class="producto" data-categoria="dulces" data-temporada="">
           <img src="img/pack_alfajor.jpg" alt="Pack Alfajores Surtidos">
           <h3>🎁 Pack de 5 Alfajores Surtidos</h3>
-          <p>Pack especial con 5 alfajores artesanales de diferentes sabores: trufa, frambuesa, dulce de leche, chocolate y crema pastelera. Ideal para regalar. 150–180 kcal por unidad aprox.</p>
+          <p>Pack especial con 5 alfajores artesanales de diferentes sabores: trufa, frambuesa, dulce de leche, chocolate y crema pastelera. Ideal paalar. 150–180 kcal por unidad aprox.</p>
           <div class="meta">
             <span class="precio-num">3500</span>
             <span class="precio-texto">$3.500</span>
@@ -213,120 +210,302 @@
         </article>
 
         <article class="producto" data-categoria="pasteles" data-temporada="">
-          <img src="img/torta_en_vaso.jpg" alt="Torta en Vaso">
-          <h3>🍰 Tortas en Vaso</h3>
-          <p>Deliciosas tortas individuales servidas en un elegante vaso. Capas suaves y rellenos cremosos que cautivan al primer bocado. 
-          Disponible en exquisitos sabores: <strong>Selva Negra, Durazno, Piña, Frambuesa, Frutilla, Tres Leches y Moka</strong>. 
-          Aprox. 320 kcal por unidad.</p>
-          <div class="meta">
-            <span class="precio-num">1600</span>
-            <span class="precio-texto">$1.600</span>
-          </div>
+  <img src="img/torta_en_vaso.jpg" alt="Torta en Vaso">
+  <h3>🍰 Tortas en Vaso</h3>
+  <p>Deliciosas tortas individuales servidas en un elegante vaso. Capas suaves y rellenos cremosos que cautivan al primer bocado. 
+  Disponible en exquisitos sabores: <strong>Selva Negra, Durazno, Piña, Frambuesa, Frutilla, Tres Leches y Moka</strong>.  
+  Aprox. 320 kcal por unidad.</p>
+  <div class="meta">
+    <span class="precio-num">1600</span>
+    <span class="precio-texto">$1.600</span>
+  </div>
+  <div class="producto-actions">
+    <input type="number" min="1" value="1" class="qty">
+    <button class="btn add-cart" data-nombre="Torta en Vaso" data-precio="1600">🛒 Añadir</button>
+  </div>
+</article>
+
+<article class="producto" data-categoria="pasteles" data-temporada="">
+  <img src="img/muffin_zanahoria.jpg" alt="Muffin de Zanahoria">
+  <h3>🥕 Muffin de Zanahoria</h3>
+  <p>Esponjoso muffin de zanahoria hecho con receta casera, un toque de canela y suave cobertura. Perfecto para acompañar tu café o disfrutar a cualquier hora.</p>
+  <div class="meta">
+    <span class="precio-num">800</span>
+    <span class="precio-texto">$800</span>
+  </div>
+  <div class="producto-actions">
+    <input type="number" min="1" value="1" class="qty">
+    <button class="btn add-cart" data-nombre="Muffin de Zanahoria" data-precio="800">🛒 Añadir</button>
+  </div>
+</article>
+
+<article class="producto" data-categoria="pasteles" data-temporada="">
+  <img src="img/muffin_arandano.jpg" alt="Muffin de Arándano">
+  <h3>🫐 Muffin de Arándano</h3>
+  <p>Suave muffin horneado con arándanos frescos, dulce y jugoso en cada bocado. Ideal para acompañar una bebida caliente o disfrutar como snack.</p>
+  <div class="meta">
+    <span class="precio-num">800</span>
+    <span class="precio-texto">$800</span>
+  </div>
+  <div class="producto-actions">
+    <input type="number" min="1" value="1" class="qty">
+    <button class="btn add-cart" data-nombre="Muffin de Arándano" data-precio="800">🛒 Añadir</button>
+  </div>
+</article>
+
+<article class="producto" data-categoria="pasteles" data-temporada="">
+  <img src="img/muffin_chip_chocolate.jpg" alt="Muffin Chip de Chocolate">
+  <h3>🍫 Muffin Chip de Chocolate</h3>
+  <p>Esponjoso muffin relleno y cubierto con chips de chocolate. Dulce, intenso y perfecto para los amantes del cacao.</p>
+  <div class="meta">
+    <span class="precio-num">800</span>
+    <span class="precio-texto">$800</span>
+  </div>
+  <div class="producto-actions">
+    <input type="number" min="1" value="1" class="qty">
+    <button class="btn add-cart" data-nombre="Muffin Chip de Chocolate" data-precio="800">🛒 Añadir</button>
+  </div>
+</article>
+
+<article class="producto" data-categoria="postres" data-temporada="">
+  <img src="img/tartaleta_trozo.jpg" alt="Tartaleta de Frutas">
+  <h3>🍓 Tartaleta de Frutas</h3>
+  <p>Crujiente base artesanal con suave crema pastelera, coronada con una fresca selección de frutas de temporada. Un postre ligero, colorido y delicioso.</p>
+  <div class="meta">
+    <span class="precio-num">1300</span>
+    <span class="precio-texto">$1.300</span>
+  </div>
+  <div class="producto-actions">
+    <input type="number" min="1" value="1" class="qty">
+    <button class="btn add-cart" data-nombre="Tartaleta de Frutas" data-precio="1300">🛒 Añadir</button>
+  </div>
+</article>
+
+<article class="producto" data-categoria="postres" data-temporada="">
+  <img src="img/pie_limon_trozo.jpg" alt="Pie de Limón">
+  <h3>🍋 Pie de Limón</h3>
+  <p>Clásico pie de limón con base crujiente, relleno cremoso y equilibrio perfecto entre dulzura y acidez. Un favorito que nunca falla.</p>
+  <div class="meta">
+    <span class="precio-num">1300</span>
+    <span class="precio-texto">$1.300</span>
+  </div>
+  <div class="producto-actions">
+    <input type="number" min="1" value="1" class="qty">
+    <button class="btn add-cart" data-nombre="Pie de Limón" data-precio="1300">🛒 Añadir</button>
+  </div>
+</article>
+
+<article class="producto" data-categoria="pasteles" data-temporada="">
+  <img src="img/muffin_frambueza.jpg" alt="Muffin de Frambuesa">
+  <h3>🧁 Muffin de Frambuesa</h3>
+  <p>Delicioso muffin esponjoso con frambuesas naturales que aportan un toque fresco y ligeramente ácido. Perfecto para acompañar un café o té.</p>
+  <div class="meta">
+    <span class="precio-num">16000</span>
+    <span class="precio-texto">$16.000</span>
+  </div>
+  <div class="producto-actions">
+    <input type="number" min="1" value="1" class="qty">
+    <button class="btn add-cart" data-nombre="Galletas Caseras con Amapolas (1 kg)" data-precio="16000">🛒 Añadir</button>
+  </div>
+</article>
+
+<article class="producto" data-categoria="dulces" data-temporada="">
+  <img src="img/galletas_amapolas.jpg" alt="Galletas Caseras con Amapolas">
+  <h3>🍪 Galletas Caseras con Amapolas (1 kg)</h3>
+  <p>Caja de un kilo de galletas caseras crujientes con un toque de semillas de amapola. Ideales para compartir y perfecto para acompañar un café o té.</p>
+  <div class="meta">
+    <span class="precio-num">16000</span>
+    <span class="precio-texto">$16.000</span>
+  </div>
+  <div class="producto-actions">
+    <input type="number" min="1" value="1" class="qty">
+    <button class="btn add-cart" data-nombre="Galletas Caseras con Amapolas (1 kg)" data-precio="16000">🛒 Añadir</button>
+  </div>
+</article>
+
+      </div>
+    </section>
+
+    <section id="ofertas" class="tabcontent">
+      <h2 style="text-align: center; font-family: 'Dancing Script', cursive; font-size: 2.5rem; color: var(--primary-color); margin-bottom: 2rem;">🎉 Ofertas Especiales 🎉</h2>
+      <div class="catalogo" id="catalogoOfertas">
+        <article class="producto" data-categoria="dulces">
+          <img src="img/pack_alfajor.jpg" alt="Pack Dulces Especial">
+          <h3>🍭 Pack Dulces x5</h3>
+          <p>Llévate 5 deliciosos productos dulces por solo $3.000. Una oferta imperdible para los amantes de lo dulce.</p>
+          <div class="meta"><span class="precio-num">3000</span> <span class="precio-texto">$3.000</span></div>
           <div class="producto-actions">
             <input type="number" min="1" value="1" class="qty">
-            <button class="btn add-cart" data-nombre="Torta en Vaso" data-precio="1600">🛒 Añadir</button>
+            <button class="btn add-cart" data-nombre="Pack Dulces x3" data-precio="3000">🛒 Añadir</button>
           </div>
         </article>
 
-        <article class="producto" data-categoria="pasteles" data-temporada="">
-          <img src="img/muffin_zanahoria.jpg" alt="Muffin de Zanahoria">
-          <h3>🥕 Muffin de Zanahoria</h3>
-          <p>Esponjoso muffin de zanahoria hecho con receta casera, un toque de canela y suave cobertura. Perfecto para acompañar tu café o disfrutar a cualquier hora.</p>
+        <article class="oferta" data-categoria="pasteles">
+          <img src="img/cajita_chilena.jpg" alt="Cajita Chilena">
+          <h3>🇨🇱 Cajita Chilena</h3>
+          <p>Cajita Chilena tradicio incluye 6 unidades. Deliciosa opción con receta clásica chilena.</p>
           <div class="meta">
-            <span class="precio-num">800</span>
-            <span class="precio-texto">$800</span>
+            <span class="precio-num">3500</span>
+            <span class="precio-texto">$3.500</span>
           </div>
           <div class="producto-actions">
             <input type="number" min="1" value="1" class="qty">
-            <button class="btn add-cart" data-nombre="Muffin de Zanahoria" data-precio="800">🛒 Añadir</button>
+            <button class="btn add-cart" data-nombre="Cajita Chilena" data-precio="3500">🛒 Añadir</button>
           </div>
         </article>
 
-        <article class="producto" data-categoria="pasteles" data-temporada="">
-          <img src="img/muffin_arandano.jpg" alt="Muffin de Arándano">
-          <h3>🫐 Muffin de Arándano</h3>
-          <p>Suave muffin horneado con arándanos frescos, dulce y jugoso en cada bocado. Ideal para acompañar una bebida caliente o disfrutar como snack.</p>
+        <article class="oferta" data-categoria="pasteles">
+          <img src="img/kuchen_trozo.jpg" alt="Pie/Kuchen Trozo">
+          <h3>🥧 Pie/Kuchen Trozo</h3>
+          <p>Porción individual de Pie o Kuchen a elección (manzana, nuez o durazno). Perfecto para acompañar cualquier momento.</p>
+          <div class="meta"><span class="precio-num">1300</span> <span class="precio-texto">$1.300</span></div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Pie/Kuchen Trozo" data-pr300">🛒 Añadir</button>
+          </div>
+        </article>
+
+        <article class="oferta" data-categoria="dulces">
+          <img src="img/cocteleria_mix.jpg" alt="Coctelerdulce surtida">
+          <h3>🍬 Coctelería Dulce Surtida (100 unid.)</h3>
+          <p>Mix especial de coctelería dulce con cocadas, galletas de mantequilla y mini palmeritas. Perfecto para eventos, reuniones o celebraciones.</p>
+          <div class="meta"><span class="precio-num">25000</span> <span class="precio-texto">$25.000</span></div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Coctelería Dulce Surtida (100 unid.)" data-precio="25000">🛒 Añadir</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="temporada" class="tabcontent">
+      <h2 style="text-align: center; font-family: 'Dancing Script', cursive; font-size: 2.5rem; color: var(--primary-color); margin-bottom: 2rem;">🎊 Catálogo de Temporada</h2>
+      <div class="catalogo" id="catalogoTemporada">
+        <article class="temporada" data-temporada="Halloween">
+          <img src="img/cajita_mix_hallowin.jpg" alt="Cajita Mix Halloween">
+          <h3>🎃 Cajita Mix Halloween</h3>
+          <p>Deliciosa cajita surtida temática de Halloween. Ideal para compartir o regalar.</p>
           <div class="meta">
-            <span class="precio-num">800</span>
-            <span class="precio-texto">$800</span>
+            <span class="precio-num">3500</span>
+            <span class="precio-texto">$3.500</span>
           </div>
           <div class="producto-actions">
             <input type="number" min="1" value="1" class="qty">
-            <button class="btn add-cart" data-nombre="Muffin de Arándano" data-precio="800">🛒 Añadir</button>
+            <button class="btn add-cart" data-nombre="Cajita Mix Halloween" data-precio="3500">🛒 Añadir</button>
           </div>
         </article>
 
-        <article class="producto" data-categoria="pasteles" data-temporada="">
-          <img src="img/muffin_chip_chocolate.jpg" alt="Muffin Chip de Chocolate">
-          <h3>🍫 Muffin Chip de Chocolate</h3>
-          <p>Esponjoso muffin relleno y cubierto con chips de chocolate. Dulce, intenso y perfecto para los amantes del cacao.</p>
+        <article class="temporada" data-temporada="Navidad">
+          <img src="img/pan_pascua.jpg" alt="Pan de Pascua Artesanal">
+          <h3>🎄 Pan de Pascua Artesanal</h3>
+          <p>Clásico pan de pascua chileno, húmedo y repleto de frutos secos y confitados. Receta familiar y casera.</p>
           <div class="meta">
-            <span class="precio-num">800</span>
-            <span class="precio-texto">$800</span>
+            <span class="precio-num">8000</span>
+            <span class="precio-texto">$8.000</span>
           </div>
           <div class="producto-actions">
             <input type="number" min="1" value="1" class="qty">
-            <button class="btn add-cart" data-nombre="Muffin Chip de Chocolate" data-precio="800">🛒 Añadir</button>
+            <button class="btn add-cart" data-nombre="Pan de Pascua Artesanal" data-precio="8000">🛒 Añadir</button>
           </div>
         </article>
+      </div>
+    </section>
 
-        <article class="producto" data-categoria="postres" data-temporada="">
-          <img src="img/tartaleta_trozo.jpg" alt="Tartaleta de Frutas">
-          <h3>🍓 Tartaleta de Frutas</h3>
-          <p>Crujiente base artesanal con suave crema pastelera, coronada con una fresca selección de frutas de temporada. Un postre ligero, colorido y delicioso.</p>
-          <div class="meta">
-            <span class="precio-num">1300</span>
-            <span class="precio-texto">$1.300</span>
-          </div>
-          <div class="producto-actions">
-            <input type="number" min="1" value="1" class="qty">
-            <button class="btn add-cart" data-nombre="Tartaleta de Frutas" data-precio="1300">🛒 Añadir</button>
-          </div>
-        </article>
+    <section id="quienes" class="tabcontent historia">
+      <h2>🏠 Nuestra Historia</h2>
+      <p>La dulcería Pasteles Dulce Pame nació de un pequeño sueño familiar en 2015. Todo comenzó con un horno casero y una receta de galletas compartida entre amigos. Con el tiempo, la pasión por los dulces nos llevó a crear un espacio lleno de sabor, tradición y mucho cariño. Cada producto que elaboramos lleva el amor y la dedicación de una familia que cree en la importancia de endulzar los momentos especiales de la vida. Utilizamos ingredientes de primera calidad y recetas tradicionales que han pasado de generación en generación. Hoy seguimos endulzando momentos especiales con la misma dedicación del primer día, porque sabemos que cada dulce que preparamos puede ser parte de una celebración, un regalo especial o simplemente un momento de felicidad en el día de nuestros clientes.</p>
+    </section>
 
-        <article class="producto" data-categoria="postres" data-temporada="">
-          <img src="img/pie_limon_trozo.jpg" alt="Pie de Limón">
-          <h3>🍋 Pie de Limón</h3>
-          <p>Clásico pie de limón con base crujiente, relleno cremoso y equilibrio perfecto entre dulzura y acidez. Un favorito que nunca falla.</p>
-          <div class="meta">
-            <span class="precio-num">1300</span>
-            <span class="precio-texto">$1.300</span>
-          </div>
-          <div class="producto-actions">
-            <input type="number" min="1" value="1" class="qty">
-            <button class="btn add-cart" data-nombre="Pie de Limón" data-precio="1300">🛒 Añadir</button>
-          </div>
-        </article>
+    <section id="ubicacion" class="tabcontent ubicacion">
+      <h2>📍 ¿Dónde Estamos?</h2>
+      <p>🏪 Nos encontramos en Av. Venancia Leiba #1709, La Pintana, a pasos del Metro La Cisterna.</p>
+      <p>📞 Contacto: +56 9 9933 5740</p>
+      <p>🕒 Horarios: Lunes a Sábado 9:00 - 20:00 | Domingos 10:00 - 18:00</p>
+      <iframe src="https://maps.google.com/maps?q=Plaza%20000/svg/La%20Pintana%20Chile" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </section>
 
-        <article class="producto" data-categoria="pasteles" data-temporada="">
-          <img src="img/muffin_frambueza.jpg" alt="Muffin de Frambuesa">
-          <h3>🧁 Muffin de Frambuesa</h3>
-          <p>Delicioso muffin esponjoso con frambuesas naturales que aportan un toque fresco y ligeramente ácido. Perfecto para una merienda ligera.</p>
-          <div class="meta">
-            <span class="precio-num">700</span>
-            <span class="precio-texto">$700</span>
-          </div>
-          <div class="producto-actions">
-            <input type="number" min="1" value="1" class="qty">
-            <button class="btn add-cart" data-nombre="Muffin de Frambuesa" data-precio="700">🛒 Añadir</button>
-          </div>
-        </article>
+    <section id="valoraciones" class="tabcontent valoraciones">
+      <h2 style="text-align: center; font-family: 'Dancing Script', cursive; font-size: 2.5rem; color: var(--primary-color); margin-bottom: 2rem;">⭐ Lo que dicen nuestros clientes ⭐</h2>
 
-        <article class="producto" data-categoria="postres" data-temporada="">
-          <img src="img/tartaleta.jpg" alt="Tartaleta Grande 12 personas">
-          <h3>🥧 Tartaleta Grande</h3>
-          <p>Tartaleta familiar ideal para celebraciones. Base artesanal, crema suave y frutas frescas. Rinde aproximadamente para 12 personas.</p>
-          <div class="meta">
-            <span class="precio-num">9000</span>
-            <span class="precio-texto">$9.000</span>
-          </div>
-          <div class="producto-actions">
-            <input type="number" min="1" value="1" class="qty">
-            <button class="btn add-cart" data-nombre="Tartaleta Grande" data-precio="9000">🛒 Añadir</button>
-          </div>
-        </article>
+      <div class="valor-form">
+        <h3>Tu opinión importa</h3>
+        <label>👤 Tu nombre</label>
+        <input type="text" id="v-nombre" placeholder="Tu nombre (opcional)">
 
-        <article class="producto" data-categoria="Coctelería" data-temporada="">
-          <img src="img/manjar_chocolates.jpg" alt="Galletas Caseras con Manjar y Chocolates">
-          <h3>🍪 Galletas Caseras con Manjar y Chocolates (1 kg)</h3>
-          <p>Deliciosas galletas artesanales rellenas con manjar y bañadas en
+        <label>⭐ Calificación</label>
+        <div id="starsSeccion" class="stars">
+          <span data-value="1">☆</span>
+          <span data-value="2">☆</span>
+          <span data-value="3">☆</span>
+          <span data-value="4">☆</span>
+          <span data-value="5">☆</span>
+        </div>
+
+        <label>💭 Comentario</label>
+        <textarea id="v-comentario" placeholder="Escribe tu comentario..."></textarea>
+
+        <div style="text-align: center; margin-top:15px;">
+          <button class="btn" id="enviarValoracionSeccion">📝 Enviar valoración</button>
+        </div>
+      </div>
+
+      <hr style="border: 1px solid #ddd; margin: 30px 0;">
+
+      <ul id="listaValoraciones" class="valoraciones-lista">
+        </ul>
+
+      <p class="final-msg">¡Gracias por ser parte de Pasteles Dulce Pame!</p>
+    </section>
+  </main>
+
+  <a href="#" class="btn-whatsapp">
+    <img src="img/whatsapp_icon.png" alt="WhatsApp" width="20">
+    Hacer pedido
+  </a>
+
+  <footer>
+    <p>© 2024 Pasteles Dulce Pame. Todos los derechos reservados.</p>
+  </footer>
+
+  <aside id="carrito" aria-label="Carrito de compras">
+    <h2>🛒 Mi Carrito</h2>
+    <ul id="listaCarrito"></ul>
+    <div id="total">Total: $0</div>
+    <div class="acciones">
+      <button class="btn" id="vaciarBtn">🗑️ Vaciar</button>
+      <button class="btn" id="enviarBtn">📱 Pedir por WhatsApp</button>
+    </div>
+  </aside>
+
+  <button id="btnSugerencias" title="Dejar sugerencia / valoración">⭐ Sugerencias</button>
+
+  <div id="modalSugerencia" class="modal">
+    <div class="modal-contenido">
+      <span class="cerrar" id="cerrarModal">&times;</span>
+      <h2 style="font-family: 'Dancing Script', cursive; color: var(--primary-color); text-align: center; margin-bottom: 20px;">⭐ Dejar sugerencia / valoración</h2>
+
+      <label>👤 Tu nombre</label>
+      <input type="text" id="inputNombre" placeholder="Tu nombre (opcional)">
+
+      <label>⭐ Calificación</label>
+      <div id="stars" class="stars">
+        <span data-value="1">☆</span>
+        <span data-value="2">☆</span>
+        <span data-value="3">☆</span>
+        <span data-value="4">☆</span>
+        <span data-value="5">☆</span>
+      </div>
+
+      <label>💭 Comentario</label>
+      <textarea id="inputComentario" placeholder="Escribe tu comentario..."></textarea>
+
+      <div style="margin-top:20px; text-align: center;">
+        <button class="btn" id="enviarValoracion">📝 Enviar valoración</button>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
