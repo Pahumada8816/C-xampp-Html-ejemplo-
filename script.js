@@ -10,203 +10,203 @@ function abrirSeccion(evt, nombre) {
 
 /* ------------------ FILTRADO (submenus) ------------------ */
 function filtrar(categoria) {
-  // Aseguramos que abre la pestaña de productos
-  abrirSeccion({ currentTarget: document.querySelector(".tablink[onclick*='productos']") }, 'productos');
-  
-  // Seleccionamos todos los artículos del catálogo de productos
-  const items = document.querySelectorAll("#catalogoProductos article");
-  
+  abrirSeccion({ currentTarget: document.querySelector(".tablink") }, 'productos'); // simular
+  const items = document.querySelectorAll("#catalogoProductos .producto");
   items.forEach(it => {
     const cat = it.dataset.categoria || "";
-    // Comprobar si coincide la categoría O si se quiere mostrar todo (categoria vacía/nula)
-    if (cat === categoria || categoria === "") {
-        it.style.display = ""; // Mostrar
-    } else {
-        it.style.display = "none"; // Ocultar
-    }
+    it.style.display = (cat === categoria || categoria === "") ? "" : "none";
   });
 }
 
-/* ------------------ FILTRADO DE TEMPORADA ------------------ */
+/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+/* >>>   FUNCIÓN MODIFICADA TAL COMO PEDISTE — SOLO ESTA   <<< */
+/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
 function filtrarTemporada(nombre) {
-  abrirSeccion({ currentTarget: document.querySelector(".tablink[onclick*='temporada']") }, 'temporada');
+  abrirSeccion({ currentTarget: document.querySelector(".tablink") }, 'temporada');
   const items = document.querySelectorAll("#catalogoTemporada .temporada, #catalogoTemporada .producto");
   items.forEach(it => {
     const t = it.dataset.temporada || "";
-    it.style.display = (t === nombre) ? "" : "none";
+    it.style.display = (t === nombre || nombre === "") ? "" : "none";
   });
 }
-
 /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
-/* >>>         NUEVA FUNCIÓN PARA FILTRAR OFERTAS           <<< */
-/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
-function mostrarOfertas() {
-  // 1. Abrimos la pestaña de ofertas
-  abrirSeccion(null, 'ofertas');
 
-  // 2. Seleccionamos todos los elementos en la pestaña de ofertas
-  const items = document.querySelectorAll("#catalogoOfertas .oferta, #catalogoOfertas .producto");
+/* ------------------ CARRITO ------------------ */
+let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 
-  items.forEach(it => {
-    // 3. Verificamos si tiene la clase 'oferta'. Si la tiene, se muestra.
-    // Asumimos que todos los productos en #catalogoOfertas son ofertas,
-    // pero si hubiera que filtrar solo los con la clase .oferta:
-    if (it.classList.contains("oferta")) {
-        it.style.display = ""; // Mostrar
-    } else {
-        it.style.display = "none"; // Ocultar si no es .oferta (si hay otros elementos)
-    }
-  });
-}
-
-/* ------------------ CARRITO DE COMPRAS ------------------ */
-const carrito = [];
-const listaCarrito = document.getElementById("listaCarrito");
-const totalDisplay = document.getElementById("total");
-const vaciarBtn = document.getElementById("vaciarBtn");
-const enviarBtn = document.getElementById("enviarBtn");
-
-// Evento al hacer click en "Añadir"
-document.addEventListener("click", function(e) {
-  if (e.target.classList.contains("add-cart")) {
-    const productoElement = e.target.closest(".producto, .oferta, .temporada");
-    const nombre = e.target.dataset.nombre;
-    const precio = parseInt(e.target.dataset.precio);
-    const cantidad = parseInt(productoElement.querySelector(".qty").value) || 1;
-
-    agregarAlCarrito(nombre, precio, cantidad);
-    actualizarCarrito();
-  }
-});
-
-function agregarAlCarrito(nombre, precio, cantidad) {
-  const index = carrito.findIndex(item => item.nombre === nombre);
-
-  if (index > -1) {
-    carrito[index].cantidad += cantidad;
-  } else {
-    carrito.push({ nombre, precio, cantidad });
-  }
-}
-
-function actualizarCarrito() {
-  listaCarrito.innerHTML = "";
+function actualizarCarritoDOM() {
+  const lista = document.getElementById("listaCarrito");
+  const totalEl = document.getElementById("total");
+  lista.innerHTML = "";
   let total = 0;
-
+  if (!lista) return;
   carrito.forEach((item, index) => {
     const li = document.createElement("li");
-    const subtotal = item.precio * item.cantidad;
-    total += subtotal;
-
     li.innerHTML = `
-      (${item.cantidad}x) ${item.nombre} - $${subtotal.toLocaleString('es-CL')}
-      <button onclick="eliminarDelCarrito(${index})" style="background: none; border: none; cursor: pointer; color: red;">❌</button>
+      <div style="flex:1">
+        <strong>${item.nombre}</strong><br>
+        <small>${item.cantidad} × $${item.precio}</small>
+      </div>
+      <div style="text-align:right">
+        <div>$${item.precio * item.cantidad}</div>
+        <div style="margin-top:6px">
+          <button onclick="cambiarCantidad(${index}, -1)" style="margin-right:6px">−</button>
+          <button onclick="cambiarCantidad(${index}, 1)">+</button>
+        </div>
+      </div>
     `;
-    listaCarrito.appendChild(li);
+    lista.appendChild(li);
+    total += item.precio * item.cantidad;
   });
-
-  totalDisplay.textContent = `Total: $${total.toLocaleString('es-CL')}`;
-
-  // El carrito ya no se oculta si está vacío (arreglado previamente).
+  totalEl.textContent = `Total: $${total}`;
+  localStorage.setItem('carrito', JSON.stringify(carrito));
 }
 
-function eliminarDelCarrito(index) {
-  carrito.splice(index, 1);
-  actualizarCarrito();
+function cambiarCantidad(index, delta) {
+  carrito[index].cantidad += delta;
+  if (carrito[index].cantidad < 1) carrito.splice(index,1);
+  actualizarCarritoDOM();
 }
 
-vaciarBtn.addEventListener("click", () => {
-  carrito.length = 0;
-  actualizarCarrito();
-});
-
-enviarBtn.addEventListener("click", () => {
-  if (carrito.length === 0) {
-    alert("El carrito está vacío. Por favor, añade algunos productos.");
-    return;
+function agregarAlCarritoNombrePrecio(nombre, precio, cantidad = 1) {
+  const idx = carrito.findIndex(i => i.nombre === nombre && i.precio == precio);
+  if (idx >= 0) {
+    carrito[idx].cantidad += cantidad;
+  } else {
+    carrito.push({ nombre, precio: Number(precio), cantidad: Number(cantidad) });
   }
+  actualizarCarritoDOM();
+}
 
-  const mensaje = carrito.map(item => {
-    const subtotal = item.precio * item.cantidad;
-    return `(${item.cantidad}x) ${item.nombre} - $${subtotal.toLocaleString('es-CL')}`;
-  }).join('\n');
-
-  const total = carrito.reduce((sum, item) => sum + item.precio * item.cantidad, 0);
-
-  const mensajeFinal = `Hola, me gustaría hacer un pedido:\n\n${mensaje}\n\nTotal a pagar: $${total.toLocaleString('es-CL')}`;
-
-  // Número de WhatsApp (ejemplo, debes reemplazarlo)
-  const numeroWhatsApp = "+56999335740";
-  const url = `https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${encodeURIComponent(mensajeFinal)}`;
-
-  window.open(url, '_blank');
+document.querySelectorAll(".add-cart").forEach(btn=>{
+  btn.addEventListener("click", (e)=>{
+    const nombre = btn.dataset.nombre;
+    const precio = Number(btn.dataset.precio);
+    const qtyInput = btn.closest(".producto").querySelector(".qty");
+    const cantidad = qtyInput ? Math.max(1, Number(qtyInput.value)) : 1;
+    agregarAlCarritoNombrePrecio(nombre, precio, cantidad);
+  });
 });
 
-// Inicializar el carrito 
-actualizarCarrito();
+/* vaciar y enviar */
+const vaciarBtn = document.getElementById("vaciarBtn");
+if (vaciarBtn) vaciarBtn.addEventListener("click", ()=>{
+  carrito = [];
+  actualizarCarritoDOM();
+});
 
-// ------------------ MODAL SUGERENCIAS Y VALORACIONES ------------------
-const modal = document.getElementById("modalSugerencia");
+/* Enviar pedido a WhatsApp (solo suma de productos) */
+const enviarBtn = document.getElementById("enviarBtn");
+if (enviarBtn) enviarBtn.addEventListener("click", ()=>{
+  if (carrito.length === 0) { alert("Tu carrito está vacío."); return; }
+  let mensaje = "🛍 Pedido desde catálogo:%0A%0A";
+  carrito.forEach((it, i) => {
+    mensaje += `${i+1}. ${it.nombre} — ${it.cantidad} x $${it.precio} = $${it.cantidad * it.precio}%0A`;
+  });
+  const total = carrito.reduce((s,i)=>s + (i.precio * i.cantidad), 0);
+  mensaje += `%0A*Total:* $${total}`;
+  const url = `https://wa.me/56999335740?text=${mensaje}`;
+  window.open(url, "_blank");
+});
+
+/* inicializar carrito en DOM */
+actualizarCarritoDOM();
+
+/* ------------------ VALORACIONES / SUGERENCIAS ------------------ */
+// Modal quick-suggest
 const btnSugerencias = document.getElementById("btnSugerencias");
-const cerrarModal = document.getElementById("cerrarModal");
-const stars = document.getElementById("stars");
-const enviarValoracionBtn = document.getElementById("enviarValoracion");
+const modal = document.getElementById("modalSugerencia");
+const cerrarModalBtn = document.getElementById("cerrarModal");
+if (btnSugerencias) btnSugerencias.addEventListener("click", ()=> modal.style.display = "flex");
+if (cerrarModalBtn) cerrarModalBtn.addEventListener("click", ()=> modal.style.display = "none");
+window.addEventListener("click", (e)=> { if (e.target === modal) modal.style.display = "none"; });
 
-let calValor = 0;
+// estrellas del modal
+let calificacionActual = 0;
+const starsModal = document.querySelectorAll("#stars span");
+starsModal.forEach(s => {
+  s.addEventListener("mouseenter", ()=> {
+    const v = Number(s.dataset.value);
+    highlightStarsModal(v);
+  });
+  s.addEventListener("mouseleave", ()=> highlightStarsModal(calificacionActual));
+  s.addEventListener("click", ()=> {
+    calificacionActual = Number(s.dataset.value);
+    highlightStarsModal(calificacionActual);
+  });
+});
 
-function highlightStars(rating) {
-  const allStars = stars.querySelectorAll('span');
-  allStars.forEach((star, index) => {
-    star.textContent = index < rating ? '★' : '☆';
-    star.classList.toggle('active', index < rating);
+function highlightStarsModal(v) {
+  starsModal.forEach(s => {
+    s.classList.toggle("active", Number(s.dataset.value) <= v);
   });
 }
 
-stars.addEventListener('click', (e) => {
-  if (e.target.tagName === 'SPAN') {
-    calValor = parseInt(e.target.dataset.value);
-    highlightStars(calValor);
-  }
-});
-
-btnSugerencias.onclick = function() {
-  modal.style.display = "flex";
-  if (calValor > 0) highlightStars(calValor);
-}
-
-cerrarModal.onclick = function() {
-  modal.style.display = "none";
-}
-
-window.onclick = function(event) {
-  if (event.target === modal) {
-    modal.style.display = "none";
-  }
-}
-
-// Lógica de envío de valoración (sin backend, usa localStorage)
-enviarValoracionBtn.addEventListener("click", () => {
-  if (calValor === 0) {
-    alert("Por favor, selecciona una calificación (estrellas).");
+// enviar valoración desde modal
+const enviarValoracionBtn = document.getElementById("enviarValoracion");
+if (enviarValoracionBtn) enviarValoracionBtn.addEventListener("click", ()=>{
+  const nombre = document.getElementById("inputNombre").value.trim() || "Anónimo";
+  const comentario = document.getElementById("inputComentario").value.trim() || "";
+  const cal = calificacionActual || 0;
+  const fecha = new Date().toLocaleString();
+  if (cal === 0 && comentario === "") {
+    alert("Por favor deja una calificación o comentario.");
     return;
   }
-
-  const nombre = document.getElementById("inputNombre").value || "Cliente Anónimo";
-  const comentario = document.getElementById("inputComentario").value;
-  const fecha = new Date().toLocaleDateString('es-CL');
-  const reseña = { nombre, cal: calValor, comentario, fecha };
+  const reseña = { nombre, cal, comentario, fecha };
   const reseñas = JSON.parse(localStorage.getItem("reseñas")) || [];
   reseñas.unshift(reseña);
   localStorage.setItem("reseñas", JSON.stringify(reseñas));
+  modal.style.display = "none";
   document.getElementById("inputNombre").value = "";
   document.getElementById("inputComentario").value = "";
-  calValor = 0;
-  highlightStars(0);
+  calificacionActual = 0;
+  highlightStarsModal(0);
   renderValoraciones();
   alert("Gracias por tu valoración ✨");
-  modal.style.display = "none"; // Ocultar después de enviar
 });
 
+// estrellas en sección Valoraciones
+let calValor = 0;
+const starsSeccion = document.querySelectorAll("#v-stars span");
+if (starsSeccion) {
+  starsSeccion.forEach(s => {
+    s.addEventListener("mouseenter", ()=>{
+      const v = Number(s.dataset.value);
+      highlightStarsSeccion(v);
+    });
+    s.addEventListener("mouseleave", ()=> highlightStarsSeccion(calValor));
+    s.addEventListener("click", ()=>{
+      calValor = Number(s.dataset.value);
+      highlightStarsSeccion(calValor);
+    });
+  });
+}
+
+function highlightStarsSeccion(v) {
+  const s = document.querySelectorAll("#v-stars span");
+  s.forEach(st => st.classList.toggle("active", Number(st.dataset.value) <= v));
+}
+
+// enviar desde sección Valoraciones
+const vEnviar = document.getElementById("v-enviar");
+if (vEnviar) vEnviar.addEventListener("click", ()=>{
+  const nombre = document.getElementById("v-nombre").value.trim() || "Anónimo";
+  const comentario = document.getElementById("v-comentario").value.trim() || "";
+  const cal = calValor || 0;
+  const fecha = new Date().toLocaleString();
+  if (cal === 0 && comentario === "") { alert("Por favor deja una calificación o comentario."); return; }
+  const reseña = { nombre, cal, comentario, fecha };
+  const reseñas = JSON.parse(localStorage.getItem("reseñas")) || [];
+  reseñas.unshift(reseña);
+  localStorage.setItem("reseñas", JSON.stringify(reseñas));
+  document.getElementById("v-nombre").value = "";
+  document.getElementById("v-comentario").value = "";
+  calValor = 0;
+  highlightStarsSeccion(0);
+  renderValoraciones();
+  alert("Gracias por tu valoración ✨");
+});
 
 // renderizar valoraciones
 function renderValoraciones() {
@@ -228,3 +228,12 @@ function renderValoraciones() {
 }
 
 renderValoraciones();
+
+/* ------------------ Utilidades pequeñas ------------------ */
+window.addEventListener("DOMContentLoaded", ()=> {
+  const first = document.querySelector(".tablink.active");
+  if (!first) {
+    const t = document.querySelector(".tablink");
+    if (t) t.classList.add("active");
+  }
+});
