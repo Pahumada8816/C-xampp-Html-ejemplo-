@@ -181,384 +181,381 @@ header p {
 }
 
 /* ======== Grid de productos (Tarjetas) - FIX GENERAL LAYOUT ======== */
-.catalogo { 
-  display: grid; 
-  gap: 2rem; 
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-  padding: 1rem; 
+.catalogo { 
+  display: grid; 
+  gap: 2rem; 
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+  padding: 1rem; 
 }
 
 /* ======== Estilos de Tarjetas (producto, oferta, temporada) ======== */
 .producto, .oferta, .temporada {
-  background: white;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-  transition: all 0.3s ease;
-  position: relative;
-  border: 3px solid transparent;
-  background-clip: padding-box;
-  z-index: 1;
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  border: 3px solid transparent;
+  background-clip: padding-box;
+  z-index: 1;
 }
 
 .producto::before, .oferta::before, .temporada::before {
-  content: '';
-  position: absolute;
-  top: -3px;
-  left: -3px;
-  right: -3px;
-  bottom: -3px;
-  background: var(--gradient);
-  border-radius: 20px;
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  background: var(--gradient);
+  border-radius: 20px;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .producto:hover::before, .oferta:hover::before, .temporada:hover::before {
-  opacity: 1;
+  opacity: 1;
 }
 
 .producto:hover, .oferta:hover, .temporada:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
 }
 
-.producto img, .oferta img, .temporada img { 
-  width: 100%; 
-  height: 220px; 
-  object-fit: cover; 
-  display: block;
-  transition: transform 0.3s ease;
+.producto img, .oferta img, .temporada img { 
+  width: 100%; 
+  height: 220px; 
+  object-fit: cover; 
+  display: block;
+  transition: transform 0.3s ease;
 }
 
 .producto:hover img, .oferta:hover img, .temporada:hover img {
-  transform: scale(1.05);
+  transform: scale(1.05);
 }
 
-.producto h3, .oferta h3, .temporada h3 { 
-  margin: 15px 20px 8px; 
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: var(--dark-color);
-  font-family: "Dancing Script", cursive;
+.producto h3, .oferta h3, .temporada h3 { 
+  margin: 15px 20px 8px; 
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--dark-color);
+  font-family: "Dancing Script", cursive;
 }
 
-.producto p, .oferta p, .temporada p { 
-  color: #666; 
-  font-size: 0.95rem; 
-  margin: 0 20px 15px;
-  line-height: 1.5;
+.producto p, .oferta p, .temporada p { 
+  color: #666; 
+  font-size: 0.95rem; 
+  margin: 0 20px 15px;
+  line-height: 1.5;
 }
 
 /* Precio y acciones */
-.meta { 
-  margin: 15px 20px;
-  text-align: center;
+.meta { 
+  margin: 15px 20px;
+  text-align: center;
 }
 
-.precio-num { 
-  display: none; 
+.precio-num { 
+  display: none; 
 }
 
-.precio-texto { 
-  color: var(--primary-color);
-  font-weight: 700;
-  font-size: 1.4rem;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+.precio-texto { 
+  color: var(--primary-color);
+  font-weight: 700;
+  font-size: 1.4rem;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 }
 
-.producto-actions { 
-  display: flex; 
-  justify-content: space-between; 
-  align-items: center; 
-  gap: 10px; 
-  margin: 0 20px 20px;
+.producto-actions { 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  gap: 10px; 
+  margin: 0 20px 20px;
 }
 
-.qty { 
-  width: 70px; 
-  padding: 8px; 
-  border-radius: 10px; 
-  border: 2px solid var(--primary-color); 
-  text-align: center;
-  font-weight: 600;
-  background: white;
+.qty { 
+  width: 70px; 
+  padding: 8px; 
+  border-radius: 10px; 
+  border: 2px solid var(--primary-color); 
+  text-align: center;
+  font-weight: 600;
+  background: white;
 }
 
 /* Botones mejorados */
-.btn { 
-  background: var(--gradient);
-  color: white; 
-  border: none; 
-  padding: 10px 16px; 
-  border-radius: 25px; 
-  cursor: pointer;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);
+.btn { 
+  background: var(--gradient);
+  color: white; 
+  border: none; 
+  padding: 10px 16px; 
+  border-radius: 25px; 
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);
 }
 
-.btn:hover { 
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255, 107, 157, 0.4);
+.btn:hover { 
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 107, 157, 0.4);
 }
 
 .add-cart {
-  flex: 1;
-  margin-left: 10px;
+  flex: 1;
+  margin-left: 10px;
 }
 
 /* ======== Carrito mejorado ======== */
 #carrito {
-  position: fixed; 
-  right: 20px; 
-  top: 130px; 
-  width: 320px; 
-  max-height: 70vh; 
-  overflow: auto; 
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  border-radius: 20px; 
-  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-  padding: 20px; 
-  z-index: 80; 
-  border: 2px solid var(--primary-color);
+  position: fixed; 
+  right: 20px; 
+  top: 130px; 
+  width: 320px; 
+  max-height: 70vh; 
+  overflow: auto; 
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20px; 
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+  padding: 20px; 
+  z-index: 80; /* Menos que el menú y WhatsApp */
+  border: 2px solid var(--primary-color);
 }
 
 #listaCarrito li {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  padding: 10px;
-  border-bottom: 2px dashed var(--primary-color);
-  align-items: center;
-  background: rgba(255, 255, 255, 0.7);
-  margin-bottom: 8px;
-  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px;
+  border-bottom: 2px dashed var(--primary-color);
+  align-items: center;
+  background: rgba(255, 255, 255, 0.7);
+  margin-bottom: 8px;
+  border-radius: 10px;
 }
 
 /* ======== Botón WhatsApp optimizado (Z-INDEX ALTO) ======== */
 .btn-whatsapp {
-  position: fixed;
-  right: 25px;
-  bottom: 25px;
-  background: var(--success-color);
-  color: white;
-  padding: 12px 16px;
-  border-radius: 50px;
-  text-decoration: none;
-  box-shadow: 0 8px 25px rgba(0, 184, 148, 0.3);
-  **z-index: 1002;** /* FIX: Asegurar que esté sobre todo (menú 1000, submenú 1001) */
-  font-weight: 600;
-  font-size: 0.9rem;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
+  background: var(--success-color);
+  color: white;
+  padding: 12px 16px;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 8px 25px rgba(0, 184, 148, 0.3);
+  z-index: 1002; /* FIX: Asegurar que esté sobre todo */
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .btn-whatsapp:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 30px rgba(0, 184, 148, 0.5);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 184, 148, 0.5);
 }
 
 /* ======== Secciones de historia y ubicación ======== */
 .historia, .ubicacion {
-  background: white;
-  padding: 30px;
-  border-radius: 20px;
-  box-shadow: var(--shadow);
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
 }
 
 .historia h2, .ubicacion h2, .valoraciones h2 {
-  text-align: center;
-  font-family: "Dancing Script", cursive;
-  font-size: 2.5rem;
-  color: var(--primary-color);
-  margin-bottom: 1.5rem;
+  text-align: center;
+  font-family: "Dancing Script", cursive;
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
 }
 
 .historia p, .ubicacion p {
-  line-height: 1.7;
-  font-size: 1.1rem;
-  margin-bottom: 15px;
+  line-height: 1.7;
+  font-size: 1.1rem;
+  margin-bottom: 15px;
 }
 
 .ubicacion iframe {
-  width: 100%;
-  border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
 /* ======== Botón de Sugerencias y Modal (Z-INDEX ALTO) ======== */
 #btnSugerencias {
-  position: fixed;
-  top: 140px;
-  left: 20px;
-  padding: 12px 16px;
-  background: white;
-  border: 2px solid var(--dark-color);
-  border-radius: 50px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-  cursor: pointer;
-  font-weight: 600;
-  color: var(--dark-color);
-  transition: all 0.3s ease;
-  **z-index: 1002;** /* FIX: Asegurar que esté sobre todo */
+  position: fixed;
+  top: 140px;
+  left: 20px;
+  padding: 12px 16px;
+  background: white;
+  border: 2px solid var(--dark-color);
+  border-radius: 50px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--dark-color);
+  transition: all 0.3s ease;
+  z-index: 1002; /* FIX: Asegurar que esté sobre todo */
 }
 
 #btnSugerencias:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.2);
 }
 
 .modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.7);
-  **z-index: 2000;** /* Z-index muy alto para asegurar que el modal se vea */
-  align-items: center;
-  justify-content: center;
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  z-index: 2000; /* Z-index muy alto para asegurar que el modal se vea */
+  align-items: center;
+  justify-content: center;
 }
 
 .modal-contenido {
-  background: white;
-  width: 95%;
-  max-width: 600px;
-  padding: 30px;
-  border-radius: 20px;
-  position: relative;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-  border: 3px solid var(--primary-color);
+  background: white;
+  width: 95%;
+  max-width: 600px;
+  padding: 30px;
+  border-radius: 20px;
+  position: relative;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+  border: 3px solid var(--primary-color);
 }
 
-/* =========================================== */
-/* ====== SÍGUENOS EN REDES SOCIALES ====== */
-/* =========================================== */
+/* ... (Redes y Footer siguen igual) ... */
 .redes {
-  margin-top: 50px;
-  padding: 50px 20px;
-  position: relative;
-  text-align: center;
-  overflow: hidden;
-  box-shadow: 0 0 30px rgba(0,0,0,0.1);
-  background: var(--dark-color);
-  color: white;
+  margin-top: 50px;
+  padding: 50px 20px;
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+  box-shadow: 0 0 30px rgba(0,0,0,0.1);
+  background: var(--dark-color);
+  color: white;
 }
 
 .redes__fondo {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(255, 255, 255, 0.1); 
-  opacity: 0.1;
-  z-index: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.1); 
+  opacity: 0.1;
+  z-index: 0;
 }
 
 .redes__capa {
-  position: relative;
-  z-index: 1;
-  max-width: 800px; /* Contiene el contenido de redes */
-  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  max-width: 800px; /* Contiene el contenido de redes */
+  margin: 0 auto;
 }
 
 .redes h2 {
-  font-family: "Dancing Script", cursive;
-  font-size: 3rem;
-  margin-bottom: 10px;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-  color: var(--secondary-color);
+  font-family: "Dancing Script", cursive;
+  font-size: 3rem;
+  margin-bottom: 10px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+  color: var(--secondary-color);
 }
 
 .redes p {
-  font-size: 1.2rem;
-  margin-bottom: 30px;
-  color: #ccc;
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: #ccc;
 }
 
 .iconos-redes {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
 }
 
 .social {
-  display: inline-block;
-  transition: transform 0.3s ease;
+  display: inline-block;
+  transition: transform 0.3s ease;
 }
 
 .social img {
-  width: 50px; 
-  height: 50px;
-  border-radius: 50%;
-  padding: 5px;
-  background: white;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  width: 50px; 
+  height: 50px;
+  border-radius: 50%;
+  padding: 5px;
+  background: white;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 .social:hover {
-  transform: scale(1.15) rotate(5deg);
+  transform: scale(1.15) rotate(5deg);
 }
 
 /* ======== Footer ======== */
 footer {
-  background: var(--gradient);
-  color: white;
-  text-align: center;
-  padding: 30px;
-  margin-top: 50px;
-  border-radius: 30px 30px 0 0;
-  font-weight: 500;
+  background: var(--gradient);
+  color: white;
+  text-align: center;
+  padding: 30px;
+  margin-top: 50px;
+  border-radius: 30px 30px 0 0;
+  font-weight: 500;
 }
 
 /* ======== Responsive (Móvil) ======== */
 @media(max-width: 900px) {
-  header h1 {
-    font-size: 2.5rem;
-  }
-  header p {
-    font-size: 1rem;
-  }
-  .catalogo {
-    /* Forzado a 1 columna (1fr) para evitar desorden en móviles */
-    grid-template-columns: 1fr; 
-    gap: 1.5rem;
-  }
+  header h1 {
+    font-size: 2.5rem;
+  }
+  header p {
+    font-size: 1rem;
+  }
+  .catalogo {
+    /* Forzado a 1 columna (1fr) para evitar desorden en móviles */
+    grid-template-columns: 1fr; 
+    gap: 1.5rem;
+  }
   /* FIX: Carrito en móvil con ancho fijo y centrado en lugar de 100% */
-  #carrito {
-    right: 10px; /* Separación derecha */
-    left: auto;
-    top: 100px; /* Menos invasivo que abajo */
-    width: 300px;
-    border-radius: 20px;
-    max-height: 50vh;
-  }
-  .tabcontent {
-    padding-bottom: 20px; /* Reducir padding extra en móvil */
-  }
+  #carrito {
+    right: 10px; /* Separación derecha */
+    left: auto;
+    top: 100px; /* Menos invasivo que abajo */
+    width: 300px;
+    border-radius: 20px;
+    max-height: 50vh;
+  }
+  .tabcontent {
+    padding-bottom: 20px; /* Reducir padding extra en móvil */
+  }
   /* FIX: Botón de WhatsApp más pequeño y mejor posicionado en móvil */
-  .btn-whatsapp {
-    right: 15px;
-    bottom: 15px;
-    padding: 10px 14px;
-    font-size: 0.85rem;
-  }
+  .btn-whatsapp {
+    right: 15px;
+    bottom: 15px;
+    padding: 10px 14px;
+    font-size: 0.85rem;
+  }
   #btnSugerencias {
     top: 100px;
     left: 10px;
     padding: 10px 12px;
     font-size: 0.85rem;
   }
-  .redes h2 {
-    font-size: 2rem;
-  }
-  .social img {
-    width: 40px;
-    height: 40px;
-  }
+  .redes h2 {
+    font-size: 2rem;
+  }
+  .social img {
+    width: 40px;
+    height: 40px;
+  }
 }
-
