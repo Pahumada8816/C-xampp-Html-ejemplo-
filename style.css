@@ -384,15 +384,15 @@ header p {
 /* ======== Botón WhatsApp optimizado ======== */
 .btn-whatsapp {
   position: fixed;
-  top: 85px;           /* debajo del menú */
-  right: 25px;         /* margen suave */
+  top: 85px;          /* MISMA ALTURA que sugerencias */
+  right: 25px;        /* LADO DERECHO */
   background: var(--success-color);
   color: white;
   padding: 12px 16px;
   border-radius: 50px;
   text-decoration: none;
   box-shadow: 0 8px 25px rgba(0, 184, 148, 0.3);
-  z-index: 200;
+  z-index: 200;       /* POR ENCIMA DEL HEADER */
   font-weight: 600;
   font-size: 0.9rem;
   transition: all 0.3s ease;
