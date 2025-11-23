@@ -385,7 +385,7 @@ header p {
 .btn-whatsapp {
   position: fixed;
   right: 25px;
-  bottom: 25px;
+  top: 140px;
   background: var(--success-color);
   color: white;
   padding: 12px 16px;
@@ -403,7 +403,7 @@ header p {
 }
 
 .btn-whatsapp:hover {
-  transform: translateY(-10px);
+  transform: translateY(-3px);
   box-shadow: 0 12px 30px rgba(0, 184, 148, 0.5);
 }
 
@@ -780,6 +780,7 @@ footer {
     width: 100px;
   }
 }
+
 
 
 
