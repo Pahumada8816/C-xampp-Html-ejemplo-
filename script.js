@@ -6,29 +6,91 @@ function abrirSeccion(evt, nombre) {
   botones.forEach(b => b.classList.remove("active"));
   document.getElementById(nombre).classList.add("active");
   if (evt && evt.currentTarget) evt.currentTarget.classList.add("active");
+  
+  // Cerrar todos los submenús en móvil
+  document.querySelectorAll('.submenu-container').forEach(container => {
+    container.classList.remove('active');
+  });
+
+  // Cargar productos por categoría cuando se abre una sección
+  if (nombre === 'dulceria') {
+    cargarProductosPorCategoria('dulces', 'catalogoDulceria');
+  } else if (nombre === 'cocteleria') {
+    cargarProductosPorCategoria('cocteleria', 'catalogoCocteleria');
+  } else if (nombre === 'postres') {
+    cargarProductosPorCategoria('postres', 'catalogoPostres');
+  } else if (nombre === 'pasteles') {
+    cargarProductosPorCategoria('pasteles', 'catalogoPasteles');
+  }
 }
 
-/* ------------------ FILTRADO (submenus) ------------------ */
-function filtrar(categoria) {
-  abrirSeccion({ currentTarget: document.querySelector(".tablink[onclick*='productos']") }, 'productos');
-  const items = document.querySelectorAll("#catalogoProductos .producto");
+/* ------------------ TOGGLE SUBMENU EN MÓVIL ------------------ */
+document.addEventListener('DOMContentLoaded', function() {
+  const submenuContainers = document.querySelectorAll('.submenu-container');
   
-  items.forEach(it => {
-    const cat = it.dataset.categoria || "";
-    if (cat === categoria || categoria === "") {
-        it.style.display = ""; // Mostrar
-    } else {
-        it.style.display = "none"; // Ocultar
+  submenuContainers.forEach(container => {
+    const button = container.querySelector('.tablink');
+    if (button) {
+      button.addEventListener('click', function(e) {
+        if (window.innerWidth <= 900) {
+          e.stopPropagation();
+          container.classList.toggle('active');
+          
+          // Cerrar otros submenús
+          submenuContainers.forEach(other => {
+            if (other !== container) {
+              other.classList.remove('active');
+            }
+          });
+        }
+      });
     }
   });
+
+  // Cargar productos iniciales
+  cargarProductosPorCategoria('dulces', 'catalogoDulceria');
+  cargarProductosPorCategoria('cocteleria', 'catalogoCocteleria');
+  cargarProductosPorCategoria('postres', 'catalogoPostres');
+  cargarProductosPorCategoria('pasteles', 'catalogoPasteles');
+});
+
+/* ------------------ CARGAR PRODUCTOS POR CATEGORÍA ------------------ */
+function cargarProductosPorCategoria(categoria, contenedorId) {
+  const contenedor = document.getElementById(contenedorId);
+  if (!contenedor) return;
+
+  // Si ya tiene productos, no volver a cargar
+  if (contenedor.children.length > 0) return;
+
+  const todosLosProductos = document.querySelectorAll("#catalogoProductos .producto");
+  
+  todosLosProductos.forEach(producto => {
+    const cat = producto.dataset.categoria || "";
+    if (cat.toLowerCase() === categoria.toLowerCase()) {
+      const clon = producto.cloneNode(true);
+      contenedor.appendChild(clon);
+    }
+  });
+
+  // Si no hay productos en esa categoría
+  if (contenedor.children.length === 0) {
+    contenedor.innerHTML = '<p style="text-align: center; padding: 40px; font-size: 1.2rem; color: #666;">No hay productos disponibles en esta categoría por el momento.</p>';
+  }
 }
 
+/* ------------------ FILTRADO DE TEMPORADA ------------------ */
 function filtrarTemporada(nombre) {
-  abrirSeccion({ currentTarget: document.querySelector(".tablink") }, 'temporada');
-  const items = document.querySelectorAll("#catalogoTemporada .temporada, #catalogoTemporada .producto");
+  const items = document.querySelectorAll("#catalogoTemporada .temporada");
   items.forEach(it => {
     const t = it.dataset.temporada || "";
     it.style.display = (t === nombre) ? "" : "none";
+  });
+}
+
+function mostrarTodosTemporada() {
+  const items = document.querySelectorAll("#catalogoTemporada .temporada");
+  items.forEach(it => {
+    it.style.display = "";
   });
 }
 
