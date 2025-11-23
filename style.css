@@ -392,10 +392,11 @@ header p {
   border-radius: 50px;
   text-decoration: none;
   box-shadow: 0 8px 25px rgba(0, 184, 148, 0.3);
-  z-index: 200;       /* POR ENCIMA DEL HEADER */
+  z-index: 99;       /* POR ENCIMA DEL HEADER */
   font-weight: 600;
   font-size: 0.9rem;
   cursor: pointer;
+  bottom: 25px;
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
@@ -403,7 +404,7 @@ header p {
 }
 
 .btn-whatsapp:hover {
-  transform: translateY(3px);
+  transform: translateY(-3px);
   box-shadow: 0 12px 30px rgba(0, 184, 148, 0.5);
 }
 
@@ -780,6 +781,7 @@ footer {
     width: 100px;
   }
 }
+
 
 
 
