@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Catálogo de Temporada | Pasteles Dulce Pame</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header>
+    <h1>🧁 Pasteles Dulce Pame 🧁</h1>
+    <p>✨ Los sabores más dulces de la ciudad ✨</p>
+  </header>
+
+  <nav class="menu">
+    <button class="tablink" onclick="window.location.href='index.html'">🍰 Productos</button>
+    <button class="tablink" onclick="window.location.href='index.html#ofertas'">🎉 Ofertas</button>
+    <button class="tablink" onclick="window.location.href='index.html#quienes'">👨‍🍳 Quiénes Somos</button>
+    <button class="tablink active">🎊 Catálogo de Temporada</button>
+    <button class="tablink" onclick="window.location.href='index.html#ubicacion'">📍 Dónde Estamos</button>
+    <button class="tablink" onclick="window.location.href='index.html#valoraciones'">⭐ Valoraciones</button>
+  </nav>
+
+  <main>
+    <section class="tabcontent active">
+      <h2 style="text-align: center; font-family: 'Dancing Script', cursive; font-size: 2.5rem; color: var(--primary-color); margin-bottom: 2rem;">🎊 Catálogo de Temporada</h2>
+      
+      <div style="text-align: center; margin-bottom: 30px;">
+        <button class="btn" onclick="filtrarTemporada('Halloween')" style="margin: 5px;">🎃 Halloween</button>
+        <button class="btn" onclick="filtrarTemporada('Navidad')" style="margin: 5px;">🎄 Navidad</button>
+        <button class="btn" onclick="filtrarTemporada('Año Nuevo')" style="margin: 5px;">🎆 Año Nuevo</button>
+        <button class="btn" onclick="filtrarTemporada('Pascua')" style="margin: 5px;">🐰 Pascua</button>
+        <button class="btn" onclick="filtrarTemporada('Día de la Madre')" style="margin: 5px;">👩 Día de la Madre</button>
+        <button class="btn" onclick="filtrarTemporada('Día del Padre')" style="margin: 5px;">👨 Día del Padre</button>
+        <button class="btn" onclick="filtrarTemporada('Dia del Niño')" style="margin: 5px;">👶 Día del Niño</button>
+        <button class="btn" onclick="filtrarTemporada('Otros')" style="margin: 5px;">🎈 Otros</button>
+        <button class="btn" onclick="mostrarTodos()" style="margin: 5px;">📋 Ver Todos</button>
+      </div>
+
+      <div class="catalogo" id="catalogoTemporada">
+
+        <article class="temporada" data-temporada="Halloween">
+          <img src="img/cajita_mix_hallowin.jpg" alt="Cajita Mix Halloween">
+          <h3>🎃 Cajita Mix Halloween</h3>
+          <p>Deliciosa cajita surtida temática de Halloween. Ideal para compartir o regalar.</p>
+          <div class="meta">
+            <span class="precio-num">3500</span>
+            <span class="precio-texto">$3.500</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Cajita Mix Halloween" data-precio="3500">🛒 Añadir</button>
+          </div>
+        </article>
+
+        <article class="temporada" data-temporada="Halloween">
+          <img src="img/cajita_mix_hallowin2.jpg" alt="Cajita Mix Halloween 2">
+          <h3>🎃 Cajita Mix Halloween 2</h3>
+          <p>Segunda versión de la cajita surtida temática Halloween. Perfecta para disfrutar o regalar.</p>
+          <div class="meta">
+            <span class="precio-num">3500</span>
+            <span class="precio-texto">$3.500</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Cajita Mix Halloween 2" data-precio="3500">🛒 Añadir</button>
+          </div>
+        </article>
+
+        <article class="temporada" data-temporada="Halloween">
+          <img src="img/cajita_mix_hallowin3.jpg" alt="Chocolates Halloween 3 unidades">
+          <h3>🍫 Chocolates Halloween (3 unidades)</h3>
+          <p>Pack de 3 chocolates temáticos de Halloween. Ideal para disfrutar en esta temporada.</p>
+          <div class="meta">
+            <span class="precio-num">2500</span>
+            <span class="precio-texto">$2.500</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Chocolates Halloween 3 unidades" data-precio="2500">🛒 Añadir</button>
+          </div>
+        </article>
+
+        <article class="temporada" data-temporada="Halloween">
+          <img src="img/cajita_mix_hallowin4.jpg" alt="Ataúd de Cuchuflí 6 unidades">
+          <h3>⚰️ Ataúd de Cuchuflí (6 unidades)</h3>
+          <p>Ataúd temático de Halloween relleno con 6 deliciosos cuchuflí bañados. Perfecto para decorar y disfrutar.</p>
+          <div class="meta">
+            <span class="precio-num">2500</span>
+            <span class="precio-texto">$2.500</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Ataúd de Cuchuflí 6 unidades" data-precio="2500">🛒 Añadir</button>
+          </div>
+        </article>
+
+        <article class="temporada" data-temporada="Otros">
+          <img src="/img/cajita_chilena.jpg" alt="Cajita Chilena 1">
+          <h3>🇨🇱 Cajita Chilena 1</h3>
+          <p>Dulces chilenos surtidos en una presentación especial. Incluye 6 unidades perfectas para disfrutar o regalar.</p>
+          <div class="meta">
+            <span class="precio-num">3500</span>
+            <span class="precio-texto">$3.500</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Cajita Chilena 1" data-precio="3500">🛒 Añadir</button>
+          </div>
+        </article>
+
+      </div>
+    </section>
+  </main>
+
+  <section class="redes">
+    <div class="redes__fondo"></div>
+    <div class="redes__capa">
+      <h2>🌐 Síguenos en redes sociales</h2>
+      <p>Entérate de nuestras promociones y novedades dulces</p>
+      <div class="iconos-redes">
+        <a href="https://www.instagram.com/dolce.pamee?utm_source=qr&igsh=cjc1MGlvZ25jcGk4" target="_blank" class="social">
+          <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+        </a>
+        <a href="https://www.tiktok.com" target="_blank" class="social">
+          <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="TikTok">
+        </a>
+        <a href="https://www.facebook.com" target="_blank" class="social">
+          <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook">
+        </a>
+        <a href="rodrigo.diaz201619@gmail.com" class="social">
+          <img src="https://cdn-icons-png.flaticon.com/512/281/281769.png" alt="Gmail">
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <aside id="carrito" aria-label="Carrito de compras">
+    <h2>🛒 Mi Carrito</h2>
+    <ul id="listaCarrito"></ul>
+    <div id="total">Total: $0</div>
+    <div class="acciones">
+      <button class="btn" id="vaciarBtn">🗑️ Vaciar</button>
+      <button class="btn" id="enviarBtn">📱 Pedir por WhatsApp</button>
+    </div>
+  </aside>
+
+  <button id="btnSugerencias" title="Dejar sugerencia / valoración">⭐ Sugerencias</button>
+
+  <div id="modalSugerencia" class="modal">
+    <div class="modal-contenido">
+      <span class="cerrar" id="cerrarModal">&times;</span>
+      <h2 style="font-family: 'Dancing Script', cursive; color: var(--primary-color); text-align: center; margin-bottom: 20px;">⭐ Dejar sugerencia / valoración</h2>
+      <label>👤 Tu nombre</label>
+      <input type="text" id="inputNombre" placeholder="Tu nombre (opcional)">
+      <label>⭐ Calificación</label>
+      <div id="stars" class="stars">
+        <span data-value="1">☆</span>
+        <span data-value="2">☆</span>
+        <span data-value="3">☆</span>
+        <span data-value="4">☆</span>
+        <span data-value="5">☆</span>
+      </div>
+      <label>💭 Comentario</label>
+      <textarea id="inputComentario" placeholder="Escribe tu comentario..."></textarea>
+      <div style="margin-top:20px; text-align: center;">
+        <button class="btn" id="enviarValoracion">📝 Enviar valoración</button>
+      </div>
+    </div>
+  </div>
+
+  <a href="https://wa.me/56999335740" target="_blank" class="btn-whatsapp">
+    💬 Chat
+  </a>
+
+  <footer>
+    <p>© 2025 Pasteles Dulce Pame | Los sabores más dulces de la ciudad 🧁✨</p>
+  </footer>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    function filtrarTemporada(nombre) {
+      const items = document.querySelectorAll("#catalogoTemporada .temporada");
+      items.forEach(it => {
+        const t = it.dataset.temporada || "";
+        it.style.display = (t === nombre) ? "" : "none";
+      });
+    }
+
+    function mostrarTodos() {
+      const items = document.querySelectorAll("#catalogoTemporada .temporada");
+      items.forEach(it => {
+        it.style.display = "";
+      });
+    }
+
+    // Carrito de compras
+    const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    const listaCarrito = document.getElementById("listaCarrito");
+    const totalDisplay = document.getElementById("total");
+    const vaciarBtn = document.getElementById("vaciarBtn");
+    const enviarBtn = document.getElementById("enviarBtn");
+
+    document.addEventListener("click", function(e) {
+      if (e.target.classList.contains("add-cart")) {
+        const productoElement = e.target.closest(".temporada");
+        const nombre = e.target.dataset.nombre;
+        const precio = parseInt(e.target.dataset.precio);
+        const cantidad = parseInt(productoElement.querySelector(".qty").value) || 1;
+        agregarAlCarrito(nombre, precio, cantidad);
+        actualizarCarrito();
+      }
+    });
+
+    function agregarAlCarrito(nombre, precio, cantidad) {
+      const index = carrito.findIndex(item => item.nombre === nombre);
+      if (index > -1) {
+        carrito[index].cantidad += cantidad;
+      } else {
+        carrito.push({ nombre, precio, cantidad });
+      }
+      localStorage.setItem('carrito', JSON.stringify(carrito));
+    }
+
+    function actualizarCarrito() {
+      listaCarrito.innerHTML = "";
+      let total = 0;
+      carrito.forEach((item, index) => {
+        const li = document.createElement("li");
+        const subtotal = item.precio * item.cantidad;
+        total += subtotal;
+        li.innerHTML = `
+          (${item.cantidad}x) ${item.nombre} - $${subtotal.toLocaleString('es-CL')}
+          <button onclick="eliminarDelCarrito(${index})" style="background: none; border: none; cursor: pointer; color: red;">❌</button>
+        `;
+        listaCarrito.appendChild(li);
+      });
+      totalDisplay.textContent = `Total: $${total.toLocaleString('es-CL')}`;
+    }
+
+    function eliminarDelCarrito(index) {
+      carrito.splice(index, 1);
+      localStorage.setItem('carrito', JSON.stringify(carrito));
+      actualizarCarrito();
+    }
+
+    vaciarBtn.addEventListener("click", () => {
+      carrito.length = 0;
+      localStorage.setItem('carrito', JSON.stringify(carrito));
+      actualizarCarrito();
+    });
+
+    enviarBtn.addEventListener("click", () => {
+      if (carrito.length === 0) {
+        alert("El carrito está vacío. Por favor, añade algunos productos.");
+        return;
+      }
+      const mensaje = carrito.map(item => {
+        const subtotal = item.precio * item.cantidad;
+        return `(${item.cantidad}x) ${item.nombre} - $${subtotal.toLocaleString('es-CL')}`;
+      }).join('\\n');
+      const total = carrito.reduce((sum, item) => sum + item.precio * item.cantidad, 0);
+      const mensajeFinal = `Hola, me gustaría hacer un pedido:\\n\\n${mensaje}\\n\\nTotal a pagar: $${total.toLocaleString('es-CL')}`;
+      const numeroWhatsApp = "+56999335740";
+      const url = `https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${encodeURIComponent(mensajeFinal)}`;
+      window.open(url, '_blank');
+    });
+
+    actualizarCarrito();
+
+    // Modal y valoraciones
+    const modal = document.getElementById("modalSugerencia");
+    const btnSugerencias = document.getElementById("btnSugerencias");
+    const cerrarModal = document.getElementById("cerrarModal");
+    const stars = document.getElementById("stars");
+    const enviarValoracionBtn = document.getElementById("enviarValoracion");
+    let calValor = 0;
+
+    function highlightStars(rating) {
+      const allStars = stars.querySelectorAll('span');
+      allStars.forEach((star, index) => {
+        star.textContent = index < rating ? '★' : '☆';
+        star.classList.toggle('active', index < rating);
+      });
+    }
+
+    stars.addEventListener('click', (e) => {
+      if (e.target.tagName === 'SPAN') {
+        calValor = parseInt(e.target.dataset.value);
+        highlightStars(calValor);
+      }
+    });
+
+    btnSugerencias.onclick = function() {
+      modal.style.display = "flex";
+      if (calValor > 0) highlightStars(calValor);
+    }
+
+    cerrarModal.onclick = function() {
+      modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    }
+
+    enviarValoracionBtn.addEventListener("click", () => {
+      if (calValor === 0) {
+        alert("Por favor, selecciona una calificación (estrellas).");
+        return;
+      }
+      const nombre = document.getElementById("inputNombre").value || "Cliente Anónimo";
+      const comentario = document.getElementById("inputComentario").value;
+      const fecha = new Date().toLocaleDateString('es-CL');
+      const reseña = { nombre, cal: calValor, comentario, fecha };
+      const reseñas = JSON.parse(localStorage.getItem("reseñas")) || [];
+      reseñas.unshift(reseña);
+      localStorage.setItem("reseñas", JSON.stringify(reseñas));
+      document.getElementById("inputNombre").value = "";
+      document.getElementById("inputComentario").value = "";
+      calValor = 0;
+      highlightStars(0);
+      alert("Gracias por tu valoración ✨");
+      modal.style.display = "none";
+    });
+  </script>
+</body>
+</html>
