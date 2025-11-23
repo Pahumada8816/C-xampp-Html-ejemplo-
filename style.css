@@ -402,7 +402,7 @@ header p {
 }
 
 .btn-whatsapp:hover {
-  transform: translateY(-15px);
+  transform: translateY(30 px);
   box-shadow: 0 12px 30px rgba(0, 184, 148, 0.5);
 }
 /* ======== Secciones de historia y ubicación ======== */
@@ -778,6 +778,7 @@ footer {
     width: 100px;
   }
 }
+
 
 
 
