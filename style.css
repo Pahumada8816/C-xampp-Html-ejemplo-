@@ -326,9 +326,9 @@ header p {
 /* ======== Carrito mejorado ======== */
 #carrito {
   position: fixed; 
-  right: 20px; 
+  right: 15px; 
   top: 130px; 
-  width: 320px; 
+  width: 310px; 
   max-height: 70vh; 
   overflow: auto; 
   background: rgba(255, 255, 255, 0.95);
@@ -384,15 +384,15 @@ header p {
 /* ======== Botón WhatsApp optimizado ======== */
 .btn-whatsapp {
   position: fixed;
-  top: 85px;
-  bottom: 25px;
+  top: 85px;           /* debajo del menú */
+  right: 25px;         /* margen suave */
   background: var(--success-color);
   color: white;
   padding: 12px 16px;
   border-radius: 50px;
   text-decoration: none;
   box-shadow: 0 8px 25px rgba(0, 184, 148, 0.3);
-  z-index: 99;
+  z-index: 200;
   font-weight: 600;
   font-size: 0.9rem;
   transition: all 0.3s ease;
@@ -437,22 +437,22 @@ header p {
 /* ======== Botón de Sugerencias ======== */
 #btnSugerencias {
   position: fixed;
-  top: 85px;
-  left: 25px;
+  top: 85px;       /* debajo del menú */
+  left: 25px;      /* margen suave */
   padding: 12px 16px;
   background: white;
   border: 2px solid var(--dark-color);
   border-radius: 50px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
   cursor: pointer;
   font-weight: 600;
-  color: var(--dark-color);
+  z-index: 200;
+  box-shadow: var(--shadow);
   transition: all 0.3s ease;
 }
 
 #btnSugerencias:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+  
 }
 
 /* ======== Modal mejorado ======== */
