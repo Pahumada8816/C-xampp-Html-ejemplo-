@@ -385,7 +385,7 @@ header p {
 .btn-whatsapp {
   position: fixed;
   right: 25px;
-  top: 85px;
+  bottom: 25px;
   background: var(--success-color);
   color: white;
   padding: 12px 16px;
@@ -394,7 +394,6 @@ header p {
   box-shadow: 0 8px 25px rgba(0, 184, 148, 0.3);
   z-index: 99;
   font-weight: 600;
-  cursor: pointer;
   font-size: 0.9rem;
   transition: all 0.3s ease;
   display: flex;
@@ -403,10 +402,9 @@ header p {
 }
 
 .btn-whatsapp:hover {
-  transform: translateY(3px);
+  transform: translateY(-15px);
   box-shadow: 0 12px 30px rgba(0, 184, 148, 0.5);
 }
-
 /* ======== Secciones de historia y ubicación ======== */
 .historia, .ubicacion {
   background: white;
@@ -780,6 +778,7 @@ footer {
     width: 100px;
   }
 }
+
 
 
 
