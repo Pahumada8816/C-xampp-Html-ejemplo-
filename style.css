@@ -86,7 +86,7 @@ header p {
   gap: 10px;
   padding: 15px;
   box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-  position: sticky;
+  position: relative;
   top: 0;
   z-index: 100;
 }
@@ -384,7 +384,7 @@ header p {
 /* ======== Botón WhatsApp optimizado ======== */
 .btn-whatsapp {
   position: fixed;
-  right: 25px;
+  top: 85px;
   bottom: 25px;
   background: var(--success-color);
   color: white;
@@ -437,8 +437,8 @@ header p {
 /* ======== Botón de Sugerencias ======== */
 #btnSugerencias {
   position: fixed;
-  top: 140px;
-  left: 20px;
+  top: 85px;
+  left: 25px;
   padding: 12px 16px;
   background: white;
   border: 2px solid var(--dark-color);
@@ -779,4 +779,3 @@ footer {
     width: 100px;
   }
 }
-
