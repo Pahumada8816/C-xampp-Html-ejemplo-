@@ -34,15 +34,16 @@
         <button class="btn" onclick="filtrarTemporada('Navidad')" style="margin: 5px;">🎄 Navidad</button>
         <button class="btn" onclick="filtrarTemporada('Año Nuevo')" style="margin: 5px;">🎆 Año Nuevo</button>
         <button class="btn" onclick="filtrarTemporada('Pascua')" style="margin: 5px;">🐰 Pascua</button>
-        <button class="btn" onclick="filtrarTemporada('Día de la Madre')" style="margin: 5px;">👩 Día de la Madre</button>
-        <button class="btn" onclick="filtrarTemporada('Día del Padre')" style="margin: 5px;">👨 Día del Padre</button>
-        <button class="btn" onclick="filtrarTemporada('Dia del Niño')" style="margin: 5px;">👶 Día del Niño</button>
+        <button class="btn" onclick="filtrarTemporada('dia de la madre')" style="margin: 5px;">👩 Día de la Madre</button>
+        <button class="btn" onclick="filtrarTemporada('dia del padre')" style="margin: 5px;">👨 Día del Padre</button>
+        <button class="btn" onclick="filtrarTemporada('dia del niño')" style="margin: 5px;">👶 Día del Niño</button>
         <button class="btn" onclick="filtrarTemporada('Otros')" style="margin: 5px;">🎈 Otros</button>
         <button class="btn" onclick="mostrarTodos()" style="margin: 5px;">📋 Ver Todos</button>
       </div>
 
       <div class="catalogo" id="catalogoTemporada">
 
+        <!-- Productos de Halloween -->
         <article class="temporada" data-temporada="Halloween">
           <img src="img/cajita_mix_hallowin.jpg" alt="Cajita Mix Halloween">
           <h3>🎃 Cajita Mix Halloween</h3>
@@ -72,7 +73,7 @@
         </article>
 
         <article class="temporada" data-temporada="Halloween">
-          <img src="img/cajita_mix_hallowin3.jpg" alt="Chocolates Halloween 3 unidades">
+          <img src="/images/HalloweenChocolates.jpg" alt="Chocolates Halloween 3 unidades">
           <h3>🍫 Chocolates Halloween (3 unidades)</h3>
           <p>Pack de 3 chocolates temáticos de Halloween. Ideal para disfrutar en esta temporada.</p>
           <div class="meta">
@@ -86,7 +87,7 @@
         </article>
 
         <article class="temporada" data-temporada="Halloween">
-          <img src="img/cajita_mix_hallowin4.jpg" alt="Ataúd de Cuchuflí 6 unidades">
+          <img src="/images/photo1763868389.jpg" alt="Ataúd de Cuchuflí 6 unidades">
           <h3>⚰️ Ataúd de Cuchuflí (6 unidades)</h3>
           <p>Ataúd temático de Halloween relleno con 6 deliciosos cuchuflí bañados. Perfecto para decorar y disfrutar.</p>
           <div class="meta">
@@ -99,8 +100,210 @@
           </div>
         </article>
 
+        <!-- Productos de Navidad -->
+        <article class="temporada" data-temporada="Navidad">
+          <img src="/images/BlueberryMuffin.jpg" alt="Muffin de Arándano">
+          <h3>🫐 Muffin de Arándano</h3>
+          <p>Suave muffin horneado con arándanos frescos, dulce y jugoso en cada bocado. Ideal para acompañar una bebida caliente o disfrutar como snack.</p>
+          <div class="meta">
+            <span class="precio-num">800</span>
+            <span class="precio-texto">$800</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Muffin de Arándano" data-precio="800">🛒 Añadir</button>
+          </div>
+        </article>
+
+        <article class="temporada" data-temporada="Navidad">
+          <img src="/images/ChocolateMuffin.jpg" alt="Muffin Chip de Chocolate">
+          <h3>🍫 Muffin Chip de Chocolate</h3>
+          <p>Esponjoso muffin relleno y cubierto con chips de chocolate. Dulce, intenso y perfecto para los amantes del cacao.</p>
+          <div class="meta">
+            <span class="precio-num">800</span>
+            <span class="precio-texto">$800</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Muffin Chip de Chocolate" data-precio="800">🛒 Añadir</button>
+          </div>
+        </article>
+
+        <article class="temporada" data-temporada="Navidad">
+          <img src="/images/Cookies.jpg" alt="Galletas Caseras con Amapolas">
+          <h3>🍪 Galletas Caseras con Amapolas (1 kg)</h3>
+          <p>Crujientes galletas artesanales con semillas de amapola. Un sabor suave, delicado y perfecto para acompañar un café o té.</p>
+          <div class="meta">
+            <span class="precio-num">16000</span>
+            <span class="precio-texto">$16.000</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Galletas Caseras con Amapolas (1 kg)" data-precio="16000">🛒 Añadir</button>
+          </div>
+        </article>
+
+        <!-- Productos de Pascua -->
+        <article class="temporada" data-temporada="Pascua">
+          <img src="/images/CarrotMuffin.jpg" alt="Muffin de Zanahoria">
+          <h3>🥕 Muffin de Zanahoria</h3>
+          <p>Esponjoso muffin de zanahoria hecho con receta casera, un toque de canela y suave cobertura. Perfecto para acompañar tu café o disfrutar a cualquier hora.</p>
+          <div class="meta">
+            <span class="precio-num">800</span>
+            <span class="precio-texto">$800</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Muffin de Zanahoria" data-precio="800">🛒 Añadir</button>
+          </div>
+        </article>
+
+        <article class="temporada" data-temporada="Pascua">
+          <img src="/images/Muffin.jpg" alt="Muffin de Frambuesa">
+          <h3>🧁 Muffin de Frambuesa</h3>
+          <p>Delicioso muffin esponjoso con frambuesas naturales que aportan un toque fresco y ligeramente ácido. Perfecto para una merienda ligera.</p>
+          <div class="meta">
+            <span class="precio-num">700</span>
+            <span class="precio-texto">$700</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Muffin de Frambuesa" data-precio="700">🛒 Añadir</button>
+          </div>
+        </article>
+
+        <!-- Productos Día de la Madre -->
+        <article class="temporada" data-temporada="dia de la madre">
+          <img src="/images/ChocolateDonuts.jpg" alt="Donnas Chocolate">
+          <h3>🍫 Donnas Cubiertas de Chocolate 6 unid.</h3>
+          <p>Mini donnas suaves bañadas en una capa de chocolate semiamargo de primera calidad. Irresistibles para los amantes del chocolate.</p>
+          <div class="meta">
+            <span class="precio-num">1000</span>
+            <span class="precio-texto">$1.000</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Donnas Cubiertas de Chocolate" data-precio="1000">🛒 Añadir</button>
+          </div>
+        </article>
+
+        <article class="temporada" data-temporada="dia de la madre">
+          <img src="/images/AssortedCookies.jpg" alt="Surtido Especial">
+          <h3>🎪 Coctelería dulce surtida 100 unid.</h3>
+          <p>Surtido especial con 100 unidades: mini pasteles tradicionales chilenos y galletas de Mantequilla rellenas. Perfecto para eventos y celebraciones.</p>
+          <div class="meta">
+            <span class="precio-num">25000</span>
+            <span class="precio-texto">$25.000</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Surtido 100 Mini Pasteles y Galletas" data-precio="25000">🛒 Añadir</button>
+          </div>
+        </article>
+
+        <article class="temporada" data-temporada="dia de la madre">
+          <img src="/images/Cake.jpg" alt="Torta en Vaso">
+          <h3>🍰 Tortas en Vaso</h3>
+          <p>Deliciosas tortas individuales servidas en un elegante vaso. Disponible en: Selva Negra, Durazno, Piña, Frambuesa, Frutilla, Tres Leches y Moka.</p>
+          <div class="meta">
+            <span class="precio-num">1600</span>
+            <span class="precio-texto">$1.600</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Torta en Vaso" data-precio="1600">🛒 Añadir</button>
+          </div>
+        </article>
+
+        <!-- Productos Día del Padre -->
+        <article class="temporada" data-temporada="dia del padre">
+          <img src="/images/ChocolateDonuts.jpg" alt="Donnas Chocolate">
+          <h3>🍫 Donnas Cubiertas de Chocolate 6 unid.</h3>
+          <p>Mini donnas suaves bañadas en una capa de chocolate semiamargo de primera calidad. Irresistibles para los amantes del chocolate.</p>
+          <div class="meta">
+            <span class="precio-num">1000</span>
+            <span class="precio-texto">$1.000</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Donnas Cubiertas de Chocolate" data-precio="1000">🛒 Añadir</button>
+          </div>
+        </article>
+
+        <article class="temporada" data-temporada="dia del padre">
+          <img src="/images/AssortedCookies.jpg" alt="Surtido Especial">
+          <h3>🎪 Coctelería dulce surtida 100 unid.</h3>
+          <p>Surtido especial con 100 unidades: mini pasteles tradicionales chilenos y galletas de Mantequilla rellenas. Perfecto para eventos y celebraciones.</p>
+          <div class="meta">
+            <span class="precio-num">25000</span>
+            <span class="precio-texto">$25.000</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Surtido 100 Mini Pasteles y Galletas" data-precio="25000">🛒 Añadir</button>
+          </div>
+        </article>
+
+        <article class="temporada" data-temporada="dia del padre">
+          <img src="/images/Cake.jpg" alt="Torta en Vaso">
+          <h3>🍰 Tortas en Vaso</h3>
+          <p>Deliciosas tortas individuales servidas en un elegante vaso. Disponible en: Selva Negra, Durazno, Piña, Frambuesa, Frutilla, Tres Leches y Moka.</p>
+          <div class="meta">
+            <span class="precio-num">1600</span>
+            <span class="precio-texto">$1.600</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Torta en Vaso" data-precio="1600">🛒 Añadir</button>
+          </div>
+        </article>
+
+        <!-- Productos Día del Niño -->
+        <article class="temporada" data-temporada="dia del niño">
+          <img src="/images/ChocolateDonuts.jpg" alt="Donnas Chocolate">
+          <h3>🍫 Donnas Cubiertas de Chocolate 6 unid.</h3>
+          <p>Mini donnas suaves bañadas en una capa de chocolate semiamargo de primera calidad. Irresistibles para los amantes del chocolate.</p>
+          <div class="meta">
+            <span class="precio-num">1000</span>
+            <span class="precio-texto">$1.000</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Donnas Cubiertas de Chocolate" data-precio="1000">🛒 Añadir</button>
+          </div>
+        </article>
+
+        <article class="temporada" data-temporada="dia del niño">
+          <img src="/images/AssortedCookies.jpg" alt="Surtido Especial">
+          <h3>🎪 Coctelería dulce surtida 100 unid.</h3>
+          <p>Surtido especial con 100 unidades: mini pasteles tradicionales chilenos y galletas de Mantequilla rellenas. Perfecto para eventos y celebraciones.</p>
+          <div class="meta">
+            <span class="precio-num">25000</span>
+            <span class="precio-texto">$25.000</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Surtido 100 Mini Pasteles y Galletas" data-precio="25000">🛒 Añadir</button>
+          </div>
+        </article>
+
+        <article class="temporada" data-temporada="dia del niño">
+          <img src="/images/Cake.jpg" alt="Torta en Vaso">
+          <h3>🍰 Tortas en Vaso</h3>
+          <p>Deliciosas tortas individuales servidas en un elegante vaso. Disponible en: Selva Negra, Durazno, Piña, Frambuesa, Frutilla, Tres Leches y Moka.</p>
+          <div class="meta">
+            <span class="precio-num">1600</span>
+            <span class="precio-texto">$1.600</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Torta en Vaso" data-precio="1600">🛒 Añadir</button>
+          </div>
+        </article>
+
+        <!-- Otros productos -->
         <article class="temporada" data-temporada="Otros">
-          <img src="/img/cajita_chilena2.jpg" alt="Cajita Chilena 1">
+          <img src="/images/ChileanSweets.jpg" alt="Cajita Chilena 1">
           <h3>🇨🇱 Cajita Chilena 1</h3>
           <p>Dulces chilenos surtidos en una presentación especial. Incluye 6 unidades perfectas para disfrutar o regalar.</p>
           <div class="meta">
@@ -110,6 +313,34 @@
           <div class="producto-actions">
             <input type="number" min="1" value="1" class="qty">
             <button class="btn add-cart" data-nombre="Cajita Chilena 1" data-precio="3500">🛒 Añadir</button>
+          </div>
+        </article>
+
+        <article class="temporada" data-temporada="Otros">
+          <img src="/images/ChileanPastries.jpg" alt="Mini Pasteles Chilenos">
+          <h3>🧁 Mini Pasteles Chilenos</h3>
+          <p>Variedad de mini pasteles tradicionales chilenos: mierenguitos, hojarascas y más. Perfectos para compartir en familia.</p>
+          <div class="meta">
+            <span class="precio-num">700</span>
+            <span class="precio-texto">$700</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Mini Pasteles Chilenos" data-precio="700">🛒 Añadir</button>
+          </div>
+        </article>
+
+                <article class="oferta" data-categoria="ofertas-dulces" data-categoria="cocteleria" data-temporada="dia de la madre" date-temporada="dia del padre" date-temporada="dia del niño">
+          <img src="img/cocteleria_mix.jpg" alt="Coctelería dulce surtida">
+          <h3>🍬 Coctelería Dulce Surtida (100 unid.)</h3>
+          <p>Mix especial de coctelería dulce con cocadas, galletas de mantequilla y mini palmeritas. Perfecto para eventos, reuniones o celebraciones.</p>
+          <div class="meta">
+            <span class="precio-num">25000</span>
+            <span class="precio-texto">$25.000</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Coctelería Dulce Surtida (100 unid.)" data-precio="25000">🛒 Añadir</button>
           </div>
         </article>
 
@@ -132,7 +363,7 @@
         <a href="https://www.facebook.com" target="_blank" class="social">
           <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook">
         </a>
-        <a href="rodrigo.diaz201619@gmail.com" class="social">
+        <a href="/cdn-cgi/l/email-protection#c3b1aca7b1aaa4aceda7aaa2b9f1f3f2f5f2fa83a4aea2aaafeda0acae" class="social">
           <img src="https://cdn-icons-png.flaticon.com/512/281/281769.png" alt="Gmail">
         </a>
       </div>
