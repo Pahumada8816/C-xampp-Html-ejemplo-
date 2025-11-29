@@ -1,320 +1,1425 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="https://public-frontend-cos.metadl.com/mgx/img/favicon.png" type="image/png">
-    <title>Joyería Elegante - Lujo y Distinción</title>
-    <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pasteles Dulce Pame | Pastelería Artesanal</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
-    <!-- Redes Sociales Flotantes -->
-    <div class="social-sidebar">
-        <a href="https://www.instagram.com" target="_blank" class="social-icon instagram" aria-label="Instagram">
-            <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://www.facebook.com" target="_blank" class="social-icon facebook" aria-label="Facebook">
-            <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="https://wa.me/56938934201" target="_blank" class="social-icon whatsapp" aria-label="WhatsApp">
-            <i class="fab fa-whatsapp"></i>
-        </a>
-        <a href="https://www.tiktok.com" target="_blank" class="social-icon tiktok" aria-label="TikTok">
-            <i class="fab fa-tiktok"></i>
-        </a>
+
+  <header>
+    <h1>🧁 Pasteles Dulce Pame 🧁</h1>
+    <p>✨ Los sabores más dulces de la ciudad ✨</p>
+  </header>
+
+  <nav class="menu">
+    <button class="tablink active" onclick="abrirSeccion(event,'productos')">🍰 Productos</button>
+
+    <div class="submenu-container">
+      <button class="tablink" onclick="abrirSeccion(event,'ofertas')">🎉 Ofertas ▼</button>
+      <div class="submenu">
+        <a href="#ofertas-dulces" onclick="abrirSeccion(event,'ofertas-dulces')">🍬 Ofertas Dulces</a>
+        <a href="#catalogo-temporada" onclick="abrirSeccion(event,'catalogo-temporada')">🎊 Catálogo Temporada</a>
+        <a href="#dulceria" onclick="abrirSeccion(event,'dulceria')">🍭 Dulcería</a>
+        <a href="#cocteleria" onclick="abrirSeccion(event,'cocteleria')">🎪 Coctelería</a>
+        <a href="#postres" onclick="abrirSeccion(event,'postres')">🍰 Postres</a>
+        <a href="#pasteles" onclick="abrirSeccion(event,'pasteles')">🧁 Pasteles</a>
+      </div>
     </div>
 
-    <!-- Carrito de Compras Flotante -->
-    <div class="cart-icon" onclick="toggleCart()">
-        <i class="fas fa-shopping-cart"></i>
-        <span class="cart-count" id="cartCount">0</span>
+    <button class="tablink" onclick="abrirSeccion(event,'quienes')">👨‍🍳 Quiénes Somos</button>
+    <button class="tablink" onclick="abrirSeccion(event,'ubicacion')">📍 Dónde Estamos</button>
+    <button class="tablink" onclick="abrirSeccion(event,'valoraciones')">⭐ Valoraciones</button>
+  </nav>
+
+  <main>
+    <!-- Sección Productos (Todos) -->
+    <section id="productos" class="tabcontent active">
+      <h2 style="text-align: center; font-family: 'Dancing Script', cursive; font-size: 2.5rem; color: var(--primary-color); margin-bottom: 2rem;">🍰 Todos Nuestros Productos</h2>
+      <div class="catalogo" id="catalogoProductos">
+        
+        <article class="producto" data-categoria="dulces" data-temporada="">
+          <img src="img/cocadas.jpg" alt="Cocadas Artesanales">
+          <h3>🥥 Cocadas Artesanales</h3>
+          <p>Dulce tradicional de coco rallado y leche condensada, preparado con amor. Una explosión de sabor tropical en cada bocado. 210 kcal por porción</p>
+          <div class="meta">
+            <span class="precio-num">200</span>
+            <span class="precio-texto">$200</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Cocadas Artesanales" data-precio="200">🛒 Añadir</button>
+          </div>
+        </article>
+
+        <article class="producto" data-categoria="dulces" data-temporada="">
+  <img src="img/Trufas_caseras.jpeg" alt="Trufas Caseras">
+  <h3>🍫 Trufas Artesanales</h3>
+  <p>
+    Deliciosas trufas caseras, suaves y de sabor intenso 😋✨. 
+    Disponibles en dos presentaciones: trufas individuales a <strong>$250 c/u</strong> 
+    y una hermosa <strong>caja de regalo por $3.500</strong>. 
+    Perfectas para darte un gusto o sorprender a alguien especial 🎁🍫.
+  </p>
+
+  <div class="meta">
+    <span class="precio-num">250</span>
+    <span class="precio-texto">Desde $250</span>
+  </div>
+
+  <div class="producto-actions">
+    <input type="number" min="1" value="1" class="qty">
+    <button class="btn add-cart" data-nombre="Trufas Artesanales" data-precio="250">🛒 Añadir</button>
+  </div>
+</article>
+
+<article class="producto" data-categoria="postres" data-temporada="">
+  <img src="img/Kuchen.jpeg" alt="Kuchen de Frambuesa">
+  <h3>🍰 Kuchen de Frambuesa</h3>
+  <p>Delicioso kuchen casero con base suave y frambuesas frescas 🍓✨. Perfecto para la once o para compartir en familia.</p>
+
+  <div class="meta">
+    <span class="precio-num">9000</span>
+    <span class="precio-texto">$9.000</span>
+  </div>
+
+  <div class="producto-actions">
+    <input type="number" min="1" value="1" class="qty">
+    <button class="btn add-cart" data-nombre="Kuchen de Frambuesa" data-precio="9000">🛒 Añadir</button>
+  </div>
+</article>
+
+<article class="producto" data-categoria="postres" data-temporada="">
+  <img src="img/Pie_frambuesa.jpeg" alt="Pie de Frambuesa">
+  <h3>🥧 Pie de Frambuesa</h3>
+  <p>Delicioso pie casero con crema suave y una capa generosa de frambuesas frescas 🍓✨. Ideal para compartir en familia o disfrutar con un café.</p>
+
+  <div class="meta">
+    <span class="precio-num">9000</span>
+    <span class="precio-texto">$9.000</span>
+  </div>
+
+  <div class="producto-actions">
+    <input type="number" min="1" value="1" class="qty">
+    <button class="btn add-cart" data-nombre="Pie de Frambuesa" data-precio="9000">🛒 Añadir</button>
+  </div>
+</article>
+
+<article class="producto" data-categoria="postres" data-temporada="">
+  <img src="img/Pie_maracuya.jpeg" alt="Pie de Maracuyá">
+  <h3>🍋 Pie de Maracuyá</h3>
+  <p>Refrescante pie casero con crema suave y toque tropical de maracuyá ✨😋. Perfecto para disfrutar bien frío en cualquier ocasión.</p>
+
+  <div class="meta">
+    <span class="precio-num">9000</span>
+    <span class="precio-texto">$9.000</span>
+  </div>
+
+  <div class="producto-actions">
+    <input type="number" min="1" value="1" class="qty">
+    <button class="btn add-cart" data-nombre="Pie de Maracuyá" data-precio="9000">🛒 Añadir</button>
+  </div>
+</article>
+
+<article class="producto" data-categoria="postres" data-temporada="">
+  <img src="img/Brazo_reina.jpeg" alt="Brazo de Reina">
+  <h3>🎂 Brazo de Reina</h3>
+  <p>Clásico brazo de reina relleno con suave manjar y cubierto con un toque dulce irresistible 😋✨. Ideal para compartir en familia.</p>
+
+  <div class="meta">
+    <span class="precio-num">4500</span>
+    <span class="precio-texto">$4.500</span>
+  </div>
+
+  <div class="producto-actions">
+    <input type="number" min="1" value="1" class="qty">
+    <button class="btn add-cart" data-nombre="Brazo de Reina" data-precio="4500">🛒 Añadir</button>
+  </div>
+</article>
+
+<article class="producto" data-categoria="postres" data-temporada="">
+  <img src="img/Kuchen_manzana.jpeg" alt="Kuchen de Manzana">
+  <h3>🍎 Kuchen de Manzana</h3>
+  <p>Delicioso kuchen casero con manzanas frescas, canela y una base suave y doradita 😋✨. Perfecto para acompañar la once o un buen café.</p>
+
+  <div class="meta">
+    <span class="precio-num">9000</span>
+    <span class="precio-texto">$9.000</span>
+  </div>
+
+  <div class="producto-actions">
+    <input type="number" min="1" value="1" class="qty">
+    <button class="btn add-cart" data-nombre="Kuchen de Manzana" data-precio="9000">🛒 Añadir</button>
+  </div>
+</article>
+
+<article class="producto" data-categoria="postres" data-temporada="">
+  <img src="img/Kuchen_nuez.jpeg" alt="Kuchen de Nuez">
+  <h3>🌰 Kuchen de Nuez</h3>
+  <p>Kuchen casero con suave base artesanal y un relleno cremoso con nueces frescas 🌰✨. Ideal para la once o compartir en familia.</p>
+
+  <div class="meta">
+    <span class="precio-num">9000</span>
+    <span class="precio-texto">$9.000</span>
+  </div>
+
+  <div class="producto-actions">
+    <input type="number" min="1" value="1" class="qty">
+    <button class="btn add-cart" data-nombre="Kuchen de Nuez" data-precio="9000">🛒 Añadir</button>
+  </div>
+</article>
+
+<article class="producto" data-categoria="dulces" data-temporada="">
+  <img src="img/Chocolate_casero.jpeg" alt="Chocolate Casero">
+  <h3>🍫 Chocolate Casero</h3>
+  <p>Delicioso chocolate hecho de manera artesanal, suave, dulce y perfecto para compartir 😋✨. Pack de 20 unidades.</p>
+
+  <div class="meta">
+    <span class="precio-num">4500</span>
+    <span class="precio-texto">$4.500 (20 unidades)</span>
+  </div>
+
+  <div class="producto-actions">
+    <input type="number" min="1" value="1" class="qty">
+    <button class="btn add-cart" data-nombre="Chocolate Casero" data-precio="4500">🛒 Añadir</button>
+  </div>
+</article>
+
+<article class="producto" data-categoria="dulces" data-temporada="">
+  <img src="img/Mini_cachitos.jpeg" alt="Mini Cachitos Manjar y Chocolate">
+  <h3>🥐 Mini Cachitos Manjar & Chocolate</h3>
+  <p>Deliciosos mini cachitos rellenos con suave manjar y cubiertos en chocolate 😋✨. Perfectos para picoteo dulce o coctelería.</p>
+
+  <div class="meta">
+    <span class="precio-num">250</span>
+    <span class="precio-texto">$250 c/u</span>
+  </div>
+
+  <div class="producto-actions">
+    <input type="number" min="1" value="1" class="qty">
+    <button class="btn add-cart" data-nombre="Mini Cachitos Manjar y Chocolate" data-precio="250">🛒 Añadir</button>
+  </div>
+</article>
+
+
+
+        <article class="producto" data-categoria="dulces" data-temporada="">
+  <img src="img/Cuchufli_bañados_chocolate.jpeg" alt="Cuchuflí Bañados en Chocolate">
+  <h3>🍫 Cuchuflí Bañados en Chocolate</h3>
+  <p>Crocantes y cubiertos con suave chocolate 🍫✨. Un clásico irresistible para endulzar cualquier momento. Aprox. 120 kcal por unidad.</p>
+  <div class="meta">
+    <span class="precio-num">1000</span>
+    <span class="precio-texto">4 × $1000</span>
+  </div>
+  <div class="producto-actions">
+    <input type="number" min="1" value="1" class="qty">
+    <button class="btn add-cart" data-nombre="Cuchuflí Bañados en Chocolate" data-precio="1000">🛒 Añadir</button>
+  </div>
+</article>
+ 
+<article class="producto" data-categoria="dulces" data-temporada="">
+  <img src="img/Cocadas_5_×_1000.jpeg" alt="Cocadas Artesanales">
+  <h3>🥥 Cocadas Artesanales</h3>
+  <p>Deliciosas, suaves y llenas de sabor tropical 🥥✨. Preparadas con coco rallado y leche condensada. Aprox. 210 kcal por unidad.</p>
+  <div class="meta">
+    <span class="precio-num">1000</span>
+    <span class="precio-texto">5 × $1000</span>
+  </div>
+  <div class="producto-actions">
+    <input type="number" min="1" value="1" class="qty">
+    <button class="btn add-cart" data-nombre="Cocadas Artesanales" data-precio="1000">🛒 Añadir</button>
+  </div>
+</article>
+
+<article class="producto" data-categoria="cocteleria" data-temporada="">
+  <img src="img/Galletas_caseras_de_mantequilla.jpeg" alt="Galletas Caseras de Mantequilla">
+  <h3>🍪 Galletas Caseras de Mantequilla</h3>
+  <p>Suaves, aromáticas y recién horneadas 🍪✨. Las clásicas galletas caseras de mantequilla que derriten el corazón y el paladar. Aprox. 480 kcal por 100 g.</p>
+  <div class="meta">
+    <span class="precio-num">14000</span>
+    <span class="precio-texto">$14.000 kg</span>
+  </div>
+  <div class="producto-actions">
+    <input type="number" min="1" value="1" class="qty">
+    <button class="btn add-cart" data-nombre="Galletas Caseras de Mantequilla" data-precio="14000">🛒 Añadir</button>
+  </div>
+</article>
+
+<article class="producto" data-categoria="cocteleria" data-temporada="">
+  <img src="img/Cockteleria_100unidades.jpeg" alt="Coctelería 100 unidades">
+  <h3>🍢 Coctelería 100 Unidades</h3>
+  <p>Variedad de bocaditos perfectos para eventos, celebraciones y mesas de coctel. Calidad garantizada y presentación impecable ✨.</p>
+  
+  <div class="meta">
+    <span class="precio-num">25000</span>
+    <span class="precio-texto">$25.000</span>
+  </div>
+
+  <div class="producto-actions">
+    <input type="number" min="1" value="1" class="qty">
+    <button class="btn add-cart" 
+            data-nombre="Coctelería 100 Unidades" 
+            data-precio="25000">🛒 Añadir</button>
+  </div>
+</article>
+
+<article class="producto" data-categoria="cocteleria" data-temporada="">
+  <img src="img/Cocteleria_salada.jpeg" alt="Coctelería Salada">
+  
+  <h3>🥪 Coctelería Salada</h3>
+  <p>
+    Incluye un total de <strong>100 unidades</strong>:<br>
+    • 20 Mini Sándwich (pasta ave palta / pasta ave pimentón)<br>
+    • 20 Mini Fajitas<br>
+    • 20 Mini Churrascos Italianos<br>
+    • 20 Mini Barros Luco<br>
+    • 20 Mini Brochetas<br>
+  </p>
+
+  <!-- GIF (usa <img> y se adapta al ancho de la tarjeta) -->
+  <img src="img/Cocteleria_salada2.gif" 
+       alt="Coctelería Salada Animación"
+       style="width: 100%; border-radius: 10px; margin-top: 10px;">
+
+  <div class="meta">
+    <span class="precio-num">50000</span>
+    <span class="precio-texto">$50.000</span>
+  </div>
+
+  <div class="producto-actions">
+    <input type="number" min="1" value="1" class="qty">
+    <button class="btn add-cart" 
+            data-nombre="Coctelería Salada 100 unidades" 
+            data-precio="50000">
+      🛒 Añadir
+    </button>
+  </div>
+</article>
+
+
+<article class="producto" data-categoria="cocteleria" data-temporada="">
+  <img src="img/Cockteleria_dulce.jpeg" alt="Coctelería Dulce">
+  <h3>🍬 Coctelería Dulce</h3>
+  <p>Una selección irresistible de mini delicias dulces para eventos y celebraciones 🎉✨. Perfectas para mesas de coctel, cumpleaños y reuniones. Aprox. 55 kcal por unidad.</p>
+  <div class="meta">
+    <span class="precio-num">25000</span>
+    <span class="precio-texto">$25.000 (100 und.)</span>
+  </div>
+  <div class="producto-actions">
+    <input type="number" min="1" value="1" class="qty">
+    <button class="btn add-cart" data-nombre="Coctelería Dulce" data-precio="25000">🛒 Añadir</button>
+  </div>
+</article>
+
+<article class="producto" data-categoria="cocteleria" data-temporada="">
+  <img src="img/mini_pie_de_limon.jpeg" alt="Coctelería Mini Pies y Kuchen">
+  <h3>🍋 Mini Pies & Kuchen de Coctelería</h3>
+  <p>Deliciosa selección para tus eventos: **mini pie de limón**, **mini pie de frambuesa** y **mini kuchen de nuez** 🍋🍓🌰✨. Perfectos para cocteles, celebraciones y mesas dulces. Aprox. 65 kcal por unidad.</p>
+  <div class="meta">
+    <span class="precio-num">29000</span>
+    <span class="precio-texto">$29.000 (100 und.)</span>
+  </div>
+  <div class="producto-actions">
+    <input type="number" min="1" value="1" class="qty">
+    <button class="btn add-cart" data-nombre="Coctelería Mini Pies & Kuchen" data-precio="29000">🛒 Añadir</button>
+  </div>
+</article>
+
+<article class="producto" data-categoria="pasteles" data-temporada="">
+  <img src="img/Brawni.jpeg" alt="Brownie Casero">
+  <h3>🍫 Brownie Casero</h3>
+  <p>Intenso sabor a chocolate, textura húmeda y un aroma irresistible 😍🍫. Ideal como postre, snack o para acompañar un café. Aprox. 180 kcal por unidad.</p>
+  <div class="meta">
+    <span class="precio-num">800</span>
+    <span class="precio-texto">$800 c/u</span>
+  </div>
+  <div class="producto-actions">
+    <input type="number" min="1" value="1" class="qty">
+    <button class="btn add-cart" data-nombre="Brownie Casero" data-precio="800">🛒 Añadir</button>
+  </div>
+</article>
+
+<article class="producto" data-categoria="coctelería" data-temporada="navidad">
+  <img src="img/Cockteleria_mini_donas_100.jpeg" alt="Coctelería Mini Donas">
+  <h3>🍩 Mini Donas de Coctelería</h3>
+  <p>Pequeñas, esponjosas y deliciosas 🍩✨. Ideales para celebraciones, mesas dulces y coctelería de temporada. Aprox. 90 kcal por unidad.</p>
+  <div class="meta">
+    <span class="precio-num">25000</span>
+    <span class="precio-texto">$25.000 (100 und.)</span>
+  </div>
+  <div class="producto-actions">
+    <input type="number" min="1" value="1" class="qty">
+    <button class="btn add-cart" data-nombre="Mini Donas de Coctelería" data-precio="25000">🛒 Añadir</button>
+  </div>
+</article>
+
+<article class="producto" data-categoria="cocteleria" data-temporada="">
+  <img src="img/Mini_brochetas.jpeg" alt="Mini Brochetas">
+  <h3>🍡 Mini Brochetas</h3>
+  <p>Coloridas, frescas y perfectas para cualquier celebración 🍡✨. Una mezcla deliciosa ideal para coctelería y eventos especiales. Aprox. 40 kcal por unidad.</p>
+  <div class="meta">
+    <span class="precio-num">30000</span>
+    <span class="precio-texto">$30.000 (50 und.)</span>
+  </div>
+  <div classadero class="producto-actions">
+    <input type="number" min="1" value="1" class="qty">
+    <button class="btn add-cart" data-nombre="Mini Brochetas" data-precio="30000">🛒 Añadir</button>
+  </div>
+</article>
+
+<article class="producto" data-categoria="cocteleria" data-temporada="">
+  <img src="img/Cocteleria_salada3.jpeg" alt="Coctelería Salada">
+  
+  <h3>🥪 Coctelería Salada</h3>
+  <p>
+    Incluye un total de <strong>100 unidades</strong>:<br>
+    • 20 Mini Sándwich (pasta ave palta / pasta ave pimentón)<br>
+    • 20 Mini Fajitas<br>
+    • 20 Mini Churrascos Italianos<br>
+    • 20 Mini Barros Luco<br>
+    • 20 Mini Brochetas<br>
+  </p>
+
+  <!-- GIF (usa <img> y se adapta al ancho de la tarjeta) -->
+  <img src="img/Cocteleria_salada2.gif" 
+       alt="Coctelería Salada Animación"
+       style="width: 100%; border-radius: 10px; margin-top: 10px;">
+
+  <div class="meta">
+    <span class="precio-num">50000</span>
+    <span class="precio-texto">$50.000</span>
+  </div>
+
+  <div class="producto-actions">
+    <input type="number" min="1" value="1" class="qty">
+    <button class="btn add-cart" 
+            data-nombre="Coctelería Salada 100 unidades" 
+            data-precio="50000">
+      🛒 Añadir
+    </button>
+  </div>
+</article>
+
+        <article class="producto" data-categoria="pasteles" data-temporada="Dia del Niño">
+          <img src="img/torta_cuchufli.jpg" alt="Torta Cuchuflí Spiderman">
+          <h3>🕷️ Torta Cuchuflí Spiderman</h3>
+          <p>Torta clásica de cuchuflí cubierta con crema y decoración temática de Spiderman. Perfecta para celebraciones infantiles. Rinde para 12 porciones. 320 kcal por porción aprox.</p>
+          <div class="meta">
+            <span class="precio-num">13000</span>
+            <span class="precio-texto">$13.000</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Torta Cuchuflí Spiderman 12 personas" data-precio="13000">🛒 Añadir</button>
+          </div>
+        </article>
+
+        <article class="producto" data-categoria="dulces" data-temporada="">
+          <img src="img/alfajores.jpg" alt="Alfajores Caseros">
+          <h3>🫓 Alfajores Caseros</h3>
+          <p>Clásicos alfajores rellenos con manjar casero, preparados con una receta familiar tradicional. Aprox. 150 kcal por unidad, y los valores calóricos son similares en todos los sabores.
+             Disponibles en sabores Nutella 🍫, frutos rojos 🍓🫐, lúcuma 🥭, frambuesa 🍇, frutilla 🍓, maracuyá 🥭✨, tradicional de manjar 🍯, oreo 🍪 y mantequilla de maní 🥜, con precios que van entre $500 y $600 según la variedad.</p>
+          <div class="meta">
+            <span class="precio-num">700</span>
+            <span class="precio-texto">$700</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Alfajores Caseros" data-precio="700">🛒 Añadir</button>
+          </div>
+        </article>
+
+        <article class="producto" data-categoria="dulces" data-temporada="Otros">
+          <img src="img/alfajor_chileno.jpg" alt="Alfajor Chileno con Coco">
+          <h3>🥥 Chilenitos Caseros</h3>
+          <p>Dulces tradicional Chileno relleno con manjar y cubierto con coco rallado fresco. Un clásico de la repostería chilena. 170 kcal por unidad aprox.</p>
+          <div class="meta">
+            <span class="precio-num">700</span>
+            <span class="precio-texto">$700</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Alfajor Chileno con Coco" data-precio="500">🛒 Añadir</button>
+          </div>
+        </article>
+
+        <article class="producto" data-categoria="dulces" data-temporada="">
+          <img src="img/alfajor_trufa.jpg" alt="Alfajor Trufa Premium">
+          <h3>🍫 Alfajor Trufa Premium</h3>
+          <p>Alfajor premium relleno con trufa de chocolate belga y cubierto con cacao puro. Una experiencia gourmet única. 210 kcal por unidad aprox.</p>
+          <div class="meta">
+            <span class="precio-num">600</span>
+            <span class="precio-texto">$600</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Alfajor Trufa Premium" data-precio="600">🛒 Añadir</button>
+          </div>
+        </article>
+
+        <article class="producto" data-categoria="dulces" data-temporada="Otros">
+          <img src="img/pastelitos_chilenos.jpg" alt="Mini Pasteles Chilenos">
+          <h3>🧁 Mini Pasteles Chilenos</h3>
+          <p>Variedad de mini pasteles tradicionales chilenos: mierenguitos, hojarascas y más. Perfectos para compartir en familia. 160 kcal por unidad aprox.</p>
+          <div class="meta">
+            <span class="precio-num">700</span>
+            <span class="precio-texto">$700</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Mini Pasteles Chilenos" data-precio="700">🛒 Añadir</button>
+          </div>
+        </article>
+
+        <article class="producto" data-categoria="dulces" data-temporada="">
+          <img src="img/donnas.jpg" alt="Mini Donnas">
+          <h3>🍩 Mini Donnas 6 unid.</h3>
+          <p>Deliciosas mini donnas glaseadas y cubiertas con chispas de colores. Perfectas para los más pequeños de la casa. 90 kcal por unidad aprox.</p>
+          <div class="meta">
+            <span class="precio-num">1000</span>
+            <span class="precio-texto">$1.000</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Mini Donnas" data-precio="1000">🛒 Añadir</button>
+          </div>
+        </article>
+
+        <article class="producto" data-categoria="dulces" data-temporada="Dia de la Madre" date-temporada="Dia del Padre" date-temporada="Dia del Niño">
+          <img src="img/donnas_chocolate.jpg" alt="Donnas Chocolate">
+          <h3>🍫 Donnas Cubiertas de Chocolate 6 unid.</h3>
+          <p>Mini donnas suaves bañadas en una capa de chocolate semiamargo de primera calidad. Irresistibles para los amantes del chocolate. 120 kcal por unidad aprox.</p>
+          <div class="meta">
+            <span class="precio-num">1000</span>
+            <span class="precio-texto">$1.000</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Donnas Cubiertas de Chocolate" data-precio="1000">🛒 Añadir</button>
+          </div>
+        </article>
+
+        <article class="producto" data-categoria="dulces" data-temporada="Dia de la Madre" date-temporada="Dia del Padre" date-temporada="Dia del Niño">
+          <img src="img/pack_alfajor.jpg" alt="Pack Alfajores Surtidos">
+          <h3>🎁 Pack de 5 Alfajores Surtidos</h3>
+          <p>Pack especial con 5 alfajores artesanales de diferentes sabores: trufa, frambuesa, dulce de leche, chocolate y crema pastelera. Ideal para regalar. 150–180 kcal por unidad aprox.</p>
+          <div class="meta">
+            <span class="precio-num">3500</span>
+            <span class="precio-texto">$3.500</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Pack 5 Alfajores Surtidos" data-precio="3500">🛒 Añadir</button>
+          </div>
+        </article>
+
+        <article class="producto" data-categoria="cocteleria" data-temporada="dia de la madre" date-temporada="dia del padre" date-temporada="dia del niño">
+          <img src="img/surtido_galletas_pasteles.jpg" alt="Surtido Especial">
+          <h3>🎪 Coctelería dulce surtida 100 unid. mini Pasteles y Galletas</h3>
+          <p>Surtido especial con 100 unidades: mini pasteles tradicionales chilenos y galletas de Mantequilla rellenas. Perfecto para eventos y celebraciones. 110–160 kcal por unidad aprox.</p>
+          <div class="meta">
+            <span class="precio-num">25000</span>
+            <span class="precio-texto">$25.000</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Surtido 100 Mini Pasteles y Galletas de Maicena" data-precio="25000">🛒 Añadir</button>
+          </div>
+        </article>
+
+        <article class="producto" data-categoria="pasteles" data-temporada="dia de la madre" date-temporada="dia del padre" date-temporada="dia del niño">
+          <img src="img/torta_en_vaso.jpg" alt="Torta en Vaso">
+          <h3>🍰 Tortas en Vaso</h3>
+          <p>Deliciosas tortas individuales servidas en un elegante vaso. Capas suaves y rellenos cremosos que cautivan al primer bocado. Disponible en exquisitos sabores: <strong>Selva Negra, Durazno, Piña, Frambuesa, Frutilla, Tres Leches y Moka</strong>. Aprox. 320 kcal por unidad.</p>
+          <div class="meta">
+            <span class="precio-num">1600</span>
+            <span class="precio-texto">$1.600</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Torta en Vaso" data-precio="1600">🛒 Añadir</button>
+          </div>
+        </article>
+
+        <article class="producto" data-categoria="pasteles" data-temporada="Pascua">
+          <img src="img/muffin_zanahoria.jpg" alt="Muffin de Zanahoria">
+          <h3>🥕 Muffin de Zanahoria</h3>
+          <p>Esponjoso muffin de zanahoria hecho con receta casera, un toque de canela y suave cobertura. Perfecto para acompañar tu café o disfrutar a cualquier hora.</p>
+          <div class="meta">
+            <span class="precio-num">800</span>
+            <span class="precio-texto">$800</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Muffin de Zanahoria" data-precio="800">🛒 Añadir</button>
+          </div>
+        </article>
+
+        <article class="producto" data-categoria="pasteles" data-temporada="Navidad">
+          <img src="img/muffin_arandano.jpg" alt="Muffin de Arándano">
+          <h3>🫐 Muffin de Arándano</h3>
+          <p>Suave muffin horneado con arándanos frescos, dulce y jugoso en cada bocado. Ideal para acompañar una bebida caliente o disfrutar como snack.</p>
+          <div class="meta">
+            <span class="precio-num">800</span>
+            <span class="precio-texto">$800</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Muffin de Arándano" data-precio="800">🛒 Añadir</button>
+          </div>
+        </article>
+
+        <article class="producto" data-categoria="pasteles" data-temporada="Navidad">
+          <img src="img/muffin_chip_chocolate.jpg" alt="Muffin Chip de Chocolate">
+          <h3>🍫 Muffin Chip de Chocolate</h3>
+          <p>Esponjoso muffin relleno y cubierto con chips de chocolate. Dulce, intenso y perfecto para los amantes del cacao.</p>
+          <div class="meta">
+            <span class="precio-num">800</span>
+            <span class="precio-texto">$800</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Muffin Chip de Chocolate" data-precio="800">🛒 Añadir</button>
+          </div>
+        </article>
+
+        <article class="producto" data-categoria="postres" data-temporada="Año Nuevo" data-temporada="Navidad">
+          <img src="img/tartaleta.jpg" alt="Tartaleta de Frutas">
+          <h3>🍓 Tartaleta de Frutas</h3>
+          <p>Crujiente base artesanal con suave crema pastelera, coronada con una fresca selección de frutas de temporada. Un postre ligero, colorido y delicioso.</p>
+          <div class="meta">
+            <span class="precio-num">1300</span>
+            <span class="precio-texto">$1.300</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Tartaleta de Frutas" data-precio="1300">🛒 Añadir</button>
+          </div>
+        </article>
+
+        <article class="producto" data-categoria="postres" data-temporada="dia de la madre" date-temporada="dia del padre" date-temporada="dia del niño">
+          <img src="img/pie_limon_trozo.jpg" alt="Pie de Limón">
+          <h3>🍋 Pie de Limón</h3>
+          <p>Clásico pie de limón con base crujiente, relleno cremoso y equilibrio perfecto entre dulzura y acidez. Un favorito que nunca falla.</p>
+          <div class="meta">
+            <span class="precio-num">1300</span>
+            <span class="precio-texto">$1.300</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Pie de Limón" data-precio="1300">🛒 Añadir</button>
+          </div>
+        </article>
+
+        <article class="producto" data-categoria="pasteles" data-temporada="Pascua">
+          <img src="img/muffin_frambueza.jpg" alt="Muffin de Frambuesa">
+          <h3>🧁 Muffin de Frambuesa</h3>
+          <p>Delicioso muffin esponjoso con frambuesas naturales que aportan un toque fresco y ligeramente ácido. Perfecto para una merienda ligera.</p>
+          <div class="meta">
+            <span class="precio-num">700</span>
+            <span class="precio-texto">$700</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Muffin de Frambuesa" data-precio="700">🛒 Añadir</button>
+          </div>
+        </article>
+
+        <article class="producto" data-categoria="postres" data-temporada="Año Nuevo">
+          <img src="img/tartaleta.jpg" alt="Tartaleta Grande 12 personas">
+          <h3>🥧 Tartaleta Grande</h3>
+          <p>Tartaleta familiar ideal para celebraciones. Base artesanal, crema suave y frutas frescas. Rinde aproximadamente para 12 personas.</p>
+          <div class="meta">
+            <span class="precio-num">9000</span>
+            <span class="precio-texto">$9.000</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Tartaleta Grande" data-precio="9000">🛒 Añadir</button>
+          </div>
+        </article>
+
+        <article class="producto" data-categoria="cocteleria" data-temporada="Navidad" data-temporada="Año Nuevo">
+          <img src="img/manjar_chocolates.jpg" alt="Galletas Caseras con Manjar y Chocolates">
+          <h3>🍪 Galletas Caseras con Manjar y Chocolates (1 kg)</h3>
+          <p>Deliciosas galletas artesanales rellenas con manjar y bañadas en chocolate. Suaves, frescas y perfectas para compartir en familia.</p>
+          <div class="meta">
+            <span class="precio-num">13000</span>
+            <span class="precio-texto">$13.000</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Galletas Caseras con Manjar y Chocolates (1 kg)" data-precio="13000">🛒 Añadir</button>
+          </div>
+        </article>
+
+        <article class="producto" data-categoria="dulces" data-temporada="Navidad">
+          <img src="img/galletas_amapola.jpg" alt="Galletas Caseras con Amapolas">
+          <h3>🍪 Galletas Caseras con Amapolas (1 kg)</h3>
+          <p>Crujientes galletas artesanales con semillas de amapola. Un sabor suave, delicado y perfecto para acompañar un café o té.</p>
+          <div class="meta">
+            <span class="precio-num">16000</span>
+            <span class="precio-texto">$16.000</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Galletas Caseras con Amapolas (1 kg)" data-precio="16000">🛒 Añadir</button>
+          </div>
+        </article>
+        
+     <article class="producto" data-categoria="postre" data-temporada="Dia de la Madre" date-temporada="Dia del Padre" date-temporada="Dia del Niño">
+  <img src="img/tartaleta_trozo.jpg" alt="Tartaleta Trozo de Frutas Surtidas">
+  <h3>🍓 Tartaleta Trozo Frutas Surtidas</h3>
+  <p>Tartaleta fresca con base crujiente, crema suave y una mezcla surtida de frutas naturales. Ideal para un antojo dulce y ligero. 210 kcal aprox. por trozo.</p>
+  <div class="meta">
+    <span class="precio-num">1300</span>
+    <span class="precio-texto">$1300</span>
+  </div>
+  <div class="producto-actions">
+    <input type="number" min="1" value="1" class="qty">
+    <button class="btn add-cart" data-nombre="Tartaleta Trozo Frutas Surtidas" data-precio="1300">🛒 Añadir</button>
+  </div>
+</article>
+
+<article class="producto" data-categoria="cocteleria" data-temporada="Navidad" data-temporada="Año Nuevo">
+  <img src="img/donnas_chocolate.jpg" alt="Coctelería Mini Donas 100 unidades">
+  <h3>🍩 Coctelería Mini Donas (100 unidades)</h3>
+  <p>Deliciosas mini donas cubiertas de chocolate, ideales para celebraciones, eventos y mesas dulces. Incluye 100 unidades.</p>
+
+  <div class="meta">
+    <span class="precio-num">25000</span>
+    <span class="precio-texto">$25.000</span>
+  </div>
+  <div class="producto-actions">
+    <input type="number" min="1" value="1" class="qty">
+    <button class="btn add-cart" 
+            data-nombre="Coctelería Mini Donas 100 unidades" 
+            data-precio="25000">
+      🛒 Añadir
+    </button>
+  </div>
+</article>
+
+
+      </div>
+    </section>
+
+    <!-- SECCIÓN: OFERTAS DULCES -->
+    <section id="ofertas-dulces" class="tabcontent">
+      <h2 style="text-align: center; font-family: 'Dancing Script', cursive; font-size: 2.5rem; color: var(--primary-color); margin-bottom: 2rem;">🎉 Ofertas Dulces</h2>
+      <div class="catalogo" id="catalogoOfertasDulces">
+
+
+        <article class="oferta" data-categoria="ofertas-dulces">
+          <img src="img/cajita_chilena.jpg" alt="Cajita Chilena">
+          <h3>🇨🇱 Cajita Chilena</h3>
+          <p>Cajita Chilena tradicional incluye 6 unidades. Deliciosa opción con receta clásica chilena.</p>
+          <div class="meta">
+            <span class="precio-num">3500</span>
+            <span class="precio-texto">$3.500</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Cajita Chilena" data-precio="3500">🛒 Añadir</button>
+          </div>
+        </article>
+
+        <article class="oferta" data-categoria="ofertas-dulces">
+          <img src="img/mini_dulces_promocion.jpg" alt="Mini Pastelitos Surtido">
+          <h3>🧁 Mini Pastelitos Surtido</h3>
+          <p>Promo especial: 10 unidades de mini pastelitos surtidos. Perfectos para compartir.</p>
+          <div class="meta">
+            <span class="precio-num">2500</span>
+            <span class="precio-texto">$2.500</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Mini Pastelitos Surtido" data-precio="2500">🛒 Añadir</button>
+          </div>
+        </article>
+
+        <article class="oferta" data-categoria="ofertas-dulces" data-temporada="dia de la madre" date-temporada="dia del padre" date-temporada="dia del niño">
+          <img src="img/1000767203.jpg" alt="Torta de Brownie con Frutos Secos y Dulces">
+          <h3>🥥 Torta de Brownie con Frutos Secos y Dulces</h3>
+          <p>Disfruta una explosión de sabor con nuestra Torta de Brownie, elaborada con cacao premium, textura densa y húmeda, y coronada con una irresistible mezcla de frutos secos tostados (almendras, nueces y maní) junto a dulces decorativos que le dan un toque crujiente y colorido.
+             Perfecta para celebraciones, regalos o simplemente para darse un gusto inolvidable.</p>
+          <div class="meta">
+            <span class="precio-num">14000</span>
+            <span class="precio-texto">$14.000</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="ChocoCoco Doble" data-precio="1500">🛒 Añadir</button>
+          </div>
+        </article>
+
+        <article class="oferta" data-categoria="ofertas-dulces">
+          <img src="img/cajita_mixta.jpg" alt="Cajita Mixta de Alfajores y Cuchuflí">
+          <h3>🎁 Cajita Mixta</h3>
+          <p>Cajita mixta con alfajores artesanales de sabores: Nutella, Trufa, Moka, Frutos rojos, Lúcuma, Frambuesa, Frutilla, Maracuyá, Manzana Canela, Tradicional Manjar, Oreo, Mantequilla de Maní y Cuchuflí rellenos bañados en chocolate y Precio por mayor $3.500.</p>
+          <div class="meta">
+            <span class="precio-num">4000</span>
+            <span class="precio-texto">$4.000</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Cajita Mixta" data-precio="4000">🛒 Añadir</button>
+          </div>
+        </article>
+
+        <article class="oferta" data-categoria="ofertas-dulces">
+          <img src="img/promocion_kichen_pies.jpg" alt="Pie de Limón o Kuchen de Nuez">
+          <h3>🍰 Pie de Limón o Kuchen de Nuez (Trozo)</h3>
+          <p>Delicioso trozo de pie de limón o kuchen de nuez, ideal para acompañar cualquier momento.</p>
+          <div class="meta">
+            <span class="precio-num">1300</span>
+            <span class="precio-texto">$1.300</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Pie/Kuchen Trozo" data-precio="1300">🛒 Añadir</button>
+          </div>
+        </article>
+
+        <article class="oferta" data-categoria="ofertas-dulces" data-categoria="cocteleria">
+          <img src="img/cocteleria_mix.jpg" alt="Coctelería dulce surtida">
+          <h3>🍬 Coctelería Dulce Surtida (100 unid.)</h3>
+          <p>Mix especial de coctelería dulce con cocadas, galletas de mantequilla y mini palmeritas. Perfecto para eventos, reuniones o celebraciones.</p>
+          <div class="meta">
+            <span class="precio-num">25000</span>
+            <span class="precio-texto">$25.000</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Coctelería Dulce Surtida (100 unid.)" data-precio="25000">🛒 Añadir</button>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- SECCIÓN: CATÁLOGO TEMPORADA -->
+    <section id="catalogo-temporada" class="tabcontent">
+      <h2 style="text-align: center; font-family: 'Dancing Script', cursive; font-size: 2.5rem; color: var(--primary-color); margin-bottom: 2rem;">🎊 Catálogo de Temporada</h2>
+      
+      <div style="text-align: center; margin-bottom: 30px;">
+        <button class="btn" onclick="filtrarTemporada('Halloween')" style="margin: 5px;">🎃 Halloween</button>
+        <button class="btn" onclick="filtrarTemporada('Navidad')" style="margin: 5px;">🎄 Navidad</button>
+        <button class="btn" onclick="filtrarTemporada('Año Nuevo')" style="margin: 5px;">🎆 Año Nuevo</button>
+        <button class="btn" onclick="filtrarTemporada('Pascua')" style="margin: 5px;">🐰 Pascua</button>
+        <button class="btn" onclick="filtrarTemporada('Día de la Madre')" style="margin: 5px;">👩 Día de la Madre</button>
+        <button class="btn" onclick="filtrarTemporada('Día del Padre')" style="margin: 5px;">👨 Día del Padre</button>
+        <button class="btn" onclick="filtrarTemporada('Dia del Niño')" style="margin: 5px;">👶 Día del Niño</button>
+        <button class="btn" onclick="filtrarTemporada('Otros')" style="margin: 5px;">🎈 Otros</button>
+        <button class="btn" onclick="mostrarTodosTemporada()" style="margin: 5px;">📋 Ver Todos</button>
+      </div>
+
+      <div class="catalogo" id="catalogoTemporada">
+
+        <article class="temporada" data-temporada="Halloween">
+          <img src="img/cajita_mix_hallowin.jpg" alt="Cajita Mix Halloween">
+          <h3>🎃 Cajita Mix Halloween</h3>
+          <p>Deliciosa cajita surtida temática de Halloween. Ideal para compartir o regalar.</p>
+          <div class="meta">
+            <span class="precio-num">3500</span>
+            <span class="precio-texto">$3.500</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Cajita Mix Halloween" data-precio="3500">🛒 Añadir</button>
+          </div>
+        </article>
+
+        <article class="temporada" data-temporada="Halloween">
+          <img src="img/cajita_mix_hallowin2.jpg" alt="Cajita Mix Halloween 2">
+          <h3>🎃 Cajita Mix Halloween 2</h3>
+          <p>Segunda versión de la cajita surtida temática Halloween. Perfecta para disfrutar o regalar.</p>
+          <div class="meta">
+            <span class="precio-num">3500</span>
+            <span class="precio-texto">$3.500</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Cajita Mix Halloween 2" data-precio="3500">🛒 Añadir</button>
+          </div>
+        </article>
+
+        <article class="temporada" data-temporada="Halloween">
+          <img src="img/cajita_mix_hallowin3.jpg" alt="Chocolates Halloween 3 unidades">
+          <h3>🍫 Chocolates Halloween (3 unidades)</h3>
+          <p>Pack de 3 chocolates temáticos de Halloween. Ideal para disfrutar en esta temporada.</p>
+          <div class="meta">
+            <span class="precio-num">2500</span>
+            <span class="precio-texto">$2.500</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Chocolates Halloween 3 unidades" data-precio="2500">🛒 Añadir</button>
+          </div>
+        </article>
+
+        <article class="temporada" data-temporada="Halloween">
+          <img src="img/cajita_mix_hallowin4.jpg" alt="Ataúd de Cuchuflí 6 unidades">
+          <h3>⚰️ Ataúd de Cuchuflí (6 unidades)</h3>
+          <p>Ataúd temático de Halloween relleno con 6 deliciosos cuchuflí bañados. Perfecto para decorar y disfrutar.</p>
+          <div class="meta">
+            <span class="precio-num">2500</span>
+            <span class="precio-texto">$2.500</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Ataúd de Cuchuflí 6 unidades" data-precio="2500">🛒 Añadir</button>
+          </div>
+        </article>
+
+        <article class="temporada" data-temporada="Otros">
+          <img src="img/cajita_chilena2.jpg" alt="Cajita Chilena 1">
+          <h3>🇨🇱 Cajita Chilena 1</h3>
+          <p>Dulces chilenos surtidos en una presentación especial. Incluye 6 unidades perfectas para disfrutar o regalar.</p>
+          <div class="meta">
+            <span class="precio-num">3500</span>
+            <span class="precio-texto">$3.500</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Cajita Chilena 1" data-precio="3500">🛒 Añadir</button>
+          </div>
+        </article>
+        
+        <article class="temporada" data-categoria="ofertas-dulces" data-categoria="cocteleria" data-temporada="dia de la madre" data-temporada="dia del padre" data-temporada="dia del niño">
+          <img src="img/surtido_galletas_pasteles.jpg" alt="Coctelería dulce surtida">
+          <h3>🍬 Coctelería Dulce Surtida (100 unid.)</h3>
+          <p>Mix especial de coctelería dulce con cocadas, galletas de mantequilla y mini palmeritas. Perfecto para eventos, reuniones o celebraciones.</p>
+          <div class="meta">
+            <span class="precio-num">25000</span>
+            <span class="precio-texto">$25.000</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Coctelería Dulce Surtida (100 unid.)" data-precio="25000">🛒 Añadir</button>
+          </div>
+        </article>
+
+                <article class="producto" data-categoria="dulces" data-temporada="dia de la madre" data-temporada="dia del padre" data-temporada="dia del niño">
+          <img src="img/1000767203.jpg" alt="Torta de Brownie con Frutos Secos y Dulces">
+          <h3>🥥 Torta de Brownie con Frutos Secos y Dulces</h3>
+          <p>Disfruta una explosión de sabor con nuestra Torta de Brownie, elaborada con cacao premium, textura densa y húmeda, y coronada con una irresistible mezcla de frutos secos tostados (almendras, nueces y maní) junto a dulces decorativos que le dan un toque crujiente y colorido.
+             Perfecta para celebraciones, regalos o simplemente para darse un gusto inolvidable.</p>
+          <div class="meta">
+            <span class="precio-num">14000</span>
+            <span class="precio-texto">$14.000</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="ChocoCoco Doble" data-precio="1500">🛒 Añadir</button>
+          </div>
+        </article>
+
+        <article class="producto" data-categoria="cocteleria" data-temporada="dia de la madre" data-temporada="dia del padre" data-temporada="Navidad" data-temporada="Año Nuevo">
+  <img src="img/Mini_brochetas.jpeg" alt="Mini Brochetas">
+  <h3>🍡 Mini Brochetas</h3>
+  <p>Coloridas, frescas y perfectas para cualquier celebración 🍡✨. Una mezcla deliciosa ideal para coctelería y eventos especiales. Aprox. 40 kcal por unidad.</p>
+  <div class="meta">
+    <span class="precio-num">30000</span>
+    <span class="precio-texto">$30.000 (50 und.)</span>
+  </div>
+  <div classadero class="producto-actions">
+    <input type="number" min="1" value="1" class="qty">
+    <button class="btn add-cart" data-nombre="Mini Brochetas" data-precio="30000">🛒 Añadir</button>
+  </div>
+</article>
+
+        <article class="producto" data-categoria="cocteleria" data-temporada="Navidad">
+  <img src="img/mini_pie_de_limon.jpeg" alt="Coctelería Mini Pies y Kuchen">
+  <h3>🍋 Mini Pies & Kuchen de Coctelería</h3>
+  <p>Deliciosa selección para tus eventos: **mini pie de limón**, **mini pie de frambuesa** y **mini kuchen de nuez** 🍋🍓🌰✨. Perfectos para cocteles, celebraciones y mesas dulces. Aprox. 65 kcal por unidad.</p>
+  <div class="meta">
+    <span class="precio-num">29000</span>
+    <span class="precio-texto">$29.000 (100 und.)</span>
+  </div>
+  <div class="producto-actions">
+    <input type="number" min="1" value="1" class="qty">
+    <button class="btn add-cart" data-nombre="Coctelería Mini Pies & Kuchen" data-precio="29000">🛒 Añadir</button>
+  </div>
+</article>
+
+                <article class="temporada" data-categoria="ofertas-dulces" data-temporada="dia de la madre" data-temporada="dia del padre" data-temporada="dia del niño">
+          <img src="img/mini_dulces_promocion.jpg" alt="Pack Dulces Especial">
+          <h3>🍭 Pack Dulces x5</h3>
+          <p>Llévate 5 deliciosos productos dulces por solo $3.000. Una oferta imperdible para los amantes de lo dulce.</p>
+          <div class="meta">
+            <span class="precio-num">3000</span>
+            <span class="precio-texto">$3.000</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Pack Dulces x5" data-precio="3000">🛒 Añadir</button>
+          </div>
+        </article>
+
+                <article class="temporada" data-categoria="ofertas-dulces" data-temporada="Otros">
+          <img src="img/cajita_chilena.jpg" alt="Cajita Chilena">
+          <h3>🇨🇱 Cajita Chilena</h3>
+          <p>Cajita Chilena tradicional incluye 6 unidades. Deliciosa opción con receta clásica chilena.</p>
+          <div class="meta">
+            <span class="precio-num">3500</span>
+            <span class="precio-texto">$3.500</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Cajita Chilena" data-precio="3500">🛒 Añadir</button>
+          </div>
+        </article>
+
+                <article class="temporada" data-categoria="" data-temporada="dia de la madre" data-temporada="dia del padre" data-temporada="dia del niño">
+          <img src="img/mini_dulces_promocion.jpg" alt="Pack Dulces Especial">
+          <h3>🍭 Pack Dulces x5</h3>
+          <p>Llévate 5 deliciosos productos dulces por solo $3.000. Una oferta imperdible para los amantes de lo dulce.</p>
+          <div class="meta">
+            <span class="precio-num">3000</span>
+            <span class="precio-texto">$3.000</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Pack Dulces x5" data-precio="3000">🛒 Añadir</button>
+          </div>
+        </article>
+
+                <article class="temporada" data-categoria="dulces" data-temporada="Navidad">
+          <img src="img/galletas_amapola.jpg" alt="Galletas Caseras con Amapolas">
+          <h3>🍪 Galletas Caseras con Amapolas (1 kg)</h3>
+          <p>Crujientes galletas artesanales con semillas de amapola. Un sabor suave, delicado y perfecto para acompañar un café o té.</p>
+          <div class="meta">
+            <span class="precio-num">16000</span>
+            <span class="precio-texto">$16.000</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Galletas Caseras con Amapolas (1 kg)" data-precio="16000">🛒 Añadir</button>
+          </div>
+        </article>
+
+                <article class="temporada" data-categoria="cocteleria" data-temporada="Navidad" data-temporada="Año Nuevo">
+          <img src="img/manjar_chocolates.jpg" alt="Galletas Caseras con Manjar y Chocolates">
+          <h3>🍪 Galletas Caseras con Manjar y Chocolates (1 kg)</h3>
+          <p>Deliciosas galletas artesanales rellenas con manjar y bañadas en chocolate. Suaves, frescas y perfectas para compartir en familia.</p>
+          <div class="meta">
+            <span class="precio-num">13000</span>
+            <span class="precio-texto">$13.000</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Galletas Caseras con Manjar y Chocolates (1 kg)" data-precio="13000">🛒 Añadir</button>
+          </div>
+        </article>
+
+                <article class="temporada" data-categoria="postres" data-temporada="Año Nuevo">
+          <img src="img/tartaleta_12.jpg" alt="Tartaleta Grande 12 personas">
+          <h3>🥧 Tartaleta Grande</h3>
+          <p>Tartaleta familiar ideal para celebraciones. Base artesanal, crema suave y frutas frescas. Rinde aproximadamente para 12 personas.</p>
+          <div class="meta">
+            <span class="precio-num">9000</span>
+            <span class="precio-texto">$9.000</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Tartaleta Grande" data-precio="9000">🛒 Añadir</button>
+          </div>
+        </article>
+
+                <article class="temporada" data-categoria="pasteles" data-temporada="Pascua">
+          <img src="img/muffin_frambueza.jpg" alt="Muffin de Frambuesa">
+          <h3>🧁 Muffin de Frambuesa</h3>
+          <p>Delicioso muffin esponjoso con frambuesas naturales que aportan un toque fresco y ligeramente ácido. Perfecto para una merienda ligera.</p>
+          <div class="meta">
+            <span class="precio-num">700</span>
+            <span class="precio-texto">$700</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Muffin de Frambuesa" data-precio="700">🛒 Añadir</button>
+          </div>
+        </article>
+
+                <article class="temporada" data-categoria="postres" data-temporada="Año Nuevo" data-temporada="Navidad">
+          <img src="img/tartaleta.jpg" alt="Tartaleta de Frutas">
+          <h3>🍓 Tartaleta de Frutas</h3>
+          <p>Crujiente base artesanal con suave crema pastelera, coronada con una fresca selección de frutas de temporada. Un postre ligero, colorido y delicioso.</p>
+          <div class="meta">
+            <span class="precio-num">1300</span>
+            <span class="precio-texto">$1.300</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Tartaleta de Frutas" data-precio="1300">🛒 Añadir</button>
+          </div>
+        </article>
+
+                <article class="temporada" data-categoria="pasteles" data-temporada="Pascua">
+          <img src="img/muffin_zanahoria.jpg" alt="Muffin de Zanahoria">
+          <h3>🥕 Muffin de Zanahoria</h3>
+          <p>Esponjoso muffin de zanahoria hecho con receta casera, un toque de canela y suave cobertura. Perfecto para acompañar tu café o disfrutar a cualquier hora.</p>
+          <div class="meta">
+            <span class="precio-num">800</span>
+            <span class="precio-texto">$800</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Muffin de Zanahoria" data-precio="800">🛒 Añadir</button>
+          </div>
+        </article>
+
+                <article class="temporada" data-categoria="pasteles" data-temporada="Dia de la Madre" data-temporada="Dia del Padre" data-temporada="Dia del Niño">
+          <img src="img/torta_en_vaso.jpg" alt="Torta en Vaso">
+          <h3>🍰 Tortas en Vaso</h3>
+          <p>Deliciosas tortas individuales servidas en un elegante vaso. Capas suaves y rellenos cremosos que cautivan al primer bocado. Disponible en exquisitos sabores: <strong>Selva Negra, Durazno, Piña, Frambuesa, Frutilla, Tres Leches y Moka</strong>. Aprox. 320 kcal por unidad.</p>
+          <div class="meta">
+            <span class="precio-num">1600</span>
+            <span class="precio-texto">$1.600</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Torta en Vaso" data-precio="1600">🛒 Añadir</button>
+          </div>
+        </article>
+
+                <article class="temporada" data-categoria="dulces" data-temporada="Otros">
+          <img src="img/pastelitos_chilenos.jpg" alt="Mini Pasteles Chilenos">
+          <h3>🧁 Mini Pasteles Chilenos</h3>
+          <p>Variedad de mini pasteles tradicionales chilenos: mierenguitos, hojarascas y más. Perfectos para compartir en familia. 160 kcal por unidad aprox.</p>
+          <div class="meta">
+            <span class="precio-num">700</span>
+            <span class="precio-texto">$700</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Mini Pasteles Chilenos" data-precio="700">🛒 Añadir</button>
+          </div>
+        </article>
+
+                <article class="temporada" data-categoria="dulces" data-temporada="Otros">
+          <img src="img/alfajor_chileno.jpg" alt="Alfajor Chileno con Coco">
+          <h3>🥥 Chilenitos Tradicional</h3>
+          <p>Dulce tradicional Chileno relleno con manjar y cubierto con coco rallado fresco. Un clásico de la repostería chilena. 170 kcal por unidad aprox.</p>
+          <div class="meta">
+            <span class="precio-num">700</span>
+            <span class="precio-texto">$700</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Alfajor Chileno con Coco" data-precio="500">🛒 Añadir</button>
+          </div>
+        </article>
+
+        <article class="temporada" data-categoria="dulces" data-temporada="Dia del Niño">
+  <img src="img/tartaleta_trozo.jpg" alt="Tartaleta Trozo de Frutas Surtidas">
+  <h3>🍓 Tartaleta Trozo Frutas Surtidas</h3>
+  <p>Tartaleta fresca con base crujiente, crema suave y una mezcla surtida de frutas naturales. Ideal para un antojo dulce y ligero. 210 kcal aprox. por trozo.</p>
+  <div class="meta">
+    <span class="precio-num">1300</span>
+    <span class="precio-texto">$1300</span>
+  </div>
+  <div class="producto-actions">
+    <input type="number" min="1" value="1" class="qty">
+    <button class="btn add-cart" data-nombre="Tartaleta Trozo Frutas Surtidas" data-precio="1300">🛒 Añadir</button>
+  </div>
+</article>
+
+        <article class="temporada" data-categoria="pasteles" data-temporada="Dia del Niño">
+          <img src="img/torta_cuchufli.jpg" alt="Torta Cuchuflí Spiderman">
+          <h3>🕷️ Torta Cuchuflí Spiderman</h3>
+          <p>Torta clásica de cuchuflí cubierta con crema y decoración temática de Spiderman. Perfecta para celebraciones infantiles. Rinde para 12 porciones. 320 kcal por porción aprox.</p>
+          <div class="meta">
+            <span class="precio-num">13000</span>
+            <span class="precio-texto">$13.000</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Torta Cuchuflí Spiderman 12 personas" data-precio="13000">🛒 Añadir</button>
+          </div>
+        </article>
+
+        <article class="temporada" data-categoria="postres" data-temporada="Navidad">
+  <img src="img/galleta_navidad.jpeg" alt="Galletas Navideñas">
+  <h3>🎄 Galletas Navideñas</h3>
+  <p>Deliciosas galletas caseras con todo el espíritu de la Navidad 🎅✨. Perfectas para compartir, decorar mesas festivas o regalar en estas fechas. Aprox. 250 kcal por 50 g.</p>
+  <div class="meta">
+    <span class="precio-num">1000</span>
+    <span class="precio-texto">$1.000 (50 g)</span>
+  </div>
+  <div class="producto-actions">
+    <input type="number" min="1" value="1" class="qty">
+    <button class="btn add-cart" data-nombre="Galletas Navideñas" data-precio="1000">🛒 Añadir</button>
+  </div>
+</article>
+
+<article class="temporada" data-categoria="postres" data-temporada="Navidad">
+  <img src="img/galleta_navidad2.jpeg" alt="Galletas Navideñas">
+  <h3>🎄 Galletas Navideñas</h3>
+  <p>Crocantes, aromáticas y llenas de sabor festivo 🎅✨. Perfectas para la mesa navideña, regalos o acompañar un buen chocolate caliente. Aprox. 500 kcal por 100 g.</p>
+  <div class="meta">
+    <span class="precio-num">20000</span>
+    <span class="precio-texto">$20.000 kg</span>
+  </div>
+  <div class="producto-actions">
+    <input type="number" min="1" value="1" class="qty">
+    <button class="btn add-cart" data-nombre="Galletas Navideñas kg" data-precio="20000">🛒 Añadir</button>
+  </div>
+</article>
+
+<article class="temporada" data-categoria="postres" data-temporada="Navidad">
+  <img src="img/Brawni.jpeg" alt="Brownie Navideño">
+  <h3>🎄 Brownie Navideño</h3>
+  <p>Suave, húmedo y con un toque festivo ✨. Un brownie especial para disfrutar en estas celebraciones, perfecto para acompañar chocolate caliente o compartir en familia. Aprox. 180 kcal por unidad.</p>
+  <div class="meta">
+    <span class="precio-num">800</span>
+    <span class="precio-texto">$800 c/u</span>
+  </div>
+  <div class="producto-actions">
+    <input type="number" min="1" value="1" class="qty">
+    <button class="btn add-cart" data-nombre="Brownie Navideño" data-precio="800">🛒 Añadir</button>
+  </div>
+</article>
+
+       <article class="temporada" data-categoria="dulces" data-temporada="Dia de la Madre" date-temporada="Dia del Padre" date-temporada="Dia del Niño">
+          <img src="img/pack_alfajor.jpg" alt="Pack Alfajores Surtidos">
+          <h3>🎁 Pack de 5 Alfajores Surtidos</h3>
+          <p>Pack especial con 5 alfajores artesanales de diferentes sabores: trufa, frambuesa, dulce de leche, chocolate y crema pastelera. Ideal para regalar. 150–180 kcal por unidad aprox.</p>
+          <div class="meta">
+            <span class="precio-num">3500</span>
+            <span class="precio-texto">$3.500</span>
+          </div>
+          <div class="producto-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="btn add-cart" data-nombre="Pack 5 Alfajores Surtidos" data-precio="3500">🛒 Añadir</button>
+          </div>
+        </article>
+
+
+      </div>
+    </section>
+
+    <!-- SECCIÓN: DULCERÍA -->
+    <section id="dulceria" class="tabcontent">
+      <h2 style="text-align: center; font-family: 'Dancing Script', cursive; font-size: 2.5rem; color: var(--primary-color); margin-bottom: 2rem;">🍬 Dulcería</h2>
+      <div class="catalogo" id="catalogoDulceria">
+        <!-- Se llenará dinámicamente -->
+      </div>
+    </section>
+
+    <!-- SECCIÓN: COCTELERÍA -->
+    <section id="cocteleria" class="tabcontent">
+      <h2 style="text-align: center; font-family: 'Dancing Script', cursive; font-size: 2.5rem; color: var(--primary-color); margin-bottom: 2rem;">🎪 Coctelería</h2>
+      <div class="catalogo" id="catalogoCocteleria">
+        <!-- Se llenará dinámicamente -->
+      </div>
+    </section>
+
+    <!-- SECCIÓN: POSTRES -->
+    <section id="postres" class="tabcontent">
+      <h2 style="text-align: center; font-family: 'Dancing Script', cursive; font-size: 2.5rem; color: var(--primary-color); margin-bottom: 2rem;">🍰 Postres</h2>
+      <div class="catalogo" id="catalogoPostres">
+        <!-- Se llenará dinámicamente -->
+      </div>
+    </section>
+
+    <!-- SECCIÓN: PASTELES -->
+    <section id="pasteles" class="tabcontent">
+      <h2 style="text-align: center; font-family: 'Dancing Script', cursive; font-size: 2.5rem; color: var(--primary-color); margin-bottom: 2rem;">🧁 Pasteles</h2>
+      <div class="catalogo" id="catalogoPasteles">
+        <!-- Se llenará dinámicamente -->
+      </div>
+    </section>
+
+    <!-- SECCIÓN: OTROS -->
+<section id="otros" class="tabcontent">
+  <h2 style="text-align: center; font-family: 'Dancing Script', cursive; font-size: 2.5rem; color: var(--primary-color); margin-bottom: 2rem;">✨ Otros</h2>
+  <div class="catalogo" id="catalogoOtros">
+    <!-- Se llenará dinámicamente -->
+  </div>
+</section>
+
+<!-- SECCIÓN: DIA DEL NIÑO -->
+<section id="dianino" class="tabcontent">
+  <h2 style="text-align: center; font-family: 'Dancing Script', cursive; font-size: 2.5rem; color: var(--primary-color); margin-bottom: 2rem;">🧸 Día del Niño</h2>
+  <div class="catalogo" id="catalogoDiaNino">
+    <!-- Se llenará dinámicamente -->
+  </div>
+</section>
+
+<!-- SECCIÓN: DIA DEL PADRE -->
+<section id="diapadre" class="tabcontent">
+  <h2 style="text-align: center; font-family: 'Dancing Script', cursive; font-size: 2.5rem; color: var(--primary-color); margin-bottom: 2rem;">👔 Día del Padre</h2>
+  <div class="catalogo" id="catalogoDiaPadre">
+    <!-- Se llenará dinámicamente -->
+  </div>
+</section>
+
+<!-- SECCIÓN: DIA DE LA MADRE -->
+<section id="diamadre" class="tabcontent">
+  <h2 style="text-align: center; font-family: 'Dancing Script', cursive; font-size: 2.5rem; color: var(--primary-color); margin-bottom: 2rem;">💐 Día de la Madre</h2>
+  <div class="catalogo" id="catalogoDiaMadre">
+    <!-- Se llenará dinámicamente -->
+  </div>
+</section>
+
+<!-- SECCIÓN: NAVIDAD -->
+<section id="navidad" class="tabcontent">
+  <h2 style="text-align: center; font-family: 'Dancing Script', cursive; font-size: 2.5rem; color: var(--primary-color); margin-bottom: 2rem;">🎄 Navidad</h2>
+  <div class="catalogo" id="catalogoNavidad">
+    <!-- Se llenará dinámicamente -->
+  </div>
+</section>
+
+<!-- SECCIÓN: AÑO NUEVO -->
+<section id="anonuevo" class="tabcontent">
+  <h2 style="text-align: center; font-family: 'Dancing Script', cursive; font-size: 2.5rem; color: var(--primary-color); margin-bottom: 2rem;">🎆 Año Nuevo</h2>
+  <div class="catalogo" id="catalogoAnoNuevo">
+    <!-- Se llenará dinámicamente -->
+  </div>
+</section>
+
+<!-- SECCIÓN: PASCUA -->
+<section id="pascua" class="tabcontent">
+  <h2 style="text-align: center; font-family: 'Dancing Script', cursive; font-size: 2.5rem; color: var(--primary-color); margin-bottom: 2rem;">🐣 Pascua</h2>
+  <div class="catalogo" id="catalogoPascua">
+    <!-- Se llenará dinámicamente -->
+  </div>
+</section>
+
+<!-- SECCIÓN: HALLOWEEN -->
+<section id="halloween" class="tabcontent">
+  <h2 style="text-align: center; font-family: 'Dancing Script', cursive; font-size: 2.5rem; color: var(--primary-color); margin-bottom: 2rem;">🎃 Halloween</h2>
+  <div class="catalogo" id="catalogoHalloween">
+    <!-- Se llenará dinámicamente -->
+  </div>
+</section>
+
+
+    <section id="quienes" class="tabcontent historia">
+      <h2>🏠 Nuestra Historia</h2>
+      <p>La dulcería Pasteles Dulce Pame nació de un pequeño sueño familiar en 2015. Todo comenzó con un horno casero y una receta de galletas compartida entre amigos. Con el tiempo, la pasión por los dulces nos llevó a crear un espacio lleno de sabor, tradición y mucho cariño. 
+
+      Cada producto que elaboramos lleva el amor y la dedicación de una familia que cree en la importancia de endulzar los momentos especiales de la vida. Utilizamos ingredientes de primera calidad y recetas tradicionales que han pasado de generación en generación.
+
+      Hoy seguimos endulzando momentos especiales con la misma dedicación del primer día, porque sabemos que cada dulce que preparamos puede ser parte de una celebración, un regalo especial o simplemente un momento de felicidad en el día de nuestros clientes.</p>
+    </section>
+
+    <section id="ubicacion" class="tabcontent ubicacion">
+      <h2>📍 ¿Dónde Estamos?</h2>
+      <p>🏪 Nos encontramos en Av. Venancia Leiba #1709, La Pintana, a pasos del Metro La Cisterna.</p>
+      <p>📞 Teléfono: +56 9 9933 5740</p>
+      <p>🕒 Horarios: Lunes a Sábado 9:00 - 20:00 | Domingos 10:00 - 18:00</p>
+      <iframe 
+        src="https://maps.google.com/maps?q=Plaza%20de%20Armas%20Santiago&t=&z=13&ie=UTF8&iwloc=&output=embed"
+        width="100%" height="300" style="border-radius:15px;border:none; margin-top: 20px;"></iframe>
+    </section>
+
+    <section id="valoraciones" class="tabcontent">
+      <h2 style="text-align: center; font-family: 'Dancing Script', cursive; font-size: 2.5rem; color: var(--primary-color); margin-bottom: 2rem;">⭐ Valoraciones y Sugerencias</h2>
+      <p style="text-align: center; margin-bottom: 2rem;">Deja tu calificación y comentario — visible para clientes y vendedor.</p>
+
+      <div class="valor-form">
+        <label for="v-nombre">👤 Nombre</label>
+        <input id="v-nombre" type="text" placeholder="Tu nombre (opcional)">
+
+        <label>⭐ Calificación</label>
+        <div id="v-stars" class="stars">
+          <span data-value="1">☆</span>
+          <span data-value="2">☆</span>
+          <span data-value="3">☆</span>
+          <span data-value="4">☆</span>
+          <span data-value="5">☆</span>
+        </div>
+
+        <label for="v-comentario">💭 Comentario</label>
+        <textarea id="v-comentario" placeholder="Escribe tu comentario..."></textarea>
+
+        <div style="margin-top:15px; text-align: center;">
+          <button class="btn" id="v-enviar">📝 Enviar valoración</button>
+        </div>
+      </div>
+
+      <h3 style="margin-top:30px; text-align: center; font-family: 'Dancing Script', cursive; font-size: 1.8rem; color: var(--primary-color);">💬 Reseñas recientes</h3>
+      <ul id="listaValoraciones" class="lista-valoraciones"></ul>
+    </section>
+
+  </main>
+
+  <section class="redes">
+    <div class="redes__fondo"></div>
+    <div class="redes__capa">
+      <h2>🌐 Síguenos en redes sociales</h2>
+      <p>Entérate de nuestras promociones y novedades dulces</p>
+      <div class="iconos-redes">
+        <a href="https://www.instagram.com/dolce.pamee?utm_source=qr&igsh=cjc1MGlvZ25jcGk4" target="_blank" class="social">
+          <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+        </a>
+        <a href="https://www.tiktok.com" target="_blank" class="social">
+          <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="TikTok">
+        </a>
+        <a href="https://www.facebook.com" target="_blank" class="social">
+          <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook">
+        </a>
+        <a href="mailto:rodrigo.diaz201619@gmail.com" class="social">
+        <img src="https://cdn-icons-png.flaticon.com/512/281/281769.png" alt="Gmail">
+        </a>
+      </div>
     </div>
+  </section>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1 class="hero-title">Joyería Elegante</h1>
-            <p class="hero-subtitle">Donde el lujo se encuentra con la distinción</p>
-            <div class="hero-divider"></div>
-            <p class="hero-description">Descubre nuestra exclusiva colección de joyas diseñadas para momentos especiales</p>
-        </div>
-        <div class="hero-overlay"></div>
-    </section>
-
-    <!-- Productos Section -->
-    <section class="products-section">
-        <div class="container">
-            <h2 class="section-title">Nuestra Colección</h2>
-            <div class="products-grid">
-                
-                <!-- Producto 1 -->
-                <div class="product-card" data-product-id="ring-gold">
-                    <div class="product-image-wrapper">
-                        <img src="public/assets/anillo_oro.jpg" alt="Anillo de Oro con Diamantes" class="product-image">
-                        <div class="product-overlay">
-                            <span class="view-details">Ver Detalles</span>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-name">Anillo de Oro con Diamantes</h3>
-                        <p class="product-description">Elegante anillo de oro 18k con diamantes brillantes</p>
-                        <div class="product-footer">
-                            <span class="product-price">$1,299</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Producto 2 -->
-                <div class="product-card" data-product-id="necklace-silver">
-                    <div class="product-image-wrapper">
-                        <img src="public/assets/colgante_plata.jpg" alt="Collar de Plata con Dije" class="product-image">
-                        <div class="product-overlay">
-                            <span class="view-details">Ver Detalles</span>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-name">Collar de Plata con Dije</h3>
-                        <p class="product-description">Hermoso collar de plata 925 con piedra preciosa</p>
-                        <div class="product-footer">
-                            <span class="product-price">$899</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Producto 3 -->
-                <div class="product-card" data-product-id="bracelet-gold">
-                    <div class="product-image-wrapper">
-                        <img src="public/assets/anillo_plata.jpg" alt="Pulsera de Oro con Diamantes" class="product-image">
-                        <div class="product-overlay">
-                            <span class="view-details">Ver Detalles</span>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-name">Pulsera de Oro con Diamantes</h3>
-                        <p class="product-description">Delicada pulsera de oro con pequeños diamantes</p>
-                        <div class="product-footer">
-                            <span class="product-price">$1,099</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Producto 4 -->
-                <div class="product-card" data-product-id="earrings-pearl">
-                    <div class="product-image-wrapper">
-                        <img src="public/assets/aros_oro.jpg" alt="Aretes de Perlas con Oro" class="product-image">
-                        <div class="product-overlay">
-                            <span class="view-details">Ver Detalles</span>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-name">Aretes de Perlas con Oro</h3>
-                        <p class="product-description">Elegantes aretes de perlas con engaste de oro</p>
-                        <div class="product-footer">
-                            <span class="product-price">$749</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Producto 5 -->
-                <div class="product-card" data-product-id="ring-rosegold">
-                    <div class="product-image-wrapper">
-                        <img src="public/assets/anillo_oro2.jpg" alt="Anillo de Compromiso Oro Rosa" class="product-image">
-                        <div class="product-overlay">
-                            <span class="view-details">Ver Detalles</span>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-name">Anillo de Compromiso Oro Rosa</h3>
-                        <p class="product-description">Lujoso anillo de compromiso en oro rosa con diamante central</p>
-                        <div class="product-footer">
-                            <span class="product-price">$2,499</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Producto 6 -->
-                <div class="product-card" data-product-id="bracelet-silver">
-                    <div class="product-image-wrapper">
-                        <img src="public/assets/pulcera_plata.jpg" alt="Pulsera de Plata con Dijes" class="product-image">
-                        <div class="product-overlay">
-                            <span class="view-details">Ver Detalles</span>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-name">Pulsera de Plata con Dijes</h3>
-                        <p class="product-description">Moderna pulsera de plata con dijes personalizables</p>
-                        <div class="product-footer">
-                            <span class="product-price">$649</span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    
-    <!-- Modal de Detalles del Producto -->
-    <div id="productModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeProductModal()">&times;</span>
-            <div class="modal-body">
-                <div class="modal-image">
-                    <img id="modalProductImage" src="" alt="Producto">
-                </div>
-                <div class="modal-info">
-                    <h2 id="modalProductName"></h2>
-                    <p class="modal-price" id="modalProductPrice"></p>
-                    <p class="modal-description" id="modalProductDescription"></p>
-                    
-                    <div class="modal-specifications">
-                        <h3><i class="fas fa-gem"></i> Especificaciones Técnicas:</h3>
-                        <div class="specs-grid" id="modalSpecs"></div>
-                    </div>
-                    
-                    <div class="quantity-selector">
-                        <label for="quantity">Cantidad:</label>
-                        <div class="quantity-controls">
-                            <button class="qty-btn" onclick="decreaseQuantity()">
-                                <i class="fas fa-minus"></i>
-                            </button>
-                            <input type="number" id="quantity" value="1" min="1" max="10" readonly>
-                            <button class="qty-btn" onclick="increaseQuantity()">
-                                <i class="fas fa-plus"></i>
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <div class="modal-actions">
-                        <button class="btn-add-cart" onclick="addToCartFromModal()">
-                            <i class="fas fa-cart-plus"></i> Agregar al Carrito
-                        </button>
-                        <button class="btn-buy-now" onclick="buyNow()">
-                            <i class="fab fa-whatsapp"></i> Comprar Ahora
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <aside id="carrito" aria-label="Carrito de compras">
+    <h2>🛒 Mi Carrito</h2>
+    <ul id="listaCarrito"></ul>
+    <div id="total">Total: $0</div>
+    <div class="acciones">
+      <button class="btn" id="vaciarBtn">🗑️ Vaciar</button>
+      <button class="btn" id="enviarBtn">📱 Pedir por WhatsApp</button>
     </div>
+  </aside>
 
-    <!-- Modal del Carrito -->
-    <div id="cartModal" class="modal">
-        <div class="modal-content cart-modal-content">
-            <span class="close" onclick="closeCart()">&times;</span>
-            <h2><i class="fas fa-shopping-cart"></i> Carrito de Compras</h2>
-            <div id="cartItems" class="cart-items"></div>
-            <div class="cart-total">
-                <h3>Total: <span id="cartTotal">$0</span></h3>
-            </div>
-            <div class="cart-actions">
-                <button class="btn-checkout" onclick="checkout()">
-                    <i class="fab fa-whatsapp"></i> Enviar Pedido por WhatsApp
-                </button>
-                <button class="btn-clear-cart" onclick="clearCart()">
-                    <i class="fas fa-trash"></i> Vaciar Carrito
-                </button>
-            </div>
-        </div>
+  <button id="btnSugerencias" title="Dejar sugerencia / valoración">⭐ Sugerencias</button>
+
+  <div id="modalSugerencia" class="modal">
+    <div class="modal-contenido">
+      <span class="cerrar" id="cerrarModal">&times;</span>
+      <h2 style="font-family: 'Dancing Script', cursive; color: var(--primary-color); text-align: center; margin-bottom: 20px;">⭐ Dejar sugerencia / valoración</h2>
+
+      <label>👤 Tu nombre</label>
+      <input type="text" id="inputNombre" placeholder="Tu nombre (opcional)">
+
+      <label>⭐ Calificación</label>
+      <div id="stars" class="stars">
+        <span data-value="1">☆</span>
+        <span data-value="2">☆</span>
+        <span data-value="3">☆</span>
+        <span data-value="4">☆</span>
+        <span data-value="5">☆</span>
+      </div>
+
+      <label>💭 Comentario</label>
+      <textarea id="inputComentario" placeholder="Escribe tu comentario..."></textarea>
+
+      <div style="margin-top:20px; text-align: center;">
+        <button class="btn" id="enviarValoracion">📝 Enviar valoración</button>
+      </div>
     </div>
+  </div>
 
-    <!-- Quiénes Somos Section -->
-    <section class="about-section">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2 class="section-title">Quiénes Somos</h2>
-                    <p class="about-description">
-                        En <strong>Joyería Elegante</strong>, nos dedicamos a crear piezas únicas que capturan la esencia de momentos especiales. 
-                        Con más de 20 años de experiencia en el arte de la joyería fina, cada pieza es cuidadosamente seleccionada 
-                        y diseñada para reflejar elegancia, calidad y distinción.
-                    </p>
-                    <p class="about-description">
-                        Nuestro compromiso es ofrecer joyas excepcionales que perduren en el tiempo, 
-                        combinando técnicas tradicionales con diseños contemporáneos. Cada cliente es único, 
-                        y nos esforzamos por encontrar la pieza perfecta que cuente su historia.
-                    </p>
-                    <div class="about-features">
-                        <div class="feature-item">
-                            <i class="fas fa-gem"></i>
-                            <span>Calidad Premium</span>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-certificate"></i>
-                            <span>Certificación Garantizada</span>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-heart"></i>
-                            <span>Diseños Exclusivos</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<a href="https://api.whatsapp.com/send?phone=+56999335740"
+   class="btn-whatsapp">
+   💬 WhatsApp
+</a>
 
-    <!-- Ubicación Section -->
-    <section class="location-section">
-        <div class="container">
-            <h2 class="section-title">Nuestra Ubicación</h2>
-            <div class="location-content">
-                <div class="location-info">
-                    <div class="info-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h3>Dirección</h3>
-                            <p>Av. Principal 123, Centro Comercial Elegance<br>Santiago, Chile</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <h3>Teléfono</h3>
-                            <p>+56 9 3893 4201</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-clock"></i>
-                        <div>
-                            <h3>Horario</h3>
-                            <p>Lunes a Viernes: 10:00 - 20:00<br>Sábados: 10:00 - 18:00<br>Domingos: Cerrado</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h3>Email</h3>
-                            <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c1a2aeafb5a0a2b5ae81abaeb8a4b3a8a0a4ada4a6a0afb5a4efa2ad">[email&#160;protected]</a></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="location-map">
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3329.6267890123456!2d-70.6482!3d-33.4489!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzPCsDI2JzU2LjAiUyA3MMKwMzgnNTMuNSJX!5e0!3m2!1ses!2scl!4v1234567890123!5m2!1ses!2scl" 
-                        width="100%" 
-                        height="100%" 
-                        style="border:0;" 
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2024 Joyería Elegante. Todos los derechos reservados.</p>
-            <p>Diseñado con <i class="fas fa-heart"></i> para momentos especiales</p>
-        </div>
-    </footer>
+  <footer>
+    <p>© 2025 Pasteles Dulce Pame | Los sabores más dulces de la ciudad 🧁✨</p>
+  </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="module" src="./script.js"></script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="script.js"></script>
 </body>
-
 </html>
