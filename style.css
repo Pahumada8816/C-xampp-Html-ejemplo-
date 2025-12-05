@@ -29,7 +29,7 @@ body {
   color: var(--dark-color);
   padding-bottom: 120px;
   min-height: 100vh;
-  background: url("img/navidad_2025.jpg") no-repeat center center fixed;
+  background: url("img/navidad_2025_2.jpg") no-repeat center center fixed;
   background-size: cover;
 }
 
@@ -806,6 +806,7 @@ footer {
   transform: scale(1.07);
   filter: drop-shadow(0 0 6px #c62828);
 }
+
 
 
 
