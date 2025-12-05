@@ -29,6 +29,8 @@ body {
   color: var(--dark-color);
   padding-bottom: 120px;
   min-height: 100vh;
+  background: url("img/navidad_2025.jpg") no-repeat center center fixed;
+  background-size: cover;
 }
 
 /* ======== Header con logo ======== */
@@ -782,10 +784,28 @@ footer {
   }
 }
 
+/* --- MODO NAVIDEÑO PARA TARJETAS (solo apariencia) --- */
+.producto, .oferta, .temporada {
+  border: 3px solid #c62828 !important; /* rojo navidad */
+  background: rgba(255, 255, 255, 0.92) !important;
+}
 
+.producto::before, .oferta::before, .temporada::before {
+  background: linear-gradient(135deg, #c62828, #2e7d32, #ffffff) !important; /* rojo-verde-navidad */
+}
 
+.producto h3, .oferta h3, .temporada h3 {
+  color: #c62828 !important;
+}
 
+.precio-texto {
+  color: #2e7d32 !important; /* verde navidad */
+}
 
+.producto:hover img, .oferta:hover img, .temporada:hover img {
+  transform: scale(1.07);
+  filter: drop-shadow(0 0 6px #c62828);
+}
 
 
 
